@@ -1,7 +1,6 @@
 import { defineConfig } from 'vitepress'
 const isProd = process.env.npm_lifecycle_event === 'build'
 
-const head = [['link', { rel: 'icon', href: `/logo.svg` }]]
 
 if (isProd) {
   //增加百度统计
@@ -22,10 +21,10 @@ if (isProd) {
 
 export default defineConfig({
   base: '/myblog/',
-  head,
   title: "My Awesome Project",
   description: "A VitePress Site",
   themeConfig: {
+    logo: '/logo.svg',
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: '主页', link: '/' },
