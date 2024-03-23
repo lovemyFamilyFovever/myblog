@@ -1,7 +1,7 @@
 import { defineConfig } from 'vitepress'
 const isProd = process.env.npm_lifecycle_event === 'build'
 
-const head = [['link', { rel: 'icon', href: `/myblog/logo.svg` }]]
+const head = [['link', { rel: 'icon', href: `/logo.svg` }]]
 
 if (isProd) {
   //增加百度统计
