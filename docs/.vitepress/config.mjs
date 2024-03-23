@@ -1,7 +1,7 @@
 import { defineConfig } from 'vitepress'
-const isProd = process.env.npm_lifecycle_event === 'build'
+const isProd = process.env.npm_lifecycle_event === 'docs:build'
 
-const base = isProd ? "/myblog/" : "/"
+const base = "/myblog/"
 const head = [['link', { rel: 'icon', href: `${base}logo.svg` }]]
 
 if (isProd) {
