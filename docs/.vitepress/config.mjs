@@ -1,11 +1,9 @@
 import { defineConfig } from 'vitepress'
-const isProd = process.env.npm_lifecycle_event === 'docs:build'
+const isProd = process.env.npm_lifecycle_event === 'build'
 
-const base = "/myblog/"
-const head = [['link', { rel: 'icon', href: `${base}logo.svg` }]]
+const head = [['link', { rel: 'icon', href: `/myblog/logo.svg` }]]
 
 if (isProd) {
-  console.log(`➕ 百度统计代码...`)
   //增加百度统计
   head.push([
     'script',
@@ -23,7 +21,7 @@ if (isProd) {
 }
 
 export default defineConfig({
-  base,
+  base: '/myblog/',
   head,
   title: "My Awesome Project",
   description: "A VitePress Site",
