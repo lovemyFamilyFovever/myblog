@@ -20,7 +20,7 @@ if (isProd) {
 }
 
 export default defineConfig({
-  base: '/',
+  base: '/myblog/',
   title: "My Awesome Project",
   description: "A VitePress Site",
   themeConfig: {
