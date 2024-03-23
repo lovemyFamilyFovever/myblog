@@ -3,23 +3,23 @@
 layout: home
 
 hero:
-  name: "My Awesome Project"
-  text: "A VitePress Site"
+  name: "学习"
+  text: "VitePress "
   tagline: My great project tagline
   actions:
     - theme: brand
-      text: Markdown Examples
+      text: Markdown示例
       link: /markdown-examples
     - theme: alt
-      text: API Examples
+      text: API示例
       link: /api-examples
 
 features:
   - title: Feature A
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+    details: 学习学习
   - title: Feature B
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+    details: 努力努力
   - title: Feature C
-    details: Lorem ipsum dolor sit amet, consectetur adipiscing elit
+    details: 坚持坚持
 ---
 

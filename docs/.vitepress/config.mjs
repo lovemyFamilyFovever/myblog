@@ -1,8 +1,30 @@
 import { defineConfig } from 'vitepress'
+const isProd = process.env.npm_lifecycle_event === 'build'
 
-// https://vitepress.dev/reference/site-config
+const base = isProd ? "/myblog/" : "/"
+const head = [['link', { rel: 'icon', href: `${base}logo.svg` }]]
+
+if (isProd) {
+  console.log(`➕ 百度统计代码...`)
+  //增加百度统计
+  head.push([
+    'script',
+    {},
+    `
+      window._hmt = window._hmt || [];
+      (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?59ad112586fc5290621ebf30a17146c4";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+      })();
+      `
+  ])
+}
+
 export default defineConfig({
-  base: "/myblog/",
+  base,
+  head,
   title: "My Awesome Project",
   description: "A VitePress Site",
   themeConfig: {
