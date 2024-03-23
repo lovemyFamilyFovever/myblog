@@ -24,7 +24,7 @@ export default defineConfig({
   title: "My Awesome Project",
   description: "A VitePress Site",
   themeConfig: {
-    logo: '/logo.svg',
+    logo: 'logo.svg',
     // https://vitepress.dev/reference/default-theme-config
     nav: [
       { text: '主页', link: '/' },
