@@ -32,7 +32,19 @@ export default defineConfig({
       {
         text: "前端",
         items: [
-          { text: 'vue', link: '/frontend/vue/' },
+          {
+            text: 'vue',
+            items: [
+              {
+                text: "vue2",
+                link: '/frontend/vue/vue2'
+              }, {
+                text: "vue3",
+                link: '/frontend/vue/vue3'
+              }
+
+            ]
+          },
           { text: 'react', link: '/frontend/react/' },
         ]
       },
