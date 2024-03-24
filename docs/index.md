@@ -9,19 +9,26 @@ hero:
     - theme: custom-button
       text: blog配置
       link: /blog/home-page
+    - theme: alt
+      text: api文档
+      link: /blog/api-examples
 features:
-  - icon: 
-      src: /Vue.svg
-    title: vue
-    details: Vue2.x 学习笔记
-    link: /docs/frontend/vue2/
-  - title: Feature B
-    details: 努力努力
-  - title: Feature C  
-    details: 坚持坚持
-  - title: Feature C
-    details: 坚持坚持
-  - title: Feature C
-    details: 坚持坚持
+  - title: vue
+    icon:
+      src: /imgs/vue.svg
+    details: 前端框架
+    link: /frontend/vue/vue2/
+  - title: AI 大模型
+    icon:
+      src: /imgs/ai.svg
+    details: 机器学习、深度学习、强化学习、统计学习方法
+    link: /ai/
+  - title: 徐州低效用地项目demo
+    icon:
+      src: /imgs/map.svg
+    details: 徐州低效用地项目demo
+    link: 'https://github.com/lovemyFamilyFovever/map'
+  - title: 待补充
+    details: 待补充
 ---
 

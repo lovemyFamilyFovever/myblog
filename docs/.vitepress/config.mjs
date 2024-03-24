@@ -13,7 +13,7 @@ export default defineConfig({
       `window._hmt = window._hmt || [];
       (function() {
       var hm = document.createElement("script");
-      hm.src = "dandelion.js";
+      hm.src = "lib/dandelion.js";
       var s = document.getElementsByTagName("script")[0];
       s.parentNode.insertBefore(hm, s);
       })();`
@@ -29,17 +29,22 @@ export default defineConfig({
       s.parentNode.insertBefore(hm, s);
       })();`
     ],
-
   ],
   themeConfig: {
     outlineTitle: '页面导航',
     logo: '/logo.svg',
     nav: [
-
       { text: '主页', link: '/' },
-      { text: '示例', link: '/markdown-examples' },
+      { text: 'AI', link: '/ai/' },
+      { text: 'python', link: '/python/' },
       {
-        text: "前端",
+        text: "基础", items: [
+          { text: "javascript", link: "/frontend/basic/javascript/" },
+          { text: "css", link: "/frontend/basic/css/" },
+        ]
+      },
+      {
+        text: "框架",
         items: [
           {
             text: 'vue',
@@ -54,9 +59,8 @@ export default defineConfig({
             ]
           },
           { text: 'react', link: '/frontend/react/' },
-        ]
-      },
-      { text: 'AI', link: '/AI/' },
+        ],
+      }
     ],
     sidebar: {
       '/blog/': [
@@ -73,9 +77,9 @@ export default defineConfig({
           text: 'react',
           collapsed: true,
           items: [
-            { text: '目录1', link: '/markdown-examples' },
-            { text: '目录2', link: '/api-examples' },
-            { text: '目录3', link: '/frontend/react/' }
+            { text: '待补充', link: '/markdown-examples' },
+            { text: '待补充', link: '/api-examples' },
+            { text: '待补充', link: '/frontend/react/' }
           ]
         }
       ]
@@ -92,6 +96,10 @@ export default defineConfig({
     ],
     search: {
       provider: 'local'
+    },
+    footer: {
+      message: 'Released under the <a href="https://github.com/vuejs/vitepress/blob/main/LICENSE">MIT License</a>.',
+      copyright: 'Copyright © 2019-present <a href="https://github.com/yyx990803">Evan You</a>'
     }
   }
 })

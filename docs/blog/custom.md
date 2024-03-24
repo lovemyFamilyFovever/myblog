@@ -15,7 +15,7 @@ layout: doc
       `window._hmt = window._hmt || [];
       (function() {
       var hm = document.createElement("script");
-      hm.src = "dandelion.js";
+      hm.src = "lib/dandelion.js";
       var s = document.getElementsByTagName("script")[0];
       s.parentNode.insertBefore(hm, s);
       })();`
