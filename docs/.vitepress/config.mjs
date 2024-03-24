@@ -37,30 +37,41 @@ export default defineConfig({
             items: [
               {
                 text: "vue2",
-                link: '/frontend/vue/vue2'
+                link: '/frontend/vue/vue2/'
               }, {
                 text: "vue3",
-                link: '/frontend/vue/vue3'
+                link: '/frontend/vue/vue3/'
               }
-
             ]
           },
           { text: 'react', link: '/frontend/react/' },
         ]
       },
+      { text: 'AI', link: '/AI/' },
     ],
-
-    sidebar: [
-      {
-        text: 'Examples',
-        items: [
-          { text: '目录1', link: '/markdown-examples' },
-          { text: '目录2', link: '/api-examples' },
-          { text: '目录3', link: '/frontend/react/' }
-        ]
-      }
-    ],
-
+    sidebar: {
+      '/frontend/react': [
+        {
+          text: 'react',
+          collapsed: true,
+          items: [
+            { text: '目录1', link: '/markdown-examples' },
+            { text: '目录2', link: '/api-examples' },
+            { text: '目录3', link: '/frontend/react/' }
+          ]
+        }
+      ],
+      '/frontend/vue/vue2': [
+        {
+          text: 'vue2',
+          items: [
+            { text: '目录1', link: '/markdown-examples' },
+            { text: '目录2', link: '/api-examples' },
+            { text: '目录3', link: '/frontend/vue/vue2/' }
+          ]
+        }
+      ]
+    },
     socialLinks: [
       { icon: 'github', link: 'https://github.com/lovemyFamilyFovever', ariaLabel: 'Visit our GitHub page' },
       {
