@@ -1,11 +1,11 @@
 ---
-layout: doc
----
 
 ---
+# 站点配置
 
-# 主页配置
-## actions
+
+
+## 概览
 ```md
 hero:
   actions:
@@ -28,4 +28,3 @@ hero:
 - 除了 theme 属性之外，actions 字段还可以包含自定义按钮，通过设置 theme 属性为 custom-button 来实现。自定义按钮的配置项如下：
 
 ---
-

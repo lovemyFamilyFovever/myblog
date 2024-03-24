@@ -18,4 +18,9 @@
 
 .tagline{
   width: 640px;
+  max-width: 640px!important;
+}
+
+article.box{
+  align-items: center;
 }
