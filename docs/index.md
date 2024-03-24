@@ -3,12 +3,8 @@
 layout: home
 
 hero:
-  name: "学习"
-  text: "VitePress "
-  tagline: My great project tagline
-  image:
-   src: /logo.png
-   alt: VitePress
+  name: "晨钟暮鼓"
+  tagline: 一个人有两个我，一个在黑暗中醒着，一个在光明中睡着。
   actions:
     - theme: brand
       text: Markdown示例
@@ -16,7 +12,9 @@ hero:
     - theme: alt
       text: API示例
       link: /api-examples
-
+    - theme: custom-button
+      text: blog记录
+      link: /blog-config
 features:
   - title: Feature A
     details: 学习学习

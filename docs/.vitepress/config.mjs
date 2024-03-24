@@ -1,32 +1,40 @@
 import { defineConfig } from 'vitepress'
-const isProd = process.env.npm_lifecycle_event === 'build'
 
-
-if (isProd) {
-  //增加百度统计
-  head.push([
-    'script',
-    {},
-    `
-      window._hmt = window._hmt || [];
+export default defineConfig({
+  base: '/myblog/',
+  title: "晨钟暮鼓",
+  description: "A VitePress Site",
+  head: [
+    ['link', { rel: 'icon', href: '/logo.svg' }],
+    ['link', { rel: 'stylesheet', href: './theme/custom.css' }],
+    [
+      'script',
+      {},
+      `window._hmt = window._hmt || [];
       (function() {
       var hm = document.createElement("script");
       hm.src = "https://hm.baidu.com/hm.js?59ad112586fc5290621ebf30a17146c4";
       var s = document.getElementsByTagName("script")[0];
       s.parentNode.insertBefore(hm, s);
-      })();
-      `
-  ])
-}
-
-export default defineConfig({
-  base: '/myblog/',
-  title: "My Awesome Project",
-  description: "A VitePress Site",
+      })();`
+    ],
+    [
+      'script',
+      {},
+      `window._hmt = window._hmt || [];
+      (function() {
+      var hm = document.createElement("script");
+      hm.src = "dandelion.js";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+      })();`
+    ]
+  ],
   themeConfig: {
-    logo: '/logo.svg',
+    outlineTitle: '页面导航',
     // https://vitepress.dev/reference/default-theme-config
     nav: [
+
       { text: '主页', link: '/' },
       { text: '示例', link: '/markdown-examples' },
       {
