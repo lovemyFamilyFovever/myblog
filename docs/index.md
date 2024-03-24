@@ -28,7 +28,10 @@ features:
       src: /imgs/map.svg
     details: 徐州低效用地项目demo
     link: 'https://github.com/lovemyFamilyFovever/map'
-  - title: 待补充
-    details: 待补充
+  - title: 待办
+    details: 待办事项
+    icon:
+      src: /imgs/todo.svg
+    link: /todo/
 ---
 
