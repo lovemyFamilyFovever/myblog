@@ -33,5 +33,8 @@ features:
     icon:
       src: /imgs/todo.svg
     link: /todo/
+  - title: 其他
+    details: 其他
+    link: 'https://www.one-tab.com/page/23rxHeaATgyvIYCmA6QuBA'
 ---
 
