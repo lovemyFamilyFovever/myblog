@@ -3,9 +3,9 @@ import { defineConfig } from 'vitepress'
 export default defineConfig({
   base: '/myblog/',
   title: "晨钟暮鼓",
-  description: "A VitePress Site",
+  description: "慢也好，步伐小也罢，是往前走就好。 ",
   head: [
-    ['link', { rel: 'icon', href: '/logo.svg' }],
+    ['link', { rel: 'icon', href: 'logo.svg' }],
     ['link', { rel: 'stylesheet', href: './theme/custom.css' }],
     [
       'script',
@@ -32,7 +32,7 @@ export default defineConfig({
   ],
   themeConfig: {
     outlineTitle: '页面导航',
-    logo: '/logo.svg',
+    logo: 'logo.svg',
     nav: [
       { text: '主页', link: '/' },
       { text: 'AI', link: '/ai/' },
