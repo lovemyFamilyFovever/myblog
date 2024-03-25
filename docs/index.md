@@ -13,11 +13,11 @@ hero:
       text: api文档
       link: /blog/api-examples
 features:
-  - title: vue
+  - title: 前端集合
     icon:
-      src: /imgs/vue.svg
+      src: /imgs/frontend.svg
     details: 前端框架
-    link: /frontend/vue/vue2/
+    link: /frontend/
   - title: AI 大模型
     icon:
       src: /imgs/ai.svg
@@ -29,12 +29,14 @@ features:
     details: 徐州低效用地项目demo
     link: 'https://github.com/lovemyFamilyFovever/map'
   - title: 待办
-    details: 待办事项
     icon:
       src: /imgs/todo.svg
+    details: 待办事项
     link: /todo/
   - title: 其他
-    details: 其他
+    icon:
+      src: /imgs/other.svg
+    details: 其他待补充
     link: 'https://www.one-tab.com/page/23rxHeaATgyvIYCmA6QuBA'
 ---
 

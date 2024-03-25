@@ -35,31 +35,20 @@ export default defineConfig({
     logo: 'logo.svg',
     nav: [
       { text: '主页', link: '/' },
+      { text: 'blog', link: '/blog/home-page.md' },
       { text: 'AI', link: '/ai/' },
       { text: 'python', link: '/python/' },
       {
-        text: "基础", items: [
-          { text: "javascript", link: "/frontend/basic/javascript/" },
-          { text: "css", link: "/frontend/basic/css/" },
+        text: "前端", items: [
+          { text: "css", link: "/frontend/css/" },
+          { text: "javascript", link: "/frontend/javascript/" },
+          { text: "react", link: "/frontend/react/" },
+          { text: "vite", link: "/frontend/vite/" },
+          { text: "vue2", link: "/frontend/vue2/" },
+          { text: "vue3", link: "/frontend/vue3/" },
+          { text: "node.js", link: "/frontend/node/" },
+          { text: "TypeScript", link: "/frontend/TypeScript/" },
         ]
-      },
-      {
-        text: "框架",
-        items: [
-          {
-            text: 'vue',
-            items: [
-              {
-                text: "vue2",
-                link: '/frontend/vue/vue2/'
-              }, {
-                text: "vue3",
-                link: '/frontend/vue/vue3/'
-              }
-            ]
-          },
-          { text: 'react', link: '/frontend/react/' },
-        ],
       }
     ],
     sidebar: {
@@ -72,6 +61,20 @@ export default defineConfig({
           ]
         }
       ],
+      '/frontend/vue2/': [
+        {
+          text: '前端导航',
+          link: '/frontend/',
+        },
+        {
+          text: 'vue2',
+          items: [
+            { text: '项目搭建', link: '/frontend/vue2/' },
+            { text: '查漏补缺', link: '/frontend/vue2/leak_filling' },
+          ]
+        },
+      ],
+
       '/frontend/react': [
         {
           text: 'react',
