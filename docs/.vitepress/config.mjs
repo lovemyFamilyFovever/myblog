@@ -9,7 +9,7 @@ export default defineConfig({
     ['link', { rel: 'stylesheet', href: './theme/custom.css' }],
     [
       'script',
-      { async: '', src: 'https://raw.githubusercontent.com/lovemyFamilyFovever/myblog/main/docs/public/lib/dandelion.js' }
+      { async: '', src: 'https://raw.githubusercontent.com/lovemyFamilyFovever/myblog/main/docs/public/dandelion.js' }
     ],
   ],
   themeConfig: {
