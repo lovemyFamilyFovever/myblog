@@ -8,7 +8,6 @@ export default defineConfig({
   description: "慢也好，步伐小也罢，是往前走就好。 ",
   head: [
     ['link', { rel: 'icon', href: `${base}logo.svg` }],
-    ['link', { rel: 'stylesheet', href: './theme/custom.css' }],
     [
       'script',
       { async: '', src: `${base}dandelion.js` }
