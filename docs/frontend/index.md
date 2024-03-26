@@ -2,8 +2,8 @@
 layout: home
 
 hero:
-  name: "前端"
-  tagline: Don't let yesterday take up too much of today.
+  name: "Frontend"
+  tagline: 慢也好，步伐小也罢，是往前走就好。
 features:
   - title: vue2
     icon:
