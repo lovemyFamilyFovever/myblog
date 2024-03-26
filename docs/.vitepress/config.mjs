@@ -5,23 +5,11 @@ export default defineConfig({
   title: "晨钟暮鼓",
   description: "慢也好，步伐小也罢，是往前走就好。 ",
   head: [
-    ['link', { rel: 'icon', href: `/logo.svg` }],
+    ['link', { rel: 'icon', href: '/logo.svg' }],
     ['link', { rel: 'stylesheet', href: './theme/custom.css' }],
     [
       'script',
-      { src: `/dandelion.js` }
-    ],
-    //https://raw.githubusercontent.com/lovemyFamilyFovever/myblog/main/docs/public/lib/dandelion.js
-    [
-      'script',
-      {},
-      `window._hmt = window._hmt || [];
-      (function() {
-      var hm = document.createElement("script");
-      hm.src = "https://hm.baidu.com/hm.js?59ad112586fc5290621ebf30a17146c4";
-      var s = document.getElementsByTagName("script")[0];
-      s.parentNode.insertBefore(hm, s);
-      })();`
+      { async: '', src: 'https://raw.githubusercontent.com/lovemyFamilyFovever/myblog/main/docs/public/lib/dandelion.js' }
     ],
   ],
   themeConfig: {
