@@ -5,7 +5,7 @@ export default defineConfig({
   title: "晨钟暮鼓",
   description: "慢也好，步伐小也罢，是往前走就好。 ",
   head: [
-    ['link', { rel: 'icon', href: 'logo.svg' }],
+    ['link', { rel: 'icon', href: '/logo.svg' }],
     ['link', { rel: 'stylesheet', href: './theme/custom.css' }],
     [
       'script',
@@ -32,7 +32,7 @@ export default defineConfig({
   ],
   themeConfig: {
     outlineTitle: '页面导航',
-    logo: 'logo.svg',
+    logo: '/logo.svg',
     nav: [
       { text: '主页', link: '/' },
       { text: 'blog', link: '/blog/home-page.md' },
