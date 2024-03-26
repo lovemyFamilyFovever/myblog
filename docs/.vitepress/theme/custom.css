@@ -27,3 +27,17 @@
 article.box {
   align-items: center;
 }
+
+@media (min-width: 960px) {
+  .items .item.grid-6 {
+    width: calc(100% / 5);
+  }
+}
+
+.items .grid-6 .box .VPImage {
+  margin-bottom: 10px;
+}
+
+.center {
+  text-align: center;
+}
