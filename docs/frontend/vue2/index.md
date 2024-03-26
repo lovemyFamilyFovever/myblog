@@ -39,7 +39,7 @@ vue create my-project
 
 3. 选择 `Babel`、`Router`、`Vuex`、`CSS Pre-processors`、`Linter / Formatter`、`Unit Testing`、`E2E Testing`、`Axios`、`Vue-cli Plugins`、`Other`
 
-![Manually select features](./images/manually_select_features.png)
+![Manually select features](./images/Manually_select_features.png)
 
 **项目特性:**
 + `Babel`: 使用 `Babel` 将 ES6 和 ES7 代码转换为 ES5 代码，以便在旧浏览器中运行。
