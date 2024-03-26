@@ -1,11 +1,13 @@
 import { defineConfig } from 'vitepress'
 
+const base = '/myblog/';
+
 export default defineConfig({
-  base: '/myblog/',
+  base,
   title: "晨钟暮鼓",
   description: "慢也好，步伐小也罢，是往前走就好。 ",
   head: [
-    ['link', { rel: 'icon', href: '/logo.svg' }],
+    ['link', { rel: 'icon', href: `${base}logo.svg` }],
     ['link', { rel: 'stylesheet', href: './theme/custom.css' }],
     [
       'script',
