@@ -11,7 +11,7 @@ export default defineConfig({
     ['link', { rel: 'stylesheet', href: './theme/custom.css' }],
     [
       'script',
-      { async: '', src: 'https://raw.githubusercontent.com/lovemyFamilyFovever/myblog/main/docs/public/dandelion.js' }
+      { async: '', src: `${base}dandelion.js` }
     ],
   ],
   themeConfig: {
