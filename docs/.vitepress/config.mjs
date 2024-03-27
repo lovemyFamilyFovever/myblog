@@ -2,6 +2,70 @@ import { defineConfig } from 'vitepress'
 
 const base = '/myblog/';
 
+function nav() {
+  return [
+    { text: '主页', link: '/' },
+    { text: 'blog', link: '/blog/home-page.md' },
+    { text: 'AI', link: '/ai/' },
+    { text: 'python', link: '/python/' },
+    {
+      text: "前端", items: [
+        { text: "css", link: "/frontend/css/" },
+        { text: "javascript", link: "/frontend/javascript/" },
+        { text: "react", link: "/frontend/react/" },
+        { text: "vite", link: "/frontend/vite/" },
+        { text: "vue2", link: "/frontend/vue2/" },
+        { text: "vue3", link: "/frontend/vue3/" },
+        { text: "node.js", link: "/frontend/node/" },
+        { text: "TypeScript", link: "/frontend/TypeScript/" },
+      ]
+    }
+  ]
+}
+
+function sidebar() {
+  return {
+    '/blog/': [
+      {
+        text: '参考',
+        items: [
+          { text: '主页', link: '/blog/home-page' },
+          { text: '自定义', link: '/blog/custom' },
+        ]
+      }
+    ],
+    '/frontend/vue2/': [
+      {
+        text: '前端导航',
+        link: '/frontend/',
+      },
+      {
+        text: 'vue2',
+        items: [
+          { text: '项目搭建', link: '/frontend/vue2/' },
+          { text: '查漏补缺', link: '/frontend/vue2/leak_filling' },
+          {
+            text: '渲染选项', items: [
+              { text: 'render', link: '/frontend/vue2/render' },
+            ]
+          },
+        ]
+      },
+    ],
+    '/frontend/react': [
+      {
+        text: 'react',
+        collapsed: true,
+        items: [
+          { text: '待补充', link: '/markdown-examples' },
+          { text: '待补充', link: '/api-examples' },
+          { text: '待补充', link: '/frontend/react/' }
+        ]
+      }
+    ]
+  }
+}
+
 export default defineConfig({
   base,
   title: "晨钟暮鼓",
@@ -14,66 +78,27 @@ export default defineConfig({
     ],
   ],
   themeConfig: {
-    outlineTitle: '页面导航',
-    logo: '/logo.svg',
-    nav: [
-      { text: '主页', link: '/' },
-      { text: 'blog', link: '/blog/home-page.md' },
-      { text: 'AI', link: '/ai/' },
-      { text: 'python', link: '/python/' },
-      {
-        text: "前端", items: [
-          { text: "css", link: "/frontend/css/" },
-          { text: "javascript", link: "/frontend/javascript/" },
-          { text: "react", link: "/frontend/react/" },
-          { text: "vite", link: "/frontend/vite/" },
-          { text: "vue2", link: "/frontend/vue2/" },
-          { text: "vue3", link: "/frontend/vue3/" },
-          { text: "node.js", link: "/frontend/node/" },
-          { text: "TypeScript", link: "/frontend/TypeScript/" },
-        ]
-      }
-    ],
-    sidebar: {
-      '/blog/': [
-        {
-          text: '参考',
-          items: [
-            { text: '主页', link: '/blog/home-page' },
-            { text: '自定义', link: '/blog/custom' },
-          ]
-        }
-      ],
-      '/frontend/vue2/': [
-        {
-          text: '前端导航',
-          link: '/frontend/',
-        },
-        {
-          text: 'vue2',
-          items: [
-            { text: '项目搭建', link: '/frontend/vue2/' },
-            { text: '查漏补缺', link: '/frontend/vue2/leak_filling' },
-            {
-              text: '渲染选项', items: [
-                { text: 'render', link: '/frontend/vue2/render' },
-              ]
-            },
-          ]
-        },
-      ],
-      '/frontend/react': [
-        {
-          text: 'react',
-          collapsed: true,
-          items: [
-            { text: '待补充', link: '/markdown-examples' },
-            { text: '待补充', link: '/api-examples' },
-            { text: '待补充', link: '/frontend/react/' }
-          ]
-        }
-      ]
+    editLink: {
+      pattern: 'https://github.com/vuejs/vitepress/edit/main/docs/:path',
+      text: '在 GitHub 上编辑此页面'
     },
+    lastUpdated: {
+      text: '最后更新于',
+      formatOptions: {
+        dateStyle: 'short',
+        timeStyle: 'medium'
+      }
+    },
+    docFooter: {
+      prev: '上一页',
+      next: '下一页'
+    },
+    outline: {
+      label: '页面导航'
+    },
+    lightModeSwitchTitle: '切换到浅色模式',
+    darkModeSwitchTitle: '切换到深色模式',
+    logo: '/logo.svg',
     socialLinks: [
       { icon: 'github', link: 'https://github.com/lovemyFamilyFovever', ariaLabel: 'Visit our GitHub page' },
       {
@@ -90,6 +115,8 @@ export default defineConfig({
     footer: {
       message: 'Released under the <a href="https://github.com/vuejs/vitepress/blob/main/LICENSE">MIT License</a>.',
       copyright: 'Copyright © 2019-present <a href="https://github.com/yyx990803">Evan You</a>'
-    }
+    },
+    nav: nav(),
+    sidebar: sidebar(),
   }
 })

@@ -1,4 +1,16 @@
+---
+outline: [1,3]
+head:
+  - - meta
+    - name: description
+      content: hello
+  - - meta
+    - name: keywords
+      content: super duper SEO
+---
+
 # Vue2 项目搭建
+
 
 ## Vue CLI
 
@@ -11,6 +23,7 @@
 - 手动选择安装依赖项和配置项
 
 ## 使用源文件
+
 ``` html
 <!-- 指定某个版本的Vue.js -->
 <script src="https://cdn.jsdelivr.net/npm/vue@2.7.14"></script>
