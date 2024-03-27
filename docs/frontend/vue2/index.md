@@ -3,10 +3,10 @@ outline: [1,3]
 head:
   - - meta
     - name: description
-      content: hello
+      content: 这篇文章详细介绍了如何使用 Vue 2 搭建项目，包括环境准备、项目初始化、核心概念理解、界面构建、状态管理、路由设置以及与后端交互等。无论您是初学者还是有经验的开发者，都可以通过本指南学习到如何快速上手并开发出高质量的 Vue 2 应用程序。
   - - meta
     - name: keywords
-      content: super duper SEO
+      content: Vue.js Vue2 Vue2搭建步骤 Vue2教程 Vue2入门 前端开发 前端框架 前端工程师
 ---
 
 # Vue2 项目搭建
