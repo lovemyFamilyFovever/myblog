@@ -11,12 +11,22 @@ function nav() {
     { text: 'python', link: '/python/' },
     {
       text: "前端", items: [
-        { text: "css", link: "/frontend/css/" },
-        { text: "javascript", link: "/frontend/javascript/" },
+        { text: "前端", link: "/frontend/" },
+        {
+          text: "基础", items: [
+            { text: "javascript", link: "/frontend/javascript/" },
+            { text: "css", link: "/frontend/css/" },
+          ]
+        },
+        {
+          text: "Vue全家桶", items: [
+            { text: "vue2", link: "/frontend/vue2/" },
+            { text: "vue3", link: "/frontend/vue3/" },
+            { text: "vite", link: "/frontend/vite/" },
+          ]
+        },
         { text: "react", link: "/frontend/react/" },
-        { text: "vite", link: "/frontend/vite/" },
-        { text: "vue2", link: "/frontend/vue2/" },
-        { text: "vue3", link: "/frontend/vue3/" },
+        { text: "Angular", link: "/frontend/Angular/" },
         { text: "Node.js", link: "/frontend/node/" },
         { text: "TypeScript", link: "/frontend/TypeScript/" },
       ]

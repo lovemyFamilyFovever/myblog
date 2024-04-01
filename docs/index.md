@@ -18,6 +18,11 @@ features:
       src: /imgs/frontend.svg
     details: 前端框架
     link: /frontend/
+  - title: Vitepress
+    icon:
+      src: /imgs/Vitepress.svg
+    details: 一个 Vue 驱动的静态网站生成器
+    link: /blog/home-page
   - title: AI 大模型
     icon:
       src: /imgs/ai.svg
