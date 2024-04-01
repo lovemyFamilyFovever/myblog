@@ -2,6 +2,7 @@ import { defineConfig } from 'vitepress'
 
 const base = '/myblog/';
 
+//上方导航栏
 function nav() {
   return [
     { text: '主页', link: '/' },
@@ -16,30 +17,28 @@ function nav() {
         { text: "vite", link: "/frontend/vite/" },
         { text: "vue2", link: "/frontend/vue2/" },
         { text: "vue3", link: "/frontend/vue3/" },
-        { text: "node.js", link: "/frontend/node/" },
+        { text: "Node.js", link: "/frontend/node/" },
         { text: "TypeScript", link: "/frontend/TypeScript/" },
       ]
     }
   ]
 }
-
+//左边导航栏
 function sidebar() {
   return {
-    '/blog/': [
-      {
-        text: '参考',
-        items: [
-          { text: '主页', link: '/blog/home-page' },
-          { text: '自定义', link: '/blog/custom' },
-        ]
-      }
+    '/blog/': [{
+      text: '参考',
+      items: [
+        { text: '主页', link: '/blog/home-page' },
+        { text: '自定义', link: '/blog/custom' }
+      ]
+    }
     ],
     '/frontend/vue2/': [
       {
         text: '前端导航',
         link: '/frontend/',
-      },
-      {
+      }, {
         text: 'vue2',
         items: [
           { text: '项目搭建', link: '/frontend/vue2/' },
@@ -52,7 +51,17 @@ function sidebar() {
         ]
       },
     ],
-    '/frontend/react': [
+    '/frontend/node/': [
+      {
+        text: "Node.js",
+        items: [
+          { text: "node.js", link: "/frontend/node/" },
+          { text: "更新卸载node_modules", link: "/frontend/node/npm-uninstall" },
+        ]
+      }
+
+    ],
+    '/frontend/react/': [
       {
         text: 'react',
         collapsed: true,
@@ -66,6 +75,7 @@ function sidebar() {
   }
 }
 
+//全局配置
 export default defineConfig({
   base,
   title: "晨钟暮鼓",
