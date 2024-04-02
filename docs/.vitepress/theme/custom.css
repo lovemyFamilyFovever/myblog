@@ -5,7 +5,11 @@
   --vp-home-hero-name-background: linear-gradient(90deg, #7209d4, #2832d4 33%, #00a5b2);
   --vp-home-hero-name-color: transparent;
 
+  --vp-font-family-base: Consolas, yahei, "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
 
+main {
+  font-size: 14px;
 }
 
 .clip {
