@@ -45,3 +45,7 @@ article.box {
 .center {
   text-align: center;
 }
+
+.aside-container {
+  width: 300px;
+}

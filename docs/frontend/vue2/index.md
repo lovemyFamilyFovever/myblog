@@ -11,9 +11,6 @@ head:
 
 # Vue2 项目搭建
 
-
-## Vue CLI
-
 搭建 Vue2 项目有三种主要方法：
 
 - 直接通过script加载CDN文件

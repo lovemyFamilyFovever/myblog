@@ -36,6 +36,9 @@ head:
 - **[reduceRight()](#array-reduceright)**：功能和reduce()类似，但是从数组的末尾开始累加。
 - **[find()](#array-find)**：返回数组中满足提供的测试函数的第一个元素的值，否则返回undefined。
 - **[findIndex()](#array-findindex)**：返回数组中满足提供的测试函数的第一个元素的索引，否则返回-1。
+- **[fill()](#array-fill)**：用一个值填充数组中从起始索引到终止索引内的元素。
+- **[some()](#array-some)**：测试数组中是否至少有一个元素通过了被提供的函数测试。
+- **[every()](#array-every)**：测试数组中是否所有元素都通过了被提供的函数测试。
 
 这些方法涵盖了大部分数组操作的需求，合理使用这些方法可以使你的代码更加简洁和高效。需要注意的是，这些方法不会改变原始数组，而是返回一个新的数组。`forEach`方法本身不会改变原始数组, 除非它的回调函数修改了数组。
 
@@ -296,6 +299,7 @@ console.log(index); // 3
 let arr = [1, 2, 3, 4, 5];
 arr.fill(0, 1, 3);
 console.log(arr); // [1, 0, 0, 4, 5]
+```
 
 1. `fill()` 方法用一个值，填充一个数组中从起始索引到终止索引内的元素。
 2. 该方法不会修改原数组，而是返回一个新数组。
@@ -306,19 +310,91 @@ console.log(arr); // [1, 0, 0, 4, 5]
 7. 如果终止索引大于数组长度，则使用数组长度作为终止索引。
 
 
-### 19. Array.isArray() {#array-isarray}
+### 19. Array.prototype.includes() {#array-includes}
 
-​```javascript
+```javascript
+let arr = [1, 2, 3, 4, 5];
+let hasThree = arr.includes(3);
+console.log(hasThree); // true
+```
+
+1. `includes()` 方法用来判断一个数组是否包含一个指定的值，根据情况返回 `true` 或 `false`。
+2. 该方法不会修改原数组，而是返回一个布尔值。
+3. 该方法可以接受两个参数：要查找的值和（可选）从索引位置开始查找的索引。
+4. 如果没有指定索引，则从数组的头部开始查找。
+5. 如果没有找到指定的值，则返回 `false`。
+
+### 20. Array.prototype.lastIndexOf() {#array-lastindexof}
+
+```javascript
+let arr = [1, 2, 3, 4, 5];
+let lastIndex = arr.lastIndexOf(3);
+console.log(lastIndex); // 2
+```
+
+1. `lastIndexOf()` 方法返回数组中lastIndexOf指定元素的索引，如果不存在则返回-1。
+2. 该方法不会修改原数组，而是返回一个索引值。
+3. 该方法可以接受两个参数：要查找的值和（可选）从索引位置开始查找的索引。
+4. 如果没有指定索引，则从数组的末尾开始查找。
+5. 如果没有找到指定的值，则返回 `-1`。
+
+### 21. Array.prototype.join() {#array-join}
+
+```javascript
+let arr = [1, 2, 3, 4, 5];
+let str = arr.join('-');
+console.log(str); // "1-2-3-4-5"
+```
+
+1. `join()` 方法将数组中的所有元素转换为字符串，并返回连接后的字符串。
+2. 该方法不会修改原数组，而是返回一个字符串。
+3. 该方法可以接受一个参数，用于指定分隔符。
+4. 如果省略参数，则使用逗号作为分隔符。
+5. 如果数组为空，则返回空字符串。
+
+### 22. Array.prototype.indexOf() {#array-indexof}
+
+```javascript
+let arr = [1, 2, 3, 4, 5];
+let index = arr.indexOf(3);
+console.log(index); // 2
+```
+
+1. `indexOf()` 方法返回数组中第一个指定元素的索引，如果不存在则返回-1。
+2. 该方法不会修改原数组，而是返回一个索引值。
+3. 该方法可以接受两个参数：要查找的值和（可选）从索引位置开始查找的索引。
+4. 如果没有指定索引，则从数组的头部开始查找。
+5. 如果没有找到指定的值，则返回 `-1`。
+
+### 23. Array.prototype.reduceRight() {#array-reduceright}
+
+```javascript
+let arr = [1, 2, 3, 4, 5];
+let sum = arr.reduceRight((acc, cur) => acc + cur, 0);
+console.log(sum); // 15
+```
+
+1. `reduceRight()` 方法与 `reduce()` 方法类似，但它是从右到左执行。
+2. 该方法不会修改原数组，而是返回一个新数组。
+3. 该方法接受一个函数作为参数，该函数将为每个元素调用一次。
+4. 函数参数有四个：前一个值、当前元素、当前索引、原数组。
+5. 函数返回值会被用作下一次迭代的第一个参数。
+6. 如果没有初始值，则将使用数组中的第一个元素。
+7. 如果数组为空，则返回 `undefined`。
+
+### 24. Array.isArray() {#array-isarray}
+
+```javascript
 let arr = [1, 2, 3];
 let isArr = Array.isArray(arr);
 console.log(isArr); // true
-```
+``` 
 
 1. `isArray()` 方法用来判断一个值是否为数组。
 2. 该方法返回一个布尔值。
 
 
-### 20. Array.from() {#array-from}
+### 25. Array.from() {#array-from}
 
 ```javascript
 let arr = Array.from([1, 2, 3]);
@@ -333,7 +409,7 @@ console.log(arr); // [1, 2, 3]
 6. 如果映射函数为函数，则返回映射后的数组。
 
 
-### 21. Array.of()  {#array-of}
+### 26. Array.of()  {#array-of}
 
 ```javascript
 let arr = Array.of(1, 2, 3);
