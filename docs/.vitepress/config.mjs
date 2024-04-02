@@ -40,27 +40,28 @@ function sidebar() {
       text: '参考',
       items: [
         { text: '主页', link: '/blog/home-page' },
-        { text: '自定义', link: '/blog/custom' }
+        { text: '自定义配置', link: '/blog/custom' }
       ]
     }
     ],
-    '/frontend/vue2/': [
-      {
-        text: '前端导航',
-        link: '/frontend/',
-      }, {
-        text: 'vue2',
-        items: [
-          { text: '项目搭建', link: '/frontend/vue2/' },
-          { text: '查漏补缺', link: '/frontend/vue2/leak_filling' },
-          {
-            text: '渲染选项', items: [
-              { text: 'render', link: '/frontend/vue2/render' },
-            ]
-          },
-        ]
-      },
-    ],
+    '/frontend/javascript/': [{
+      text: 'javascript',
+      items: [
+        { text: 'Array', link: '/frontend/javascript/Array' },
+      ]
+    }],
+    '/frontend/vue2/': [{
+      text: 'vue2',
+      items: [
+        { text: '项目搭建', link: '/frontend/vue2/' },
+        { text: '查漏补缺', link: '/frontend/vue2/leak_filling' },
+        {
+          text: '渲染选项', items: [
+            { text: 'render', link: '/frontend/vue2/render' },
+          ]
+        },
+      ]
+    }],
     '/frontend/node/': [
       {
         text: "Node.js",
