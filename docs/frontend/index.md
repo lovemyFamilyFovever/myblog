@@ -40,7 +40,7 @@ features:
       src: /imgs/Angular.svg      
     details: Angular
     link: /frontend/Angular/
-  - title: Node.js
+  - title: Node.js  
     icon:
       src: /imgs/node.svg
     details: 服务器端JavaScript运行环境
