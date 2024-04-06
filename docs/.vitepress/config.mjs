@@ -1,4 +1,5 @@
 import { defineConfig } from 'vitepress'
+import mdItCustomAttrs from 'markdown-it-custom-attrs'
 
 const base = '/myblog/';
 
@@ -37,17 +38,23 @@ function nav() {
 function sidebar() {
   return {
     '/blog/': [{
-      text: '参考',
+      text: '页面配置',
       items: [
         { text: '主页', link: '/blog/home-page' },
         { text: '自定义配置', link: '/blog/custom' }
+      ]
+    }, {
+      text: '插件配置',
+      items: [
+        { text: '图片插件', link: '/blog/plugins/addPicPlugin' },
       ]
     }
     ],
     '/frontend/javascript/': [{
       text: 'javascript',
       items: [
-        { text: 'Array', link: '/frontend/javascript/Array' },
+        { text: 'Array用法', link: '/frontend/javascript/Array' },
+        { text: 'Export导出模块', link: '/frontend/javascript/export' },
       ]
     }],
     '/frontend/vue2/': [{
@@ -86,18 +93,30 @@ function sidebar() {
   }
 }
 
+//head标签  
+function head() {
+  return [
+    ["link", { rel: "stylesheet", href: "https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" },],
+    ["script", { src: "https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js" }],
+    ['link', { rel: 'icon', href: `${base}logo.svg` }],
+    ['script', { async: '', src: `${base}dandelion.js` }],
+  ]
+}
+
 //全局配置
 export default defineConfig({
+  markdown: {
+    config: (md) => {
+      // use more markdown-it plugins!
+      md.use(mdItCustomAttrs, 'image', {
+        'data-fancybox': "gallery"
+      })
+    }
+  },
   base,
   title: "晨钟暮鼓",
   description: "学习之旅，记录生活的点滴",
-  head: [
-    ['link', { rel: 'icon', href: `${base}logo.svg` }],
-    [
-      'script',
-      { async: '', src: `${base}dandelion.js` }
-    ],
-  ],
+  head: head(),
   themeConfig: {
     editLink: {
       pattern: 'https://github.com/vuejs/vitepress/edit/main/docs/:path',
