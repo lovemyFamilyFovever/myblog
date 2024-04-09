@@ -11,7 +11,9 @@ head:
 
 # 总览
 
-[查看图片](#array-pic)
+[数组应用实例](#array-example)
+
+[Array树形图知识图谱](#array-pic)
 
 ### 1. 改变原数组的方法：
 
@@ -422,5 +424,16 @@ console.log(arr); // [1, 2, 3]
 2. 该方法返回一个新数组。
 3. 该方法可以接受任意数量的参数。
 
-### 查看图片  {#array-pic}
+## Array树形图知识图谱  {#array-pic}
 ![Array](./imgs/jsArray.jpg) 
+
+## 数组应用实例  {#array-example}
+
+### 数组去重
+
+```javascript
+let arr = [1, 2, 3, 2, 1, 4, 5, 4];
+let result=new Set(arr);//利用Set去重
+let newArr = [...result];//利用展开运算符转换Set为数组
+console.log(newArr); // [1, 2, 3, 4, 5]
+```
