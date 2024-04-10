@@ -15,8 +15,9 @@ function nav() {
         { text: "前端", link: "/frontend/" },
         {
           text: "基础", items: [
-            { text: "javascript", link: "/frontend/javascript/" },
+            { text: "html", link: "/frontend/html/" },
             { text: "css", link: "/frontend/css/" },
+            { text: "javascript", link: "/frontend/javascript/" },
           ]
         },
         {
