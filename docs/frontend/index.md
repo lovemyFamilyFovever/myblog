@@ -5,6 +5,11 @@ hero:
   name: "Frontend"
   tagline: 慢也好，步伐小也罢，是往前走就好。
 features:
+  - title: HTML
+    icon:
+      src: /imgs/html.svg
+    details: html5总结
+    link: /frontend/html/   
   - title: ES6-ES11
     icon:
       src: /imgs/js.svg
