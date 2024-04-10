@@ -1,5 +1,5 @@
 import { defineConfig } from 'vitepress'
-import mdItCustomAttrs from 'markdown-it-custom-attrs'
+// import mdItCustomAttrs from 'markdown-it-custom-attrs'
 
 const base = '/myblog/';
 
