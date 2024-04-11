@@ -1,6 +1,5 @@
 ---
 outline: [1,3]
-
 head:
   - - meta
     - name: description
@@ -8,8 +7,8 @@ head:
   - - meta
     - name: keywords
       content: 前端 疑难杂症 前端开发 前端框架 前端工程师 bug
-
 ---
+
 # 为什么textarea会有默认的value啊 而且这个value是空白的字符
 
 如果你不想在<textarea>标签中有默认的空白字符，可以采取以下解决方案： 
