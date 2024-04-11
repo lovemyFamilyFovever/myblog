@@ -1,6 +1,5 @@
 ---
 layout: home
-
 hero:
   name: "Frontend"
   tagline: 慢也好，步伐小也罢，是往前走就好。
