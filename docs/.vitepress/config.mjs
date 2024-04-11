@@ -25,6 +25,7 @@ function nav() {
             { text: "vue2", link: "/frontend/vue2/" },
             { text: "vue3", link: "/frontend/vue3/" },
             { text: "vite", link: "/frontend/vite/" },
+            { text: "pinia", link: "/frontend/pinia/" },
           ]
         },
         { text: "react", link: "/frontend/react/" },
@@ -67,15 +68,20 @@ function sidebar() {
           text: '渲染选项', items: [
             { text: 'render', link: '/frontend/vue2/render' },
           ]
-        },
+        }
+      ]
+    }],
+    '/frontend/vue3/': [{
+      text: 'vue3',
+      items: [
+        { text: '查漏补缺', link: '/frontend/vue3/leak_filling' },
       ]
     }],
     '/frontend/node/': [
       {
         text: "Node.js",
         items: [
-          { text: "node.js", link: "/frontend/node/" },
-          { text: "更新卸载node_modules", link: "/frontend/node/npm-uninstall" },
+          { text: "node.js常见问题解决", link: "/frontend/node/" },
         ]
       }
 
