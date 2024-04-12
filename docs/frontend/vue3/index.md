@@ -12,22 +12,22 @@ head:
 
 # Vue3 安装步骤
 
-搭建 Vue3 项目有两种主要方法：
+搭建 `Vue3` 项目有三种主要方法：
 
 主要方法：
 
 - 使用官方脚手架 `Vue CLI`的 `default` 模板。
-
-- 基于Vite创建项目。
+- 基于`npm create vue`创建项目。
+- 使用`vite`创建项目。
 
 
 ## 使用Vue CLI
 
 [与搭建 Vue2 项目的步骤基本相同，只是 Vue3 脚手架的默认模板有所不同](/frontend/vue2/index)
 
-## 基于Vite创建项目
+## npm create vue创建项目
 
-Vite 是下一代前端构建工具，它能显著提升开发体验，其核心理念是“速度优先”。
+`Vite` 是下一代前端构建工具，它能显著提升开发体验，其核心理念是“速度优先”。
 
 具体操作如下（点击查看[官方文档](https://cn.vuejs.org/guide/quick-start.html#creating-a-vue-application)）：
 
@@ -55,4 +55,15 @@ npm create vue@latest
 ## 是否添加Prettiert代码格式化
 √ Add Prettier for code formatting?  No
 ```
+
+## 使用vite创建项目
+
+`Vite` 是下一代前端构建工具，它能显著提升开发体验，其核心理念是“速度优先”。.
+
+```bash
+pnpm create vite
+```
+选择`vue`项目
+
+![vite-create](./imgs/vite_create_vue.png)
 
