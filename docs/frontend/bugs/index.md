@@ -21,4 +21,30 @@ head:
 document.getElementById("rem").value = "";
 ```
 
-# 如何在HTML中使用Unicode字符
+# vite+vue3+ts 项目搭建时的@符号路径不识别问题
+
+在使用vite+vue3+ts项目搭建时，如果路径中含有@符号，则会报错，提示路径不正确。
+
+解决方案：
+
+在vite.config.ts文件中配置resolve.alias，将@符号路径映射到项目根目录。
+
+```javascript
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+import path from 'path'
+
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [vue()],
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, './src')
+    }
+  }
+})
+
+```
+
+
+这样就可以正确解析@符号路径了。
