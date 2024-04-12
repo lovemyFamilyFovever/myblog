@@ -97,3 +97,17 @@ npm cache clear --force # 清除 npm 缓存
 
 
 
+
+# 如何设置运行时自动打开项目地址
+
+在package.json文件中添加如下配置： **后面添加 `--open` 选项，表示运行时自动打开项目地址。**
+
+```
+  "scripts": {
+    "dev": "vitepress dev docs --open",
+    "build": "vitepress build docs",
+    "preview": "vitepress preview docs"
+  }
+```
+
+然后运行`npm run dev`命令，项目会自动打开浏览器并打开项目地址。
