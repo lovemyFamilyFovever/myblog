@@ -3,6 +3,7 @@ import mdItCustomAttrs from 'markdown-it-custom-attrs'
 
 const base = '/myblog/';
 
+
 //上方导航栏
 function nav() {
   return [
@@ -74,7 +75,9 @@ function sidebar() {
     '/frontend/vue3/': [{
       text: 'vue3',
       items: [
+        { text: 'Vue3安装步骤', link: '/frontend/vue3/' },
         { text: '查漏补缺', link: '/frontend/vue3/leak_filling' },
+        { text: 'vue3语法糖setup', link: '/frontend/vue3/setup' },
       ]
     }],
     '/frontend/node/': [
@@ -112,6 +115,20 @@ function head() {
 
 //全局配置
 export default defineConfig({
+
+  // 根据模式配置不同的选项
+  configureWebpack: (config, isServer) => {
+    if (import.meta.env.MODE === 'development') {
+      // 开发模式配置
+      console.log('开发模式');
+    } else if (import.meta.env.MODE === 'production') {
+      // 构建模式配置
+      console.log('构建模式');
+    } else {
+      console.log(123)
+    }
+  },
+
   markdown: {
     config: (md) => {
       // use more markdown-it plugins!
