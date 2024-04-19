@@ -384,3 +384,44 @@ let user: IUser = {
 };
 ``` 
 
+# Partial类型
+
+> Partial类型是指将所有属性都设置为可选的，即属性的类型可以是任意类型。
+
+
+```typescript
+interface IUser {
+    name: string;
+    age: number;
+    address: string;
+}
+
+let user: Partial<IUser> = {
+    name: "张三"
+};
+
+user.age = 25;
+user.address = "北京市海淀区";
+``` 
+
+# Readonly类型
+
+> Readonly类型是指将所有属性都设置为只读的，即属性的类型只能是不能被修改的。
+
+```typescript
+interface IUser {
+    readonly id: number;
+    name: string;
+}
+
+let user: IUser = {
+    id: 1,
+    name: "张三"
+};
+
+user.id = 2; // error: Cannot assign to 'id' because it is a read-only property.
+``` 
+
+# 参考
+
+- [TypeScript 官方文档](https://www.typescriptlang.org/docs/)
