@@ -214,5 +214,43 @@ TypeScript编译器有很多选项可以控制编译行为。
 - `outDir`：指定输出目录。
 - `include`：指定编译的文件列表。
 
+<hr/>
+<br/>
 
+# 注意事项
+## 任意属性
 
+``` typescript
+interface IUser {
+    name: string;
+    age: number;
+    [propName: string]: any;
+}
+
+let userObj: IUser = {
+    name: "张三",
+    age: 25,
+    address: "北京市海淀区",
+    phone: "13800138000",
+    email: "123@qq.com"
+}
+```
+
+```typescript
+interface IUser {
+    name: string;
+    age: number;
+    [propName: string]: number | string;
+}
+```
+
+**注意：一旦定义了任意属性，那么确定属性和可选属性的类型都必须是它的类型的子集：**
+
+## 只读属性
+
+```typescript
+interface IUser {
+    readonly id: number;
+    name: string;
+}
+```

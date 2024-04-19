@@ -1,12 +1,10 @@
 
 
-enum Color { Red = 2, Green, Blue = 5 };
-console.log(Color);
+interface iNum {
+    a: number;
+    b: string | number;
+}
 
-
-let list: any[] = [1, "123", true, null, undefined, Symbol()];
-console.log(list);
-
-
-let str = "123123123asdasd";
-let strLength = (<string>str).length; 
+function test<T extends U, U>(a: T, b: U): U {
+    return b
+}
