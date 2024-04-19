@@ -58,6 +58,7 @@ function sidebar() {
       items: [
         { text: 'Array用法', link: '/frontend/javascript/Array' },
         { text: 'Export导出模块', link: '/frontend/javascript/export' },
+        { text: '基础api', link: '/frontend/javascript/basic-api' },
       ]
     }],
     '/frontend/vue2/': [{
@@ -97,6 +98,16 @@ function sidebar() {
           { text: '待补充', link: '/markdown-examples' },
           { text: '待补充', link: '/api-examples' },
           { text: '待补充', link: '/frontend/react/' }
+        ]
+      }
+    ],
+    '/frontend/TypeScript/': [
+      {
+        text: 'TypeScript',
+        collapsed: true,
+        items: [
+          { text: '介绍', link: '/frontend/TypeScript/' },
+          { text: '常见问题', link: '/frontend/TypeScript/bugs' },
         ]
       }
     ]
