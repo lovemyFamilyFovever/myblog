@@ -3,8 +3,9 @@
     "vitepress": "^1.0.1"
   },
   "scripts": {
-    "dev": "vitepress dev docs",
-    "build": "vitepress build docs --base / ",
+    "dev": "vitepress dev docs  ",
+    "build": "vitepress build docs",
+    "server": "vitepress build docs --base / ",
     "preview": "vitepress preview docs"
   },
   "dependencies": {
