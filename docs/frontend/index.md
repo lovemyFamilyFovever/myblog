@@ -54,7 +54,7 @@ features:
       src: /imgs/TypeScript.svg      
     details: TypeScript
     link: /frontend/TypeScript/
-  - title: 前端bug汇总
+  - title: 前端常见问题汇总
     icon:
       src: /imgs/bugs.svg      
     details: bugs
