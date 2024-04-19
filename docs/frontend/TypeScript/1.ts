@@ -1,10 +1,20 @@
 
-
-interface iNum {
-    a: number;
-    b: string | number;
+interface IPerson {
+    sex: string;
+    height: number;
 }
 
-function test<T extends U, U>(a: T, b: U): U {
-    return b
+class Person implements IPerson {
+    name: string;
+    age: number;
+    constructor(name: string, age: number) {
+        this.name = name;
+        this.age = age;
+    }
 }
+
+
+let p: Person = {
+    name: "John",
+    age: 25,
+};
