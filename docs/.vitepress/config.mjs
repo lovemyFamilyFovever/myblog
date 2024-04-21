@@ -1,8 +1,6 @@
 import { defineConfig } from 'vitepress'
 import mdItCustomAttrs from 'markdown-it-custom-attrs'
-
 const base = '/myblog/';
-
 
 //上方导航栏
 function nav() {
@@ -127,19 +125,6 @@ function head() {
 //全局配置
 export default defineConfig({
 
-  // 根据模式配置不同的选项
-  configureWebpack: (config, isServer) => {
-    if (import.meta.env.MODE === 'development') {
-      // 开发模式配置
-      console.log('开发模式');
-    } else if (import.meta.env.MODE === 'production') {
-      // 构建模式配置
-      console.log('构建模式');
-    } else {
-      console.log(123)
-    }
-  },
-
   markdown: {
     config: (md) => {
       // use more markdown-it plugins!
@@ -185,7 +170,29 @@ export default defineConfig({
       }
     ],
     search: {
-      provider: 'local'
+      provider: 'local',
+      options: {
+        locales: {
+          root: {
+            translations: {
+              button: {
+                buttonText: '搜索文档',
+                buttonAriaLabel: '搜索文档'
+              },
+              modal: {
+                noResultsText: '无法找到相关结果',
+                resetButtonTitle: '清除查询条件',
+                displayDetails: "显示列表细节",
+                footer: {
+                  selectText: '选择',
+                  navigateText: '切换',
+                  closeText: '关闭'
+                }
+              }
+            }
+          }
+        }
+      }
     },
     footer: {
       message: 'Released under the <a href="https://github.com/vuejs/vitepress/blob/main/LICENSE">MIT License</a>.',
