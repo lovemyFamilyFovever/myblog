@@ -31,33 +31,20 @@ head:
 <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.min.js"></script>  <!--这个很慢 -->
 ```
 
-## default 模板
+## ~~default 模板(已经停止维护)~~
 
 **使用官方脚手架（推荐）`Vue CLI`,可以快速创建一个包含所有必要配置文件和依赖项的Vue项目。**
 
-1. 安装 `Vue CLI`：
+全局安装 `Vue CLI`：
 ```
 npm install -g @vue/cli
 ```
-2. 创建一个新项目：
-```
-vue create my-project
-```
-3. 进入项目目录：
-```
-cd my-project
-```
-4. 运行项目：
-```
-npm run dev
-```
 
-## 手动选择安装
 1. 创建一个新项目：
 ```
 vue create my-project
 ```
-2. 选择 `Manually select features`
+2. 选择 `Manually select features`或者手动选择下面的选项：
    
 
 ![安装](./images/setup_vue.png)
@@ -97,3 +84,12 @@ vue create my-project
 **E2E 测试:**
 - `Cypress`: 使用 `Cypress` 进行端到端测试。
 - `Puppeteer`: 使用 `Puppeteer` 进行端到端测试。
+
+4. 进入项目目录：
+```
+cd my-project
+```
+5. 运行项目：
+```
+npm run dev
+```
