@@ -1,4 +1,10 @@
-# vue3加ts出现 --找不到模块“../views/admin/Pro/ProList.vue”或其相应的类型声明。ts(2307) 
+---
+outline: [1,3]
+---
+
+# vue3+ts+pinia创建项目遇到的坑
+
+## vue3加ts出现 --找不到模块“../views/admin/Pro/ProList.vue”或其相应的类型声明。ts(2307) 
 
 `vite`+`vue3`+`ts`+`pinia创建项目遇到这个问题，虽然不影响代码运行，但看着恶心人。`
 
@@ -14,9 +20,41 @@ declare module "*.vue" {
 }
 ```
 
+这样就可以在`ts`文件中导入`vue`组件了,但是还是需要添加文件后缀名`.vue`
 
-这样就可以在`ts`文件中导入`vue`组件了
+## 配置路径别名@
 
+**注意这个只支持js文件的自动补全路径别名**
 
+```javascript
+// vite.config.js
+import { defineConfig } from 'vite'
+import vue from '@vitejs/plugin-vue'
+import path from 'path'
 
-参考链接 http://t.csdnimg.cn/ngdN8
+// https://vitejs.dev/config/
+export default defineConfig({
+  plugins: [vue()],
+  resolve: {
+    alias: {
+      '@': path.resolve(__dirname, 'src')
+    }
+  }
+})
+```
+
+如果需要ts文件自动补全@路径别名，需要在`tsconfig.json`文件中配置如下：
+
+```json
+// tsconfig.app.json
+// tsconfig.json
+// tsconfig.node.json
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"]
+    }
+  }
+}
+```
