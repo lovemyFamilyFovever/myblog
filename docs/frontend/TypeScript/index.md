@@ -49,91 +49,42 @@ tsc hello.ts
 |   enum   |    `enum{A, B}`   |       枚举，TS中新增类型       |
 
 
-## 编译基本类型 
+## 编译类型 
 
 ```typescript
+// 基本类型
 let name: string = "Tom";
 let age: number = 25;
 let isMarried: boolean = true;
-```
-
-## 编译数组类型 
-
-```typescript
+// 数组类型
 let fruits: string[] = ["apple", "banana", "orange"];
 let numbers: number[] = [1, 2, 3];
-```
-
-## 编译对象类型 
-
-```typescript
+// 对象类型
 let person: {name: string, age: number} = {name: "Tom", age: 25};
-```
-
-## 编译函数类型 
-
-```typescript
+// 函数类型
 function greet(name: string): void {
   console.log("Hello, " + name);
 }
-```
-
-## 编译接口类型 
-
-```typescript
+//接口类型 
 interface Person {
   name: string;
   age: number;
   greet(name: string): void;
 }
-
-let tom: Person = {
-  name: "Tom",
-  age: 25,
-  greet: function(name: string) {
-    console.log("Hello, " + name);
-  }
-};
-```
-
-## 编译类类型 
-
-```typescript
+//类类型
 class Person {
   name: string;
   age: number;
-
   constructor(name: string, age: number) {
     this.name = name;
     this.age = age;
   }
-
   greet(name: string): void {
     console.log("Hello, " + name);
   }
 }
-
 let tom = new Person("Tom", 25);
-```
-
-## 编译模块类型 
-
-```typescript
-module Animal {
-  export class Dog {
-    bark() {
-      console.log("Woof!");
-    }
-  }
-}
-
-let myDog = new Animal.Dog();
-myDog.bark();
-```
-
-## 编译泛型类型 
-
-```typescript
+//泛型类型 
 function reverse<T>(arr: T[]): T[] {
   return arr.reverse();
 }
@@ -151,71 +102,11 @@ TypeScript编译器可以生成声明文件，声明文件可以让TypeScript编
 declare let name: string;
 declare let age: number;
 declare let isMarried: boolean;
-
 declare let fruits: string[];
 declare let numbers: number[];
-
 declare let person: {name: string, age: number};
-
 declare function greet(name: string): void;
-
-interface Person {
-  name: string;
-  age: number;
-  greet(name: string): void;
-}
-
-class Person {
-  name: string;
-  age: number;
-
-  constructor(name: string, age: number) {
-    this.name = name;
-    this.age = age;
-  }
-
-  greet(name: string): void {
-    console.log("Hello, " + name);
-
-  }
-}
-
-module Animal {
-  export class Dog {
-    bark() {
-      console.log("Woof!");
-    }
-  }
-}
-
-declare function reverse<T>(arr: T[]): T[];
 ```
-
-## 编译选项 
-
-TypeScript编译器有很多选项可以控制编译行为。
-
-```typescript
-// tsconfig.json
-{
-  "compilerOptions": {
-    "target": "es5",
-    "module": "commonjs",
-    "sourceMap": true,
-    "outDir": "dist"
-  },
-  "include": ["src/**/*"]
-}
-```
-
-- `target`：指定编译的目标版本，可以是"es3"、"es5"、"es6"、"es2015"、"es2016"、"es2017"、"es2018"、"es2019"、"es2020"、"esnext"。
-- `module`：指定模块代码生成方式，可以是"none"、"commonjs"、"amd"、"umd"、"system"、"es2015"、"es2020"、"esnext"。
-- `sourceMap`：是否生成sourceMap文件。
-- `outDir`：指定输出目录。
-- `include`：指定编译的文件列表。
-
-<hr/>
-<br/>
 
 # 注意事项
 ## 任意属性
