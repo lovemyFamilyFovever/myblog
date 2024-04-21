@@ -66,4 +66,3 @@ pnpm create vite
 选择`vue`项目
 
 ![vite-create](./imgs/vite_create_vue.png)
-
