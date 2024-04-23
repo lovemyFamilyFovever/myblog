@@ -425,7 +425,7 @@ console.log(arr); // [1, 2, 3]
 3. 该方法可以接受任意数量的参数。
 
 ## Array树形图知识图谱  {#array-pic}
-![Array](./imgs/jsArray.jpg) 
+![array](./MindMap/imgs/jsArray.jpg) 
 
 ## 数组应用实例  {#array-example}
 
