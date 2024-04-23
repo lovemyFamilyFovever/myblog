@@ -10,6 +10,7 @@
     "preview": "vitepress preview docs"
   },
   "dependencies": {
-    "markdown-it-custom-attrs": "^1.0.2"
+    "markdown-it-custom-attrs": "^1.0.2",
+    "tslib": "^2.6.2"
   }
 }
