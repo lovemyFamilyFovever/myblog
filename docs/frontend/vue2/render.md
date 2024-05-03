@@ -76,7 +76,7 @@ createElement(
   // {Object}
   // 一个与模板中 attribute 对应的数据对象。可选。
   {
-    // (详情见下一节)
+    //
   },
 
   // {String | Array}

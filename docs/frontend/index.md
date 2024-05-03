@@ -8,14 +8,14 @@ features:
     icon:
       src: /imgs/html.svg
     link: /frontend/html/   
-  - title: ES6-ES11
-    icon:
-      src: /imgs/js.svg
-    link: /frontend/javascript/ 
   - title: css
     icon:
       src: /imgs/css.svg
     link: /frontend/css/
+  - title: ES6-ES11
+    icon:
+      src: /imgs/js.svg
+    link: /frontend/javascript/ 
   - title: vue2
     icon:
       src: /imgs/vue.svg
@@ -28,6 +28,10 @@ features:
     icon:
       src: /imgs/vite.svg
     link: /frontend/vite/
+  - title: pinia
+    icon:
+      src: /imgs/pinia.svg
+    link: /frontend/pinia/
   - title: react
     icon:
       src: /imgs/react.svg

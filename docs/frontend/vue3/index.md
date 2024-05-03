@@ -67,32 +67,69 @@ pnpm create vite
 
 ![vite-create](./imgs/vite_create_vue.png)
 
-# vue-router 工作模式
+# Vue3相对于Vue2的一些变化
 
-路由有两种工作模式：
+ 1. 【性能的提升】
 
-1. `createWebHistory()` `history` 模式
-   
-   优点：`URL`更加美观，不带有`#`，更接近传统的网站`URL`。
+- 打包大小减少`41%`。
 
-   缺点：后期项目上线，需要服务端配合处理路径问题，否则刷新会有`404`错误。
+- 初次渲染快`55%`, 更新渲染快`133%`。
 
-   ```javascript
-   const router = createRouter({
-      history:createWebHistory(), //history模式
-      /******/
-    })
-   ```
+- 内存减少`54%`。
 
-2. `createWebHashHistory()` ` hash` 模式
+  
+ 2. 【 源码的升级】
 
-  优点：兼容性更好，因为不需要服务器端处理路径。
+- 使用`Proxy`代替`defineProperty`实现响应式。
 
-  缺点：`URL`带有`#`不太美观，且在`SEO`优化方面相对较差。刷新页面会导致页面回到顶部，比较适合内部系统。
+- 重写虚拟`DOM`的实现和`Tree-Shaking`。
 
-  ```javascript
-  const router = createRouter({
-    history:createWebHashHistory(), //hash模式
-    /******/
-  })
-```
+  
+ 3. 【拥抱TypeScript】
+
+- `Vue3`可以更好的支持`TypeScript`。
+
+  
+ 4. 【新的特性】
+
+     1. `Composition API`（组合`API`）：
+        - `setup`
+        - `ref`与`reactive`
+        - `computed`与`watch`
+        
+          ......
+        
+     2. 新的内置组件：
+        - `Fragment`
+        - `Teleport`
+        - `Suspense`
+
+          ......
+
+     3. 其他改变：
+        - 新的生命周期钩子
+        - `data` 选项应始终被声明为一个函数
+        - 移除`keyCode`支持作为` v-on` 的修饰符
+  
+ 生命周期整体分为四个阶段，分别是：**创建、挂载、更新、销毁**，每个阶段都有两个钩子，一前一后。
+
+* `Vue2`的生命周期
+
+> 创建阶段：`beforeCreate`、`created`
+>
+> 挂载阶段：`beforeMount`、`mounted`
+>
+> 更新阶段：`beforeUpdate`、`updated`
+>
+> 销毁阶段：`beforeDestroy`、`destroyed`
+
+* `Vue3`的生命周期
+
+> 创建阶段：`setup`
+>
+> 挂载阶段：`onBeforeMount`、`onMounted`
+>
+> 更新阶段：`onBeforeUpdate`、`onUpdated`
+>
+> 卸载阶段：`onBeforeUnmount`、`onUnmounted`
+

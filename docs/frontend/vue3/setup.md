@@ -9,8 +9,7 @@ head:
       content: Vue.js Vue3 Vue3搭建步骤 Vue3教程 Vue3入门 前端开发 前端框架 前端工程师 setup
 ---
 
-
-setup语法糖和原生Vue3的写法基本一致，但是使用setup语法糖可以让代码更加简洁，更加易读。
+# Vue3 setup语法糖
 
 ## 原生Vue3的写法
 
