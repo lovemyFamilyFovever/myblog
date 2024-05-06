@@ -33,7 +33,7 @@ function nav() {
         { text: "Node.js", link: "/frontend/node/" },
         { text: "TypeScript", link: "/frontend/TypeScript/" },
       ]
-    }
+    },
   ]
 }
 //左边导航栏
@@ -57,6 +57,31 @@ function sidebar() {
       items: [
         { text: "css基础", link: "/frontend/css/" },
         { text: "css常用代码片段", link: "/frontend/css/normalStyle" },
+      ]
+    }],
+    '/article/': [{
+      text: '只言片语',
+      items: [
+        { text: '片段', link: '/article/' },
+      ]
+    }, {
+      text: '转载文章',
+      items: [
+        { text: '如何成为一个自律的人', link: '/article/disciplinaryArticle' },
+        { text: '编程随想', link: '/article/programmingThinking' },
+        { text: '程序一点点地写,日子一天天地过', link: '/article/programWrite' },
+        { text: '为什么说软件开发是吃青春饭', link: '/article/softwareThinking' },
+        { text: '作为一个学渣，哥来告诉你如果你智商不够该怎么办', link: '/article/studyTips' },
+        { text: '十年学会编程', link: '/article/learnCodeTenYears' },
+      ]
+    }, {
+      text: '更好的自己',
+      items: [
+        { text: '如何提高记忆力', link: '/article/improveMemory' },
+      ]
+    }, {
+      text: '截图', items: [
+        { text: '懒洋洋的男人', link: '/article/lazyMan' },
       ]
     }],
     '/frontend/javascript/': [{
