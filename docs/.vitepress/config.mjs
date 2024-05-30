@@ -59,6 +59,13 @@ function sidebar() {
         { text: "css常用代码片段", link: "/frontend/css/normalStyle" },
       ]
     }],
+    '/frontend/html/': [{
+      text: "html",
+      items: [
+        { text: "hmtl基础", link: "/frontend/html/" },
+        { text: "html—bugs", link: "/frontend/html/bugs" },
+      ]
+    }],
     '/frontend/javascript/': [{
       text: 'javascript',
       items: [
