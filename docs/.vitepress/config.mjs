@@ -7,7 +7,7 @@ function nav() {
   return [
     { text: '主页', link: '/' },
     { text: 'blog', link: '/blog/home-page.md' },
-    { text: 'AI', link: '/ai/' },
+    { text: 'AI', link: '/artificialIntelligence/' },
     { text: '项目开发', link: '/project/' },
     { text: '收录文章', link: '/article/' },
     {
@@ -33,7 +33,7 @@ function nav() {
         { text: "Node.js", link: "/frontend/node/" },
         { text: "TypeScript", link: "/frontend/TypeScript/" },
       ]
-    }
+    },
   ]
 }
 //左边导航栏
