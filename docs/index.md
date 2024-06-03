@@ -13,10 +13,6 @@ hero:
       text: api文档
       link: /blog/api-examples
 features:
-  - title: vue
-    icon:
-      src: /imgs/frontend.svg
-    details: 前端框架
-    link: /frontend/vue/vue2/
+
 ---
 

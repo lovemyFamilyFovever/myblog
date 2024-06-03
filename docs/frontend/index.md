@@ -4,6 +4,10 @@ hero:
   name: "Frontend"
   tagline: 慢也好，步伐小也罢，是往前走就好。
 features:
+  - title: 前端学习路线
+    icon:
+      src: /imgs/learning-path.svg
+    link: /frontend/learning-path   
   - title: HTML
     icon:
       src: /imgs/html.svg
@@ -52,4 +56,8 @@ features:
     icon:
       src: /imgs/bugs.svg      
     link: /frontend/bugs/
+  - title: 前端优化
+    icon:
+      src: /imgs/optimization.svg      
+    link: /frontend/optimization/
 ---

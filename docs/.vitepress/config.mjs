@@ -12,7 +12,8 @@ function nav() {
     { text: '收录文章', link: '/article/' },
     {
       text: "前端", items: [
-        { text: "前端", link: "/frontend/" },
+        { text: "总览", link: "/frontend/" },
+        { text: "前端学习路线", link: "/frontend/learning-path.md" },
         {
           text: "基础", items: [
             { text: "html", link: "/frontend/html/" },
@@ -52,18 +53,27 @@ function sidebar() {
       ]
     }
     ],
-    '/frontend/css/': [{
-      text: "css",
+    '/frontend/optimization/': [{
+      text: "优化",
       items: [
-        { text: "css基础", link: "/frontend/css/" },
-        { text: "css常用代码片段", link: "/frontend/css/normalStyle" },
+        { text: "html优化", link: "/frontend/optimization/" },
+        { text: "7000字前端性能优化总结", link: "/frontend/optimization/frontend-7000.md" },
       ]
     }],
     '/frontend/html/': [{
       text: "html",
       items: [
-        { text: "hmtl基础", link: "/frontend/html/" },
-        { text: "html—bugs", link: "/frontend/html/bugs" },
+        { text: "html基础", link: "/frontend/html/" },
+        { text: "html-bugs", link: "/frontend/html/bugs" },
+      ]
+    }],
+    '/frontend/css/': [{
+      text: "css",
+      items: [
+        { text: "css基础", link: "/frontend/css/" },
+        { text: "css常用代码片段", link: "/frontend/css/normalStyle" },
+        { text: "BFC", link: "/frontend/css/BFC" },
+        { text: "css特殊选择符", link: "/frontend/css/selector" },
       ]
     }],
     '/frontend/javascript/': [{
@@ -73,6 +83,10 @@ function sidebar() {
         { text: 'Export导出模块', link: '/frontend/javascript/export' },
         { text: '基础api', link: '/frontend/javascript/basic-api' },
         { text: '深拷贝&浅拷贝', link: '/frontend/javascript/深拷贝浅拷贝' },
+        { text: 'js获取浏览器和设备相关宽高', link: '/frontend/javascript/window-innerwidth' },
+        { text: 'js实现图片懒加载', link: '/frontend/javascript/img-lazyload' },
+        { text: 'call()、apply()、bind()区别', link: '/frontend/javascript/call-apply-bind' },
+        { text: 'JS开发者应懂的33个概念', link: '/frontend/javascript/33-concepts' },
         {
           text: '思维导图', items: [
             { text: '编程风格和技巧', link: '/frontend/javascript/MindMap/codeStyle' },
@@ -82,7 +96,8 @@ function sidebar() {
             { text: '数组对象', link: '/frontend/javascript/MindMap/array' },
             { text: '字符串对象', link: '/frontend/javascript/MindMap/string' },
           ]
-        }
+        },
+
       ]
     }],
     '/frontend/vue2/': [{
