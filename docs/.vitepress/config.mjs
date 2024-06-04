@@ -105,11 +105,9 @@ function sidebar() {
       items: [
         { text: '项目搭建', link: '/frontend/vue2/' },
         { text: '查漏补缺', link: '/frontend/vue2/leak_filling' },
-        {
-          text: '渲染选项', items: [
-            { text: 'render', link: '/frontend/vue2/render' },
-          ]
-        }
+        { text: '渲染选项', link: '/frontend/vue2/render' },
+        { text: '组件通信', link: '/frontend/vue2/ComponentCommunication' },
+        { text: '手写Vue2响应式原理', link: '/frontend/vue2/vue2-reactive-principle' }
       ]
     }],
     '/frontend/vue3/': [{
