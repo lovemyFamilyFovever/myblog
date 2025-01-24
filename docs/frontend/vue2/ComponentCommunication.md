@@ -619,6 +619,6 @@ window.localStorage.removeItem（key）//删除数据
 
 # vuex
 
-![alt text](imgs/image-1.png)
+![alt text](images/image-1.png)
 
 

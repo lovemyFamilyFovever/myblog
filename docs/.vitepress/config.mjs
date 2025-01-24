@@ -1,6 +1,6 @@
 import { defineConfig } from 'vitepress'
 import mdItCustomAttrs from 'markdown-it-custom-attrs'
-const base = '/myblog/';
+const base = '/myblog/dist';
 
 //上方导航栏
 function nav() {
