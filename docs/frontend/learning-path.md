@@ -157,7 +157,7 @@ cookie验证与通信 、axios库的使用 代理、封装、拦截、合并、�
 
 通信加密策略、数据对称加密、数据非对称加密、RSA加密实践、MD5加密实践
 
-登录注册与鉴权机制、Authenticity认证、Token认证、JWT认证、session状态管理、 oauth认证
+登录注册与鉴权机制、Authenticity认证、Token认证、[JWT认证](./javascript/JWT.md)、session状态管理、 oauth认证
 
 ## RESTful接口设计
 
