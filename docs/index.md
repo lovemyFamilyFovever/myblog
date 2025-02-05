@@ -8,10 +8,7 @@ hero:
   actions:
     - theme: custom-button
       text: blog配置
-      link: /blog/home-page
-    - theme: alt
-      text: api文档
-      link: /blog/api-examples
+      link: /blog/config
 features:
 
 ---

@@ -1,15 +1,16 @@
 import { defineConfig } from 'vitepress'
 import mdItCustomAttrs from 'markdown-it-custom-attrs'
-const base = '/myblog/dist';
+const base = '/';
 
 //上方导航栏
 function nav() {
   return [
     { text: '主页', link: '/' },
-    { text: 'blog', link: '/blog/home-page.md' },
+    { text: 'blog', link: '/blog/config.md' },
     { text: 'AI', link: '/artificialIntelligence/' },
     { text: '项目开发', link: '/project/' },
     { text: '收录文章', link: '/article/' },
+    { text: '面试进阶', link: '/interview/' },
     {
       text: "前端", items: [
         { text: "总览", link: "/frontend/" },
@@ -35,6 +36,13 @@ function nav() {
         { text: "TypeScript", link: "/frontend/TypeScript/" },
       ]
     },
+    {
+      text: '后端', items: [
+        { text: '总览', link: '/backend/' },
+        { text: 'C#基础', link: '/backend/csharp' },
+        { text: 'Blazor基础', link: '/backend/blazor' },
+      ]
+    }
   ]
 }
 //左边导航栏
@@ -43,8 +51,8 @@ function sidebar() {
     '/blog/': [{
       text: '页面配置',
       items: [
-        { text: '主页', link: '/blog/home-page' },
-        { text: '自定义配置', link: '/blog/custom' }
+        { text: '站点配置', link: '/blog/config' },
+        { text: '注意事项', link: '/blog/note' },
       ]
     }, {
       text: '插件配置',
