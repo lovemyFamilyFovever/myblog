@@ -38,7 +38,6 @@ function nav() {
     },
     {
       text: '后端', items: [
-        { text: '总览', link: '/backend/' },
         { text: 'C#基础', link: '/backend/csharp' },
         { text: 'Blazor基础', link: '/backend/blazor' },
       ]
