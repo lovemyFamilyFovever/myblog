@@ -9,22 +9,28 @@ function nav() {
     { text: 'blog', link: '/blog/config.md' },
     { text: 'AI', link: '/artificialIntelligence/' },
     { text: '项目开发', link: '/project/' },
-    { text: '收录文章', link: '/article/' },
     { text: '面试进阶', link: '/interview/' },
+    {
+      text: '拾慧', items: [
+        { text: "文章摘录", link: '/article/fragment/' },
+        { text: "技巧收集", link: '/article/skill/' },
+      ]
+    },
     {
       text: "前端", items: [
         { text: "总览", link: "/frontend/" },
         { text: "前端学习路线", link: "/frontend/learning-path.md" },
         {
-          text: "基础", items: [
+          text: "", items: [
             { text: "html", link: "/frontend/html/" },
             { text: "css", link: "/frontend/css/" },
             { text: "javascript", link: "/frontend/javascript/" },
           ]
         },
         {
-          text: "Vue全家桶", items: [
+          text: "", items: [
             { text: "vue2", link: "/frontend/vue2/" },
+            { text: "vue2源码", link: "/frontend/VueSourceCode/" },
             { text: "vue3", link: "/frontend/vue3/" },
             { text: "vite", link: "/frontend/vite/" },
             { text: "pinia", link: "/frontend/pinia/" },
@@ -94,6 +100,7 @@ function sidebar() {
         { text: 'js实现图片懒加载', link: '/frontend/javascript/img-lazyload' },
         { text: 'call()、apply()、bind()区别', link: '/frontend/javascript/call-apply-bind' },
         { text: 'JS开发者应懂的33个概念', link: '/frontend/javascript/33-concepts' },
+        { text: '防抖与节流', link: '/frontend/javascript/debounce-throttle' },
         {
           text: '思维导图', items: [
             { text: '编程风格和技巧', link: '/frontend/javascript/MindMap/codeStyle' },
@@ -104,7 +111,6 @@ function sidebar() {
             { text: '字符串对象', link: '/frontend/javascript/MindMap/string' },
           ]
         },
-
       ]
     }],
     '/frontend/vue2/': [{
@@ -114,7 +120,14 @@ function sidebar() {
         { text: '查漏补缺', link: '/frontend/vue2/leak_filling' },
         { text: '渲染选项', link: '/frontend/vue2/render' },
         { text: '组件通信', link: '/frontend/vue2/ComponentCommunication' },
-        { text: '手写Vue2响应式原理', link: '/frontend/vue2/vue2-reactive-principle' }
+        { text: '手写Vue2响应式原理', link: '/frontend/vue2/vue2-reactive-principle' },
+      ]
+    }],
+
+    '/frontend/VueSourceCode/': [{
+      text: '',
+      items: [
+        { text: 'vue2源码解析', link: '/frontend/VueSourceCode' },
       ]
     }],
     '/frontend/vue3/': [{
@@ -125,39 +138,51 @@ function sidebar() {
         { text: '查漏补缺', link: '/frontend/vue3/leak_filling' },
       ]
     }],
-    '/frontend/node/': [
-      {
-        text: "Node.js",
-        items: [
-          { text: "node.js常见问题解决", link: "/frontend/node/" },
-        ]
-      }
-
-    ],
-    '/frontend/react/': [
-      {
-        text: 'react',
-        collapsed: true,
-        items: [
-          { text: '待补充', link: '/markdown-examples' },
-          { text: '待补充', link: '/api-examples' },
-          { text: '待补充', link: '/frontend/react/' }
-        ]
-      }
-    ],
-    '/frontend/TypeScript/': [
-      {
-        text: 'TypeScript',
-        collapsed: true,
-        items: [
-          { text: '介绍', link: '/frontend/TypeScript/' },
-          { text: '常见问题', link: '/frontend/TypeScript/bugs' },
-        ]
-      }
-    ]
+    '/frontend/node/': [{
+      text: "Node.js",
+      items: [
+        { text: "node.js常见问题解决", link: "/frontend/node/" },
+      ]
+    }],
+    '/frontend/react/': [{
+      text: 'react',
+      collapsed: true,
+      items: [
+        { text: '待补充', link: '/markdown-examples' },
+        { text: '待补充', link: '/api-examples' },
+        { text: '待补充', link: '/frontend/react/' }
+      ]
+    }],
+    '/frontend/TypeScript/': [{
+      text: 'TypeScript',
+      collapsed: true,
+      items: [
+        { text: '介绍', link: '/frontend/TypeScript/' },
+        { text: '常见问题', link: '/frontend/TypeScript/bugs' },
+      ]
+    }],
+    '/article/fragment/': [{
+      text: '文章摘录',
+      items: [
+        { text: '片段', link: '/article/part/' },
+        { text: '解决了这7个问题，我开始自律成瘾', link: '/article/part/article' },
+        { text: '怎样让记忆力变强', link: '/article/part/improveMemory' },
+        { text: '懒洋洋的男人', link: '/article/part/lazyMan' },
+        { text: '十年学会编程', link: '/article/part/learnCodeTenYears' },
+        { text: '编程随想', link: '/article/part/programmingThinking' },
+        { text: '程序一点点地写,日子一天天地过', link: '/article/part/programWrite' },
+        { text: '为什么说软件开发是吃青春饭?', link: '/article/part/softwareThinking' },
+        { text: '学习方法论', link: '/article/part/studyTips' }
+      ],
+    }],
+    '/article/skill/': [{
+      text: '技巧收集',
+      items: [
+        { text: 'windows命令行技巧', link: '/article/skill/' },
+      ]
+    }]
   }
 }
-
 //head标签  
 function head() {
   return [
