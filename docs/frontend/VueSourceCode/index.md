@@ -63,6 +63,7 @@ head:
 
   /**
    * Check if value is primitive.
+   * 检查数据类型是不是原始属性  string，number，symbol，boolean
    */
   function isPrimitive (value) {
     return (
@@ -74,27 +75,48 @@ head:
     )
   }
 
+  // primitive（原始值 / 原始类型） string number symbol boolean null undefined  bigint
+
+
   /**
    * Quick object check - this is primarily used to tell
    * Objects from primitive values when we know the value
    * is a JSON-compliant type.
+   * 快速对象检查
    */
   function isObject (obj) {
     return obj !== null && typeof obj === 'object'
   }
 
+  // raw（原始的、未处理的）  描述性词语 强调的是数据的状态或形式，而不是类型。
+
   /**
    * Get the raw type string of a value, e.g., [object Object].
    */
+  // 把 JavaScript 原生的 Object.prototype.toString 方法缓存到一个变量 _toString 中。
+  // 注意：_toString.call(value) 等价于 Object.prototype.toString.call(value)
+  // 用于后续进行精确的类型判断（防止被重写）
   var _toString = Object.prototype.toString;
 
+  // toRawType.md
+  // 这是 JS 中唯一能准确区分数组、正则、日期、Map 等对象类型的方法（typeof 是做不到的）。
+  /**
+ * 获取一个值的“原始类型”字符串
+ * 例如：Array、Object、Date、Null、Undefined、RegExp、Function 等
+ * 
+ * @param {*} value - 任意值
+ * @returns {string} 类型名称，如 "Array"、"Date"、"Null" 等
+ */
   function toRawType (value) {
-    return _toString.call(value).slice(8, -1)
+    // 调用原生 toString 获取 "[object Type]" 格式的字符串
+    // 然后截取中间的 "Type" 部分（去掉 "[object " 和 "]"）
+    return _toString.call(value).slice(8, -1);
   }
 
   /**
    * Strict object type check. Only returns true
    * for plain JavaScript objects.
+   * 严格的对象类型检查。只有当值是一个“纯 JavaScript 对象”时才返回 true。
    */
   function isPlainObject (obj) {
     return _toString.call(obj) === '[object Object]'
@@ -107,11 +129,20 @@ head:
   /**
    * Check if val is a valid array index.
    */
+
+  // isValidArrayIndex.md
+  // 判断一个值是否可以作为数组的有效索引
   function isValidArrayIndex (val) {
     var n = parseFloat(String(val));
     return n >= 0 && Math.floor(n) === n && isFinite(val)
   }
 
+
+  // isDef 是 Vue 内部的一个工具函数，意思是 "is defined"（已定义）。
+  // 如果 val 是 null 或 undefined，那么访问 val.then 会报错（Cannot read property 'then' of null）。
+  // 这是一个安全防护，防止后续属性访问出错。
+  // 检查一个值是否是 Promise 对象（或类 Promise 对象）
+  // 使用“鸭子类型”判断：只要有 .then 和 .catch 方法，就认为是 Promise
   function isPromise (val) {
     return (
       isDef(val) &&
