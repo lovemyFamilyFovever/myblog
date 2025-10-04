@@ -92,7 +92,9 @@ function sidebar() {
     '/frontend/javascript/': [{
       text: 'javascript',
       items: [
-        { text: 'Array用法', link: '/frontend/javascript/array' },
+        { text: '总览', link: '/frontend/javascript/index' },
+        { text: 'Array用法', link: '/frontend/javascript/Array' },
+        { text: 'String用法', link: '/frontend/javascript/String' },
         { text: 'Export导出模块', link: '/frontend/javascript/export' },
         { text: '基础api', link: '/frontend/javascript/basic-api' },
         { text: '深拷贝&浅拷贝', link: '/frontend/javascript/深拷贝浅拷贝' },
@@ -128,6 +130,14 @@ function sidebar() {
       text: '',
       items: [
         { text: 'vue2源码解析', link: '/frontend/VueSourceCode' },
+        {
+          text: '详解',
+          items: [
+            { text: 'toRawType', link: '/frontend/VueSourceCode/toRawType' },
+            { text: 'isValidArrayIndex', link: 'frontend/VueSourceCode/isValidArrayIndex' },
+            { text: 'isPromise', link: 'frontend/VueSourceCode/isPromise' }
+          ]
+        }
       ]
     }],
     '/frontend/vue3/': [{

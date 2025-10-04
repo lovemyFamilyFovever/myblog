@@ -154,6 +154,7 @@ head:
   /**
    * Convert a value to a string that is actually rendered.
    */
+  //将对象或者其他基本数据 变成一个 字符串
   function toString (val) {
     return val == null
       ? ''
@@ -166,6 +167,8 @@ head:
    * Convert an input value to a number for persistence.
    * If the conversion fails, return original string.
    */
+  // 字符串转数字，如果失败则返回字符串
+  // parseFloat() 函数解析一个参数（必要时先转换为字符串）并返回一个浮点数。
   function toNumber (val) {
     var n = parseFloat(val);
     return isNaN(n) ? val : n
@@ -175,6 +178,10 @@ head:
    * Make a map and return a function for checking if a key
    * is in that map.
    */
+  // 用来快速判断某个字符串是否属于一个“白名单”集合。
+  // Object.create() 静态方法以一个现有对象作为原型，创建一个新对象。
+  // 不用hasOwnProperty 是因为hasOwnProperty 会被覆盖（原型污染）;性能更差
+  // map 没有原型，任何属性查找都只在自身上进行，完全不受原型链影响。
   function makeMap (
     str,
     expectsLowerCase
@@ -184,6 +191,7 @@ head:
     for (var i = 0; i < list.length; i++) {
       map[list[i]] = true;
     }
+    // 返回一个函数，用于检查某个值是否在 map 中
     return expectsLowerCase
       ? function (val) { return map[val.toLowerCase()]; }
       : function (val) { return map[val]; }
@@ -192,11 +200,13 @@ head:
   /**
    * Check if a tag is a built-in tag.
    */
+  //  检查标记是否为内置标记。
   var isBuiltInTag = makeMap('slot,component', true);
 
   /**
    * Check if an attribute is a reserved attribute.
    */
+  // 检查一个属性是否为保留属性。
   var isReservedAttribute = makeMap('key,ref,slot,slot-scope,is');
 
   /**
