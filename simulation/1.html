@@ -1,36 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 
-    <script src="vue.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
 </head>
+
 <body>
     <h2>测试</h2>
 
     <div id="app">
 
         {{ message }}
+        <hr>
+
+        <button @click="addNumber">{{number}}</button>
     </div>
 </body>
 
 <script>
 
-new Vue({
-    el: '#app',
-    data: {
-        message: 'Hello Vue!'
+    new Vue({
+        el: '#app',
+        data: {
+            number: 1,
+            message: 'Hello Vue!'
+        },
+        methods: {
+            addNumber() {
+                this.number++;
+            }
+        }
+
+    })
+
+
+    function Person(name, age) {
+        this.name = name;
+        this.age = age;
     }
-})
 
 
-function Person(name, age) {
-    this.name = name;
-    this.age = age;
-}
+
+    function cached(fn) {
+        var cache = Object.create(null);
+        return function cachedFn(str) {
+            var hit = cache[str];
+            return hit || (cache[str] = fn(str));
+        }
+    }
+
+    // 假设我们有一个“转大写”的函数
+    function toUpper(str) {
+        console.log('执行了 toUpper:', str); // 用于观察是否真的执行了
+        return str.toUpperCase();
+    }
+
+    // 用 cached 包装它，得到一个“带缓存的版本”
+    var cachedToUper = cached(toUpper);
 
 
+    cachedToUper('hello');
+
+
+    
 </script>
+
 </html>

@@ -287,6 +287,7 @@ head:
    * hyphenate('helloWorld');        // 'hello-world'
    * hyphenate('componentName');     // 'component-name'
    * hyphenate('someVeryLongName');  // 'some-very-long-name'
+   * $1 是 replace 中的替换变量，表示第一个捕获组的内容,在匹配到的大写字母前加一个 -
    */
   var hyphenateRE = /\B([A-Z])/g;
   var hyphenate = cached(function (str) {
@@ -299,6 +300,8 @@ head:
    * since native bind is now performant enough in most browsers.
    * But removing it would mean breaking code that was able to run in
    * PhantomJS 1.x, so this must be kept for backward compatibility.
+   * bind 的简易 polyfill（填充），用于在不支持 Function.prototype.bind 的旧环境中，
+   * 手动实现 bind 的功能。
    */
 
   /* istanbul ignore next */
