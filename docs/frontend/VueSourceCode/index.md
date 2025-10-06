@@ -232,17 +232,42 @@ head:
   /**
    * Create a cached version of a pure function.
    */
-  function cached (fn) {
+  /**
+   * 创建一个函数的缓存版本（记忆化）
+   * 适用于纯函数：相同输入 → 相同输出
+   * 
+   * @param {Function} fn - 要缓存的纯函数，接受一个字符串参数，返回任意类型
+   * @returns {Function} 缓存版本的函数
+   */
+  function cached(fn) {
+    // 创建一个纯净的缓存对象（无原型链）
     var cache = Object.create(null);
-    return (function cachedFn (str) {
+
+    // 返回一个带缓存逻辑的包装函数
+    return function cachedFn(str) {
+      // 尝试从缓存中读取结果
       var hit = cache[str];
-      return hit || (cache[str] = fn(str))
-    })
+      
+      // 如果缓存命中，直接返回
+      // 否则执行原函数，将结果存入缓存并返回
+      return hit || (cache[str] = fn(str));
+    };
   }
 
+  
   /**
    * Camelize a hyphen-delimited string.
+   * 将连字符分隔的字符串转换为驼峰式大小写。
+   * camelize = cachedFn(str)=>{ 
+   * var hit = cache[str];
+   * return hit || (cache[str] = fn(str))}
+
+     调用一个camelize 存一个建进来 调用两次 如果建一样就返回 hit
+
+     横线-的转换成驼峰写法
+     可以让这样的的属性 v-model 变成 vModel
    */
+  
   var camelizeRE = /-(\w)/g;
   var camelize = cached(function (str) {
     return str.replace(camelizeRE, function (_, c) { return c ? c.toUpperCase() : ''; })
@@ -250,6 +275,7 @@ head:
 
   /**
    * Capitalize a string.
+   *  将首字母变成大写。
    */
   var capitalize = cached(function (str) {
     return str.charAt(0).toUpperCase() + str.slice(1)
@@ -257,6 +283,10 @@ head:
 
   /**
    * Hyphenate a camelCase string.
+   * 驼峰命名 ↔ 短横线命名”的双向转换
+   * hyphenate('helloWorld');        // 'hello-world'
+   * hyphenate('componentName');     // 'component-name'
+   * hyphenate('someVeryLongName');  // 'some-very-long-name'
    */
   var hyphenateRE = /\B([A-Z])/g;
   var hyphenate = cached(function (str) {

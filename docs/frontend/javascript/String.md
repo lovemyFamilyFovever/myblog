@@ -232,6 +232,26 @@ console.log(result); // "Hello JavaScript"
 3. 第二个参数是替换文本或函数
 4. 只替换第一个匹配项（除非使用全局正则表达式）
 
+
+✅ 为什么写成 (_, c)？
+
+```js
+function (_, c) { return c ? c.toUpperCase() : ''; }
+```
+
+
+
+```js
+'John-Doe-30'.replace(/-(\w)-(\w)/g, function(match, p1, p2) {
+  console.log(match); // '-D-3'
+  console.log(p1);    // 'D'
+  console.log(p2);    // '3'
+  return p1 + p2;     // 返回 'D3'
+});
+// 结果：'JohnD30'
+```
+
+
 ### 16. String.prototype.replaceAll() {#string-replaceall}
 
 ```

@@ -103,6 +103,7 @@ function sidebar() {
         { text: 'call()、apply()、bind()区别', link: '/frontend/javascript/call-apply-bind' },
         { text: 'JS开发者应懂的33个概念', link: '/frontend/javascript/33-concepts' },
         { text: '防抖与节流', link: '/frontend/javascript/debounce-throttle' },
+        { text: 'IIFE', link: '/frontend/javascript/IIFE' },
         {
           text: '思维导图', items: [
             { text: '编程风格和技巧', link: '/frontend/javascript/MindMap/codeStyle' },
@@ -135,7 +136,8 @@ function sidebar() {
           items: [
             { text: 'toRawType', link: '/frontend/VueSourceCode/toRawType' },
             { text: 'isValidArrayIndex', link: 'frontend/VueSourceCode/isValidArrayIndex' },
-            { text: 'isPromise', link: 'frontend/VueSourceCode/isPromise' }
+            { text: 'isPromise', link: 'frontend/VueSourceCode/isPromise' },
+            { text: 'cache', link: 'frontend/VueSourceCode/cache' }
           ]
         }
       ]
