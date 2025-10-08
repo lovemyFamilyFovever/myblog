@@ -104,6 +104,7 @@ function sidebar() {
         { text: 'JS开发者应懂的33个概念', link: '/frontend/javascript/33-concepts' },
         { text: '防抖与节流', link: '/frontend/javascript/debounce-throttle' },
         { text: 'IIFE', link: '/frontend/javascript/IIFE' },
+        {text:'while',link:'/frontend/javascript/while'},
         {
           text: '思维导图', items: [
             { text: '编程风格和技巧', link: '/frontend/javascript/MindMap/codeStyle' },
@@ -128,7 +129,7 @@ function sidebar() {
     }],
 
     '/frontend/VueSourceCode/': [{
-      text: '',
+      text: 'vue2源码解析',
       items: [
         { text: 'vue2源码解析', link: '/frontend/VueSourceCode' },
         {
@@ -137,7 +138,8 @@ function sidebar() {
             { text: 'toRawType', link: '/frontend/VueSourceCode/toRawType' },
             { text: 'isValidArrayIndex', link: 'frontend/VueSourceCode/isValidArrayIndex' },
             { text: 'isPromise', link: 'frontend/VueSourceCode/isPromise' },
-            { text: 'cache', link: 'frontend/VueSourceCode/cache' }
+            { text: 'cache', link: 'frontend/VueSourceCode/cache' },
+            { text: 'toArray', link: 'frontend/VueSourceCode/toArray' }
           ]
         }
       ]

@@ -304,6 +304,7 @@ head:
    * 手动实现 bind 的功能。
    */
 
+  // call()、apply()、bind() 都是用来重定义 this 这个对象的！
   /* istanbul ignore next */
   function polyfillBind (fn, ctx) {
     function boundFn (a) {
@@ -329,6 +330,11 @@ head:
 
   /**
    * Convert an Array-like object to a real Array.
+   * 将假的数组转换成真的数组
+   * arguments 函数内的 arguments 对象
+   * NodeList document.querySelectorAll('div') 返回的节点列表
+   * HTMLCollection document.getElementsByTagName('p')
+   * 自定义类数组{ 0: 'a', 1: 'b', length: 2 }
    */
   function toArray (list, start) {
     start = start || 0;
