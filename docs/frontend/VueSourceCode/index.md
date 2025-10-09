@@ -34,12 +34,6 @@ head:
 }(this, function () {
 
 'use strict';
-
--  **typeof** 运算符返回一个字符串，表示操作数的类型。
--  这个**self**就是window对象
-
-  /*  */
-
 //Object.freeze()阻止修改现有属性的特性和值，并阻止添加新属性。
   var emptyObject = Object.freeze({});
 
