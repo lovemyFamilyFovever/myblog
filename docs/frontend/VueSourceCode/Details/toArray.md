@@ -1,6 +1,10 @@
+
+
+# toArray
+
 ### 🔍 原始代码
 
-```
+```js
 /**
  * Convert an Array-like object to a real Array.
  */
@@ -45,7 +49,7 @@ function toArray (list, start) {
 
 ❌ 不行！类数组对象**不能使用数组方法**：
 
-```
+```js
 function demo() {
   // arguments 是类数组，不是真数组
   arguments.map(x => x); // ❌ 报错：arguments.map is not a function
@@ -54,7 +58,7 @@ function demo() {
 
 ✅ 所以需要先转成真数组：
 
-```
+```js
 function demo() {
   var args = toArray(arguments);
   args.map(x => x); // ✅ 成功
@@ -65,7 +69,7 @@ function demo() {
 
 ## ✅ 3. 代码逐行解析
 
-```
+```js
 function toArray (list, start) {
   start = start || 0;                    // 设置起始索引，默认 0
   var i = list.length - start;           // 计算要复制的元素个数
@@ -124,7 +128,7 @@ function toArray (list, start) {
 
 #### 对比传统 `for` 循环：
 
-```
+```js
 // 传统方式
 for (var i = 0; i < len; i++) {
   ret[i] = list[i + start];
@@ -156,7 +160,7 @@ while (i--) {
 
 ### 🧩 示例 1：处理 `arguments`
 
-```
+```js
 function logArgs() {
   var args = toArray(arguments, 1); // 跳过第一个参数
   console.log('Rest args:', args);
@@ -168,7 +172,7 @@ logArgs('ignore', 'a', 'b', 'c');
 
 ### 🧩 示例 2：转换 `NodeList`
 
-```
+```js
 var divs = document.querySelectorAll('div');
 var divArray = toArray(divs);
 divArray.forEach(div => div.classList.add('active'));
@@ -180,7 +184,7 @@ divArray.forEach(div => div.classList.add('active'));
 
 ### 🆚 现代 ES6+ 写法
 
-```
+```js
 // 更简洁
 const toArray = (list, start = 0) => [...list].slice(start);
 
@@ -206,7 +210,7 @@ const toArray = (list, start = 0) => Array.from(list).slice(start);
 
 ### 🧩 1. `$emit` 传递参数
 
-```
+```js
 vm.$emit('event', a, b, c);
 // 内部可能用 toArray(arguments, 1) 获取所有参数
 ```

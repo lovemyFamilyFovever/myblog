@@ -93,11 +93,12 @@ function sidebar() {
       text: 'javascript',
       items: [
         { text: '总览', link: '/frontend/javascript/index' },
-        { text: 'Array用法', link: '/frontend/javascript/Array' },
-        { text: 'String用法', link: '/frontend/javascript/String' },
+        { text: 'Array', link: '/frontend/javascript/array' },
+        { text: 'String', link: '/frontend/javascript/String' },
+        { text: 'Object', link: '/frontend/javascript/Object' },
+        { text: '深拷贝&浅拷贝', link: '/frontend/javascript/深拷贝浅拷贝' },
         { text: 'Export导出模块', link: '/frontend/javascript/export' },
         { text: '基础api', link: '/frontend/javascript/basic-api' },
-        { text: '深拷贝&浅拷贝', link: '/frontend/javascript/深拷贝浅拷贝' },
         { text: 'js获取浏览器和设备相关宽高', link: '/frontend/javascript/window-innerwidth' },
         { text: 'js实现图片懒加载', link: '/frontend/javascript/img-lazyload' },
         { text: 'call()、apply()、bind()区别', link: '/frontend/javascript/call-apply-bind' },
@@ -129,17 +130,19 @@ function sidebar() {
     }],
 
     '/frontend/VueSourceCode/': [{
-      text: 'vue2源码解析',
+      text: 'vue2',
       items: [
-        { text: 'vue2源码解析', link: '/frontend/VueSourceCode' },
+        { text: '源码解析', link: '/frontend/VueSourceCode/index' },
         {
           text: '详解',
           items: [
-            { text: 'toRawType', link: '/frontend/VueSourceCode/toRawType' },
-            { text: 'isValidArrayIndex', link: 'frontend/VueSourceCode/isValidArrayIndex' },
-            { text: 'isPromise', link: 'frontend/VueSourceCode/isPromise' },
-            { text: 'cache', link: 'frontend/VueSourceCode/cache' },
-            { text: 'toArray', link: 'frontend/VueSourceCode/toArray' }
+            { text: 'toRawType', link: '/frontend/VueSourceCode/Details/toRawType' },
+            { text: 'isValidArrayIndex', link: '/frontend/VueSourceCode/Details/isValidArrayIndex' },
+            { text: 'isPromise', link: '/frontend/VueSourceCode/Details/isPromise' },
+            { text: 'cache', link: '/frontend/VueSourceCode/Details/cache' },
+            { text: 'toArray', link: '/frontend/VueSourceCode/Details/toArray' },
+            { text: 'genStaticKeys', link: '/frontend/VueSourceCode/Details/genStaticKeys' },
+            { text: 'AST', link: '/frontend/VueSourceCode/Details/AST' }
           ]
         }
       ]

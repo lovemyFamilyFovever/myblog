@@ -1,13 +1,3 @@
----
-outline: [1,3]
-head:
-  - - meta
-    - name: description
-      content: vue2 源码解析
-  - - meta
-    - name: keywords
-      content: Vue.js Vue2 源码解析 Vue2.0 Vue2.x 前端开发 前端框架 前端工程师
----
 
 ``` javascript
 
@@ -342,6 +332,19 @@ head:
 
   /**
    * Mix properties into target object.
+   * 把 _from 对象的所有可枚举属性，复制到 to 对象上。
+   * 【浅拷贝】
+   */
+  // 为啥不用Object.assign(to, from)，因为Object.assign是ES6新特性，不兼容旧版环境
+  // 同理还有to = { ...to, ...from }也是ES6新特性，不兼容旧版环境
+  // extend(to, from)是Vue 自定义，兼容老环境
+
+  /**Vue 3 已使用
+   *  const merged = Object.assign({}, defaults, options);
+   * 浅合并，不修改原对象
+   * 
+   * const merged = { ...defaults, ...options };
+   * 或使用展开语法（更现代）
    */
   function extend (to, _from) {
     for (var key in _from) {
@@ -352,6 +355,15 @@ head:
 
   /**
    * Merge an Array of Objects into a single Object.
+   * 把一个对象数组中的所有对象，依次合并到一个空对象 res 中，返回合并后的对象。
+   * var arr = [
+   *  { a: 1, b: 2 },
+   *  { b: 3, c: 4 },
+   *  { c: 5, d: 6 }
+   * ];
+   * var result = toObject(arr);
+   * console.log(result);
+   * { a: 1, b: 3, c: 5, d: 6 }
    */
   function toObject (arr) {
     var res = {};
@@ -369,11 +381,21 @@ head:
    * Perform no operation.
    * Stubbing args to make Flow happy without leaving useless transpiled code
    * with ...rest (https://flow.org/blog/2017/05/07/Strict-Function-Call-Arity/).
+   * 什么都不做。它是一个“空函数”，调用它不会产生任何副作用。
+   * 空操作函数，用于默认值、占位、避免 undefined 调用
    */
+  /**
+   * 在 Vue 中的典型用途
+   * 1: 默认生命周期钩子
+   * var defaultHook = { created: noop, mounted: noop, ... }
+   * 2:$destroy 后的回调
+   * 组件销毁后，某些回调应为空函数，避免内存泄漏。
+  */
   function noop (a, b, c) {}
 
   /**
    * Always return false.
+   * 恒假函数（Constant False Function）
    */
   var no = function (a, b, c) { return false; };
 
@@ -386,7 +408,11 @@ head:
 
   /**
    * Generate a string containing static keys from compiler modules.
+   * 从一组编译器模块中提取所有 staticKeys，合并成一个逗号分隔的字符串。
+   *  [{ staticKeys:1},{staticKeys:2},{staticKeys:3}]
+   *  接数组对象中的 staticKeys key值，连接成一个字符串 str=‘1,2,3’
    */
+  // 详情参考genStaticKeys.md和AST.md
   function genStaticKeys (modules) {
     return modules.reduce(function (keys, m) {
       return keys.concat(m.staticKeys || [])
