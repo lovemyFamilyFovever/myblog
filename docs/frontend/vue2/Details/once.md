@@ -91,6 +91,36 @@ user.login('google');   // （无输出）
 
 ------
 
+
+
+### 🔍 关键点：`arguments` 属于**当前函数**（即 `return` 的那个匿名函数）
+
+- `arguments` 是一个**类数组对象**，它存在于**每一个普通函数**中
+- 它记录的是**该函数被调用时传入的实际参数**
+
+
+
+```js
+function once (fn) {
+  var called = false;
+  return function () {
+    console.log('包装函数的 arguments:', arguments);
+    if (!called) {
+      called = true;
+      fn.apply(this, arguments);
+    }
+  }
+}
+
+function greet(name, age) {
+  console.log('Hello ' + name + ', you are ' + age + ' years old');
+}
+
+var greetOnce = once(greet);
+
+greetOnce('Alice', 25);
+```
+
 ## ✅ 4. 在 Vue 中的典型用途
 
 ### 🧩 1. **生命周期钩子的“只执行一次”逻辑**
@@ -212,15 +242,7 @@ Vue 的 `once` **不缓存返回值**，只保证执行一次。
 
 ### ⚠️ 1. `this` 上下文必须正确
 
-js
-
-编辑
-
-
-
-
-
-```
+```js
 const obj = {
   name: 'Bob',
   greet: once(function() {
@@ -236,15 +258,7 @@ fn(); // "Hello, undefined" ❌ this 丢失
 
 ### ⚠️ 2. 不适用于异步函数的“并发调用”
 
-js
-
-编辑
-
-
-
-
-
-```
+```js
 const asyncInit = once(async () => {
   console.log('Start');
   await delay(1000);
