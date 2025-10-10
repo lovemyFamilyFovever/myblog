@@ -422,7 +422,17 @@
   /**
    * Check if two values are loosely equal - that is,
    * if they are plain objects, do they have the same shape?
+   * 判断两个值是否松散相等（结构一致）
+   * 基本类型：转成字符串后相等
+   * 数组：长度相同，每个元素松散相等
+   * 对象：键相同，每个值松散相等
+   * 日期：时间戳相等
+   * 其他：不相等
+   * 它比 === 更宽松，比 == 更安全，是 Vue 实现响应式依赖追踪和变化检测的核心。
+   * 
+   * looseEqual.md
    */
+  
   function looseEqual (a, b) {
     if (a === b) { return true }
     var isObjectA = isObject(a);
@@ -462,16 +472,39 @@
    * Return the first index at which a loosely equal value can be
    * found in the array (if value is a plain object, the array must
    * contain an object of the same shape), or -1 if it is not present.
+   * 在数组中查找一个“松散相等”的值的索引，找不到返回 -1
+   * 相当于：arr.indexOf(val)  // 但使用的是 looseEqual 而不是 ===
+   * 
+   * 原生indexOf有局限性，
+   * 1：对象永远找不到
+   * var arr = [{ name: 'Vue' }, { name: 'React' }];
+   * arr.indexOf({ name: 'Vue' }); // -1
+   * 2.数组也找不到
+   * var arr = [[1, 2], [3, 4]];
+   * arr.indexOf([1, 2]); // -1 ❌
+   * 3.日期对象也失败
+   * var arr = [new Date('2020-01-01')];
+   * arr.indexOf(new Date('2020-01-01')); // -1 ❌
+   * 
    */
   function looseIndexOf (arr, val) {
     for (var i = 0; i < arr.length; i++) {
-      if (looseEqual(arr[i], val)) { return i }
+      if (looseEqual(arr[i], val)) { 
+        return i 
+      }
     }
     return -1
   }
 
   /**
    * Ensure a function is called only once.
+   * 它用闭包锁住执行权限，确保关键逻辑像“按下一次就弹出的按钮”一样，只生效一次，永不误触。
+   * 
+   * 为什么不用call或者bind
+   * 用call的话需要使用解构函数fn.call(this, ...arguments);旧版浏览器不支持
+   * 用bind需要fn.bind(this, ...arguments)();每次调用都创建新函数（性能差），也会创建多余的函数
+   * 
+   * apply 是唯一一个能“直接、立即、无副作用”地转发 arguments 的方法。
    */
   function once (fn) {
     var called = false;

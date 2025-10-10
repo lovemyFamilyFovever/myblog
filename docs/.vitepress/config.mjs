@@ -30,7 +30,6 @@ function nav() {
         {
           text: "", items: [
             { text: "vue2", link: "/frontend/vue2/" },
-            { text: "vue2源码", link: "/frontend/VueSourceCode/" },
             { text: "vue3", link: "/frontend/vue3/" },
             { text: "vite", link: "/frontend/vite/" },
             { text: "pinia", link: "/frontend/pinia/" },
@@ -121,28 +120,23 @@ function sidebar() {
     '/frontend/vue2/': [{
       text: 'vue2',
       items: [
-        { text: '项目搭建', link: '/frontend/vue2/' },
-        { text: '查漏补缺', link: '/frontend/vue2/leak_filling' },
-        { text: '渲染选项', link: '/frontend/vue2/render' },
-        { text: '组件通信', link: '/frontend/vue2/ComponentCommunication' },
+        { text: '项目搭建', link: '/frontend/vue2' },
+        { text: '查漏补缺vue问答', link: '/frontend/vue2/leak_filling' },
         { text: '手写Vue2响应式原理', link: '/frontend/vue2/vue2-reactive-principle' },
-      ]
-    }],
-
-    '/frontend/VueSourceCode/': [{
-      text: 'vue2',
-      items: [
-        { text: '源码解析', link: '/frontend/VueSourceCode/index' },
+        { text: '组件通信', link: '/frontend/vue2/ComponentCommunication' },
+        { text: '🌟源码解析', link: '/frontend/vue2/sourcecode' },
         {
           text: '详解',
           items: [
-            { text: 'toRawType', link: '/frontend/VueSourceCode/Details/toRawType' },
-            { text: 'isValidArrayIndex', link: '/frontend/VueSourceCode/Details/isValidArrayIndex' },
-            { text: 'isPromise', link: '/frontend/VueSourceCode/Details/isPromise' },
-            { text: 'cache', link: '/frontend/VueSourceCode/Details/cache' },
-            { text: 'toArray', link: '/frontend/VueSourceCode/Details/toArray' },
-            { text: 'genStaticKeys', link: '/frontend/VueSourceCode/Details/genStaticKeys' },
-            { text: 'AST', link: '/frontend/VueSourceCode/Details/AST' }
+            { text: 'render渲染选项', link: '/frontend/vue2/Details/render' },
+            { text: 'toRawType', link: '/frontend/vue2/Details/toRawType' },
+            { text: 'isValidArrayIndex', link: '/frontend/vue2/Details/isValidArrayIndex' },
+            { text: 'isPromise', link: '/frontend/vue2/Details/isPromise' },
+            { text: 'cache', link: '/frontend/vue2/Details/cache' },
+            { text: 'toArray', link: '/frontend/vue2/Details/toArray' },
+            { text: 'genStaticKeys', link: '/frontend/vue2/Details/genStaticKeys' },
+            { text: 'AST', link: '/frontend/vue2/Details/AST' },
+            { text: 'looseEqual', link: '/frontend/vue2/Details/looseEqual' }
           ]
         }
       ]

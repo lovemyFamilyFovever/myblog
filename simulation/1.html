@@ -73,6 +73,28 @@
     console.log(c); // { x: 1, y: 2, z: 3 }
 
 
+
+    function once(fn) {
+        var called = false;
+        return function () {
+            console.log('包装函数的 arguments:', arguments);
+            if (!called) {
+                called = true;
+                fn.apply(this, arguments);
+            }
+        }
+    }
+
+    function greet(name, age) {
+        console.log('Hello ' + name + ', you are ' + age + ' years old');
+    }
+
+    var greetOnce = once(greet);
+
+    greetOnce('Alice', 25);
+
+
+
 </script>
 
 </html>
