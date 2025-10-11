@@ -136,7 +136,8 @@ function sidebar() {
             { text: 'toArray', link: '/frontend/vue2/Details/toArray' },
             { text: 'genStaticKeys', link: '/frontend/vue2/Details/genStaticKeys' },
             { text: 'AST', link: '/frontend/vue2/Details/AST' },
-            { text: 'looseEqual', link: '/frontend/vue2/Details/looseEqual' }
+            { text: 'looseEqual', link: '/frontend/vue2/Details/looseEqual' },
+            { text: 'constant', link: '/frontend/vue2/Details/constant' }
           ]
         }
       ]

@@ -516,14 +516,19 @@
     }
   }
 
+
+  // 常量定义  constant.md
+  // DOM 属性名常量，用于标记一个组件是否是由**服务器端渲染（SSR）**生成的。
   var SSR_ATTR = 'data-server-rendered';
 
+  // 三种可注册的全局资源类型（Asset Types）
   var ASSET_TYPES = [
     'component',
     'directive',
     'filter'
   ];
 
+  // 生命周期钩子
   var LIFECYCLE_HOOKS = [
     'beforeCreate',
     'created',
@@ -545,6 +550,7 @@
 
   var config = ({
     /**
+     * strategies： 英/ˈstrætɪdʒiz/  n.战略；策略；规划；行动计划；部署
      * Option merge strategies (used in core/util/options)
      */
     // $flow-disable-line
