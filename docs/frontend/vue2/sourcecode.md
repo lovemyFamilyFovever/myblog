@@ -529,70 +529,74 @@
   ];
 
   // 生命周期钩子
-  var LIFECYCLE_HOOKS = [
-    'beforeCreate',
-    'created',
-    'beforeMount',
-    'mounted',
-    'beforeUpdate',
-    'updated',
-    'beforeDestroy',
-    'destroyed',
-    'activated',
-    'deactivated',
-    'errorCaptured',
-    'serverPrefetch'
-  ];
-
-  /*  */
-
-
+    var LIFECYCLE_HOOKS = [
+        'beforeCreate',  //  生命周期 开始实例化 vue 指令
+        'created',       //生命周期   结束实例化完 vue 指令
+        'beforeMount',  //生命周期 开始渲染虚拟dom ，挂载event 事件 指令
+        'mounted',      //生命周期  渲染虚拟dom ，挂载event 事件 完 指令
+        'beforeUpdate',  //生命周期  开始更新wiew 数据指令
+        'updated',       //生命周期  结束更新wiew 数据指令
+        'beforeDestroy', //生命周期  开始销毁 new 实例 指令
+        'destroyed',     //生命周期  结束销毁 new 实例 指令
+        'activated',   //keep-alive组件激活时调用。
+        'deactivated',  //deactivated keep-alive组件停用时调用。
+        'errorCaptured'  // 具有此钩子的组件捕获其子组件树（不包括其自身）中的所有错误（不包括在异步回调中调用的那些）。
+    ];
 
   var config = ({
     /**
      * strategies： 英/ˈstrætɪdʒiz/  n.战略；策略；规划；行动计划；部署
      * Option merge strategies (used in core/util/options)
+     * 定义选项合并策略（如 data、created、components 如何合并）。
      */
     // $flow-disable-line
     optionMergeStrategies: Object.create(null),
 
     /**
      * Whether to suppress warnings.
+     * 是否静默模式——是否关闭 Vue 的所有日志和警告。
      */
     silent: false,
 
     /**
      * Show production mode tip message on boot?
+     * 是否在开发版本下显示“生产环境提示”。
      */
     productionTip: "development" !== 'production',
 
     /**
      * Whether to enable devtools
+     * 是否允许Vue DevTools（浏览器调试工具）连接。
      */
     devtools: "development" !== 'production',
 
     /**
      * Whether to record perf
+     * 是否启用性能追踪（仅限开发环境）。
      */
     performance: false,
 
     /**
      * Error handler for watcher errors
+     * 全局错误处理器，捕获组件内未处理的错误
      */
     errorHandler: null,
 
     /**
      * Warn handler for watcher warns
+     * 全局警告处理器，拦截 Vue 的所有 warn 输出。
      */
     warnHandler: null,
 
     /**
      * Ignore certain custom elements
+     * 指定忽略的自定义元素，防止 Vue 尝试解析它们。
      */
     ignoredElements: [],
 
     /**
      * Custom user key aliases for v-on
+     * 自定义键盘码别名，用于 v-on:keyup。
      */
     // $flow-disable-line
     keyCodes: Object.create(null),
@@ -600,45 +604,63 @@
     /**
      * Check if a tag is reserved so that it cannot be registered as a
      * component. This is platform-dependent and may be overwritten.
+     * 判断一个标签是否是平台保留标签（如 <div>、<p>），不能注册为组件。
      */
     isReservedTag: no,
 
     /**
      * Check if an attribute is reserved so that it cannot be used as a component
      * prop. This is platform-dependent and may be overwritten.
+     * 判断一个属性是否是保留属性（如 key、ref、slot），不能作为 prop 使用。
      */
     isReservedAttr: no,
 
     /**
      * Check if a tag is an unknown element.
      * Platform-dependent.
+     * 判断一个标签是否是未知元素（用于警告提示）。
      */
     isUnknownElement: no,
 
     /**
      * Get the namespace of an element
+     * 获取标签的命名空间（如 SVG、MathML）。
      */
     getTagNamespace: noop,
 
     /**
      * Parse the real tag name for the specific platform.
+     * 解析平台特定的标签名（如 Weex 中的 <text> → <span>）。
      */
     parsePlatformTagName: identity,
 
     /**
      * Check if an attribute must be bound using property, e.g. value
      * Platform-dependent.
+     * 判断一个属性是否必须使用 prop 绑定，而不是 attribute。
+     * 
+     * mustUseProp('input', 'value') // true
+     * mustUseProp('input', 'placeholder') // false
+     * 
+     * value 必须用 .prop 绑定，否则双向绑定失效
+     * placeholder 可以用 attribute
      */
     mustUseProp: no,
 
     /**
      * Perform updates asynchronously. Intended to be used by Vue Test Utils
      * This will significantly reduce performance if set to false.
+     * 
+     * 是否异步更新组件。
+     * ⚠️ 注意
+     * 设为 false 会严重降低性能
+     * Vue Test Utils 用于同步断言
      */
     async: true,
 
     /**
      * Exposed for legacy reasons
+     * 暴露生命周期钩子列表，供内部使用。
      */
     _lifecycleHooks: LIFECYCLE_HOOKS
   });
@@ -654,6 +676,8 @@
 
   /**
    * Check if a string starts with $ or _
+   * 检查一个字符串是否以$或者_开头
+   * charCodeAt：String的内置方法
    */
   function isReserved (str) {
     var c = (str + '').charCodeAt(0);
@@ -663,10 +687,11 @@
   /**
    * Define a property.
    */
+  
   function def (obj, key, val, enumerable) {
     Object.defineProperty(obj, key, {
       value: val,
-      enumerable: !!enumerable,
+      enumerable: !!enumerable, //  !!enumerable 的作用是：将任意值强制转换为布尔值（boolean）。
       writable: true,
       configurable: true
     });
