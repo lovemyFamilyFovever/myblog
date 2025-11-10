@@ -18,6 +18,14 @@
         <hr>
 
         <button @click="addNumber">{{number}}</button>
+
+        <hr>
+        {{ fullName }}
+        <hr>
+
+        {{ greeting }}
+
+        <button @click="greetOnce('Bob', 30)">点击测试</button>
     </div>
 </body>
 
@@ -27,73 +35,29 @@
         el: '#app',
         data: {
             number: 1,
-            message: 'Hello Vue!'
+            message: 'Hello Vue!',
+            firstName: 'zhang',
+            lastName: 'san'
+        },
+        computed: {
+            fullName() {
+                return this.firstName + ' ' + this.lastName;
+            },
+            greeting() {
+                return 'Hello, ' + this.fullName + '!';
+            }
         },
         methods: {
             addNumber() {
                 this.number++;
+            },
+            greetOnce() {
+                this.firstName = arguments[0];
+                this.lastName = arguments[1];
             }
         }
 
     })
-
-
-    function Person(name, age) {
-        this.name = name;
-        this.age = age;
-    }
-
-
-
-    function cached(fn) {
-        var cache = Object.create(null);
-        return function cachedFn(str) {
-            var hit = cache[str];
-            return hit || (cache[str] = fn(str));
-        }
-    }
-
-    // 假设我们有一个“转大写”的函数
-    function toUpper(str) {
-        console.log('执行了 toUpper:', str); // 用于观察是否真的执行了
-        return str.toUpperCase();
-    }
-
-    // 用 cached 包装它，得到一个“带缓存的版本”
-    var cachedToUper = cached(toUpper);
-
-
-    cachedToUper('hello');
-
-
-    var a = { y: 1 };
-    var b = { y: 2, z: 3 };
-
-    var c = Object.assign(a, b);
-    console.log(c); // { x: 1, y: 2, z: 3 }
-
-
-
-    function once(fn) {
-        var called = false;
-        return function () {
-            console.log('包装函数的 arguments:', arguments);
-            if (!called) {
-                called = true;
-                fn.apply(this, arguments);
-            }
-        }
-    }
-
-    function greet(name, age) {
-        console.log('Hello ' + name + ', you are ' + age + ' years old');
-    }
-
-    var greetOnce = once(greet);
-
-    greetOnce('Alice', 25);
-
-
 
 </script>
 

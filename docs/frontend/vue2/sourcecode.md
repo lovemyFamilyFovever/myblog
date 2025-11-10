@@ -807,17 +807,25 @@
 
   /*  */
 
+  // noop 是一个空函数：function () {}
   var warn = noop;
   var tip = noop;
   var generateComponentTrace = (noop); // work around flow check
   var formatComponentName = (noop);
 
+
+  // 在生产环境下，这些变量就保持为 noop，调用无任何效果
+  // 在开发环境下，它们会被重新赋值为真实实现（见下方 {} 块）
+
   {
     var hasConsole = typeof console !== 'undefined';
+      .replace(/[-_]/g, ''); }; 
+    //将 kebab-case 或 snake_case 转为 PascalCase：
+    // 'my-component'  => 'MyComponent'
+    //'user_profile' => 'UserProfile'
     var classifyRE = /(?:^|[-_])(\w)/g;
     var classify = function (str) { return str
       .replace(classifyRE, function (c) { return c.toUpperCase(); })
-      .replace(/[-_]/g, ''); };
 
     warn = function (msg, vm) {
       var trace = vm ? generateComponentTrace(vm) : '';
@@ -837,22 +845,27 @@
       }
     };
 
+    // 格式化组件名称
     formatComponentName = function (vm, includeFile) {
+      // 1. 根实例？
       if (vm.$root === vm) {
         return '<Root>'
       }
+      // 2. 获取 options
       var options = typeof vm === 'function' && vm.cid != null
         ? vm.options
         : vm._isVue
           ? vm.$options || vm.constructor.options
           : vm;
+      // 3. 尝试取 name
       var name = options.name || options._componentTag;
       var file = options.__file;
+      // 4. 如果没有 name，尝试从 __file（.vue 文件路径）提取
       if (!name && file) {
         var match = file.match(/([^/\\]+)\.vue$/);
-        name = match && match[1];
+        name = match && match[1]; // 如 '/components/UserCard.vue' → 'UserCard'
       }
-
+      // 5. 返回格式化字符串
       return (
         (name ? ("<" + (classify(name)) + ">") : "<Anonymous>") +
         (file && includeFile !== false ? (" at " + file) : '')
@@ -869,6 +882,8 @@
       return res
     };
 
+    // 生成组件调用栈
+
     generateComponentTrace = function (vm) {
       if (vm._isVue && vm.$parent) {
         var tree = [];
@@ -876,11 +891,13 @@
         while (vm) {
           if (tree.length > 0) {
             var last = tree[tree.length - 1];
+            // 如果当前组件和上一个相同 → 递归
             if (last.constructor === vm.constructor) {
               currentRecursiveSequence++;
               vm = vm.$parent;
               continue
             } else if (currentRecursiveSequence > 0) {
+              // 退出递归，记录次数
               tree[tree.length - 1] = [last, currentRecursiveSequence];
               currentRecursiveSequence = 0;
             }
@@ -912,6 +929,7 @@
     this.subs = [];
   };
 
+  //标准的“发布-订阅”模式中的 订阅（subscribe） 和 取消订阅（unsubscribe）
   Dep.prototype.addSub = function addSub (sub) {
     this.subs.push(sub);
   };
@@ -920,19 +938,24 @@
     remove(this.subs, sub);
   };
 
+  // 依赖收集
   Dep.prototype.depend = function depend () {
     if (Dep.target) {
       Dep.target.addDep(this);
     }
   };
 
+  // 派发更新
+  // 当数据变化（触发 setter）时，调用 dep.notify()，通知所有订阅者更新。
   Dep.prototype.notify = function notify () {
     // stabilize the subscriber list first
-    var subs = this.subs.slice();
+    var subs = this.subs.slice();  // 浅拷贝，防止遍历时修改原数组
     if (!config.async) {
       // subs aren't sorted in scheduler if not running async
       // we need to sort them now to make sure they fire in correct
       // order
+      // 在非异步模式（config.async = false，极少使用）下，
+      // Watcher 需要按 id 顺序更新，确保父组件先于子组件更新（或反之）
       subs.sort(function (a, b) { return a.id - b.id; });
     }
     for (var i = 0, l = subs.length; i < l; i++) {
@@ -943,6 +966,7 @@
   // The current target watcher being evaluated.
   // This is globally unique because only one watcher
   // can be evaluated at a time.
+  // 全局状态：Dep.target 与栈管理
   Dep.target = null;
   var targetStack = [];
 
