@@ -976,48 +976,87 @@
   }
 
   function popTarget () {
-    targetStack.pop();
+    targetStack.pop(); //删除数组的最后一个元素，并返回该元素的值
     Dep.target = targetStack[targetStack.length - 1];
   }
 
   /*  */
 
   var VNode = function VNode (
-    tag,
-    data,
-    children,
-    text,
-    elm,
-    context,
-    componentOptions,
-    asyncFactory
+      tag, /*当前节点的标签名*/
+      data, /*当前节点对应的对象，包含了具体的一些数据信息，是一个VNodeData类型，可以参考VNodeData类型中的数据信息*/
+      children, //子节点
+      text, //文本
+      elm, /*当前节点的dom */
+      context, /*编译作用域*/
+      componentOptions, /*组件的option选项*/
+      asyncFactory/*异步工厂*/
   ) {
+    /*当前节点的标签名*/
     this.tag = tag;
+
+    /*当前节点对应的对象，包含了具体的一些数据信息，是一个VNodeData类型，可以参考VNodeData类型中的数据信息*/
     this.data = data;
+
+    /*当前节点的子节点，是一个数组*/
     this.children = children;
+
+    /*当前节点的文本*/
     this.text = text;
+
+    /*当前虚拟节点对应的真实dom节点*/
     this.elm = elm;
+
+    /*当前节点的名字空间*/
     this.ns = undefined;
+
+    /*编译作用域 vm*/
     this.context = context;
     this.fnContext = undefined;
     this.fnOptions = undefined;
     this.fnScopeId = undefined;
+
+    /*节点的key属性，被当作节点的标志，用以优化*/
     this.key = data && data.key;
+
+    /*组件的option选项*/
     this.componentOptions = componentOptions;
+
+    /*当前节点对应的组件的实例*/
     this.componentInstance = undefined;
+
+    /*当前节点的父节点*/
     this.parent = undefined;
+
+    /*简而言之就是是否为原生HTML或只是普通文本，innerHTML的时候为true，textContent的时候为false*/
     this.raw = false;
+
+    /*静态节点标志*/
     this.isStatic = false;
+
+    /*是否作为跟节点插入*/
     this.isRootInsert = true;
+
+    /*是否为注释节点*/
     this.isComment = false;
+
+    /*是否为克隆节点*/
     this.isCloned = false;
+
+    /*是否有v-once指令*/
     this.isOnce = false;
+
+    /*异步工厂*/
     this.asyncFactory = asyncFactory;
     this.asyncMeta = undefined;
     this.isAsyncPlaceholder = false;
   };
-
-  var prototypeAccessors = { child: { configurable: true } };
+    //当且仅当该属性描述符的类型可以被改变并且该属性可以从对应对象中删除。默认为 false
+  var prototypeAccessors = { 
+    child: { 
+          configurable: true 
+        } 
+    };
 
   // DEPRECATED: alias for componentInstance for backwards compat.
   /* istanbul ignore next */
@@ -1025,33 +1064,64 @@
     return this.componentInstance
   };
 
+//Object.defineProperties() 方法直接在一个对象上定义一个或多个新的属性或修改现有属性。
   Object.defineProperties( VNode.prototype, prototypeAccessors );
 
+    //创建一个节点    空的vnode
+
+    // 这个有啥用?  创建注释节点（如 <!-- -->）
+    // 在模板中, <template v-if="false"> 会生成空注释占位
   var createEmptyVNode = function (text) {
     if ( text === void 0 ) text = '';
-
     var node = new VNode();
     node.text = text;
     node.isComment = true;
     return node
   };
 
-  function createTextVNode (val) {
-    return new VNode(undefined, undefined, undefined, String(val))
-  }
+    //创建一个文本节点
+    //创建纯文本节点
+    // 例如：{{ message }} 渲染为 createTextVNode(vm.message)
+    function createTextVNode(val) {
+        return new VNode(
+            undefined,
+            undefined,
+            undefined,
+            String(val)
+        )
+    }
 
   // optimized shallow clone
   // used for static nodes and slot nodes because they may be reused across
   // multiple renders, cloning them avoids errors when DOM manipulations rely
   // on their elm reference.
+
+  //优化浅克隆
+  //用于静态节点和时隙节点，因为它们可以被重用。
+  //多重渲染，克隆它们避免DOM操作依赖时的错误
+  //他们的榆树参考。
+
+  //克隆节点  把节点变成静态节点
+
+  //为什么需要克隆？
+  // 1：静态节点复用
+  // 编译器标记 isStatic: true 的节点可跨 render 复用
+  // 但若直接复用原 VNode，修改 elm 会导致多个地方指向同一个 DOM
+  // 克隆后各自拥有独立的 elm 引用
+
+  // 2：作用域插槽（Scoped Slots）
+  // 插槽内容可能被多次渲染（如在 v-for 中）
+  // 每次都需要独立的 VNode 实例，避免状态污染
+
   function cloneVNode (vnode) {
+    /*组件的option选项*/
     var cloned = new VNode(
       vnode.tag,
       vnode.data,
       // #7975
       // clone children array to avoid mutating original in case of cloning
       // a child.
-      vnode.children && vnode.children.slice(),
+      vnode.children && vnode.children.slice(), // ⚠️ 关键：克隆 children 数组
       vnode.text,
       vnode.elm,
       vnode.context,
@@ -1074,18 +1144,25 @@
    * not type checking this file because flow doesn't play well with
    * dynamically accessing methods on Array prototype
    */
+  // 方法劫持
+  // 对数组变异方法（mutating （变异） methods）进行拦截的关键实现
+  // 目标：让通过 push、pop 等方法修改数组时，也能触发视图更新。
 
+  // 获取原生数组原型
   var arrayProto = Array.prototype;
-  var arrayMethods = Object.create(arrayProto);
+  // 创建一个继承自数组原型的新对象
+  var arrayMethods = Object.create(arrayProto);//创建一个新对象，使用现有的对象来提供新创建的对象的原型。
 
+  // 需要拦截的方法列表
+  // 注意：filter、map、slice 等返回新数组的方法不会改变原数组，所以不需要拦截。
   var methodsToPatch = [
-    'push',
-    'pop',
-    'shift',
-    'unshift',
-    'splice',
-    'sort',
-    'reverse'
+    'push', //在数组的末尾添加一个或多个元素，并返回新的长度。
+    'pop', //移除数组的最后一个元素，并返回那个元素。
+    'shift',//移除数组的第一个元素，并返回那个元素。
+    'unshift',//在数组的开头添加一个或多个元素，并返回新的长度。
+    'splice',//通过删除、替换或添加新元素来改变数组的内容。
+    'sort',//对数组元素进行排序。
+    'reverse'//颠倒数组中元素的顺序。
   ];
 
   /**
@@ -1093,6 +1170,7 @@
    */
   methodsToPatch.forEach(function (method) {
     // cache original method
+    // 缓存原始方法
     var original = arrayProto[method];
     def(arrayMethods, method, function mutator () {
       var args = [], len = arguments.length;

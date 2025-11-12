@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>推箱子游戏</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .info {
+            display: flex;
+            justify-content: space-around;
+            margin-bottom: 20px;
+            gap: 20px;
+        }
+
+        .info-item {
+            background: #f0f0f0;
+            padding: 10px 20px;
+            border-radius: 10px;
+            font-weight: bold;
+            color: #555;
+        }
+
+        #game {
+            display: inline-block;
+            background: #e0e0e0;
+            padding: 10px;
+            border-radius: 10px;
+        }
+
+        .row {
+            display: flex;
+        }
+
+        .cell {
+            width: 50px;
+            height: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 32px;
+            position: relative;
+        }
+
+        .floor {
+            background: #f5f5f5;
+        }
+
+        .wall {
+            background: linear-gradient(145deg, #4a90e2, #357abd);
+            border: 2px solid #2e5f8a;
+        }
+
+        .target {
+            background: #fff3cd;
+            border: 2px dashed #ffc107;
+        }
+
+        .target::after {
+            content: '✕';
+            color: #ffc107;
+            font-size: 28px;
+            position: absolute;
+        }
+
+        .box {
+            background: linear-gradient(145deg, #ff9800, #f57c00);
+            border-radius: 8px;
+            border: 3px solid #e65100;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .box-on-target {
+            background: linear-gradient(145deg, #4caf50, #388e3c);
+            border: 3px solid #2e7d32;
+        }
+
+        .player {
+            z-index: 10;
+            font-size: 36px;
+        }
+
+        .controls {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        button {
+            padding: 12px 24px;
+            font-size: 16px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            background: #667eea;
+            color: white;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+
+        button:hover {
+            background: #5568d3;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        button:active {
+            transform: translateY(0);
+        }
+
+        .arrow-keys {
+            display: grid;
+            grid-template-columns: repeat(3, 60px);
+            gap: 5px;
+            margin: 20px auto;
+            width: fit-content;
+        }
+
+        .arrow-btn {
+            width: 60px;
+            height: 60px;
+            padding: 0;
+            font-size: 24px;
+        }
+
+        .arrow-btn:nth-child(1) {
+            grid-column: 2;
+        }
+
+        .arrow-btn:nth-child(2) {
+            grid-column: 1;
+            grid-row: 2;
+        }
+
+        .arrow-btn:nth-child(3) {
+            grid-column: 3;
+            grid-row: 2;
+        }
+
+        .arrow-btn:nth-child(4) {
+            grid-column: 2;
+            grid-row: 2;
+        }
+
+        .success {
+            color: #4caf50;
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 15px;
+            animation: bounce 0.5s;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🎮 推箱子游戏</h1>
+        </div>
+
+        <div class="info">
+            <div class="info-item">关卡: <span id="level">1</span></div>
+            <div class="info-item">步数: <span id="steps">0</span></div>
+        </div>
+
+        <div id="game"></div>
+
+        <div class="controls">
+            <div class="arrow-keys">
+                <button class="arrow-btn" onclick="move('up')">↑</button>
+                <button class="arrow-btn" onclick="move('left')">←</button>
+                <button class="arrow-btn" onclick="move('right')">→</button>
+                <button class="arrow-btn" onclick="move('down')">↓</button>
+            </div>
+
+            <div class="btn-group">
+                <button onclick="resetLevel()">🔄 重新开始</button>
+                <button onclick="prevLevel()">⬅️ 上一关</button>
+                <button onclick="nextLevel()">➡️ 下一关</button>
+            </div>
+
+            <div id="message"></div>
+        </div>
+    </div>
+
+    <script>
+        // 关卡数据
+        // 0: 空地, 1: 墙, 2: 玩家, 3: 箱子, 4: 目标点, 5: 箱子在目标点上
+        const levels = [
+            [
+                [1, 1, 1, 1, 1, 1],
+                [1, 4, 1, 0, 0, 1],
+                [1, 0, 3, 3, 2, 1],
+                [1, 4, 4, 3, 0, 1],
+                [1, 1, 0, 0, 0, 1],
+                [0, 1, 1, 1, 1, 1]
+            ],
+            [
+                [1, 1, 1, 1, 1, 1, 1, 1],
+                [1, 0, 0, 0, 0, 0, 0, 1],
+                [1, 0, 2, 0, 3, 0, 0, 1],
+                [1, 0, 0, 0, 0, 0, 0, 1],
+                [1, 0, 0, 3, 0, 3, 0, 1],
+                [1, 0, 4, 4, 4, 0, 0, 1],
+                [1, 0, 0, 0, 0, 0, 0, 1],
+                [1, 1, 1, 1, 1, 1, 1, 1]
+            ],
+            [
+                [1, 1, 1, 1, 1, 1, 1],
+                [1, 4, 4, 0, 0, 0, 1],
+                [1, 4, 4, 0, 3, 0, 1],
+                [1, 0, 0, 0, 3, 0, 1],
+                [1, 0, 3, 0, 3, 0, 1],
+                [1, 0, 0, 0, 2, 0, 1],
+                [1, 1, 1, 1, 1, 1, 1]
+            ]
+        ];
+
+        // 0: 空地, 1: 墙, 2: 玩家, 3: 箱子, 4: 目标点, 5: 箱子在目标点上
+        let currentLevel = 0;
+        let map = [];
+        let playerPos = { x: 0, y: 0 };
+        let steps = 0;
+
+        function initGame() {
+            map = JSON.parse(JSON.stringify(levels[currentLevel]));
+            steps = 0;
+            document.getElementById('steps').textContent = steps;
+            document.getElementById('level').textContent = currentLevel + 1;
+            document.getElementById('message').innerHTML = '';
+
+            // 找到玩家位置
+            for (let i = 0; i < map.length; i++) {
+                for (let j = 0; j < map[i].length; j++) {
+                    if (map[i][j] === 2) {
+                        playerPos = { y: i, x: j };
+                        map[i][j] = 0;
+                    }
+                }
+            }
+
+            render();
+        }
+
+        function render() {
+            const game = document.getElementById('game');
+            game.innerHTML = '';
+
+            for (let i = 0; i < map.length; i++) {
+                const row = document.createElement('div');
+                row.className = 'row';
+
+                for (let j = 0; j < map[i].length; j++) {
+                    const cell = document.createElement('div');
+                    cell.className = 'cell';
+
+                    if (map[i][j] === 1) {
+                        cell.className += ' wall';
+                    } else if (map[i][j] === 4) {
+                        cell.className += ' target';
+                    } else if (map[i][j] === 3) {
+                        cell.className += ' floor box';
+                    } else if (map[i][j] === 5) {
+                        cell.className += ' target box-on-target';
+                    } else {
+                        cell.className += ' floor';
+                    }
+
+                    if (i === playerPos.y && j === playerPos.x) {
+                        cell.innerHTML = '<div class="player">😊</div>';
+                    }
+
+                    row.appendChild(cell);
+                }
+
+                game.appendChild(row);
+            }
+        }
+
+        function move(direction) {
+            let dx = 0, dy = 0;
+
+            switch (direction) {
+                case 'up': dy = -1; break;
+                case 'down': dy = 1; break;
+                case 'left': dx = -1; break;
+                case 'right': dx = 1; break;
+            }
+
+            const newY = playerPos.y + dy;
+            const newX = playerPos.x + dx;
+
+            // 检查边界和墙
+            if (newY < 0 || newY >= map.length || newX < 0 || newX >= map[0].length) return;
+            if (map[newY][newX] === 1) return;
+
+            // 检查是否推箱子
+            if (map[newY][newX] === 3 || map[newY][newX] === 5) {
+                const boxNewY = newY + dy;
+                const boxNewX = newX + dx;
+
+                // 检查箱子能否移动
+                if (boxNewY < 0 || boxNewY >= map.length || boxNewX < 0 || boxNewX >= map[0].length) return;
+                if (map[boxNewY][boxNewX] === 1 || map[boxNewY][boxNewX] === 3 || map[boxNewY][boxNewX] === 5) return;
+
+                // 移动箱子
+                const wasOnTarget = map[newY][newX] === 5;
+                const newPosIsTarget = map[boxNewY][boxNewX] === 4;
+
+                map[newY][newX] = wasOnTarget ? 4 : 0;
+                map[boxNewY][boxNewX] = newPosIsTarget ? 5 : 3;
+            }
+
+            // 移动玩家
+            playerPos.y = newY;
+            playerPos.x = newX;
+            steps++;
+            document.getElementById('steps').textContent = steps;
+
+            render();
+            checkWin();
+        }
+
+        function checkWin() {
+            // 检查是否所有箱子都在目标点上
+            for (let i = 0; i < map.length; i++) {
+                for (let j = 0; j < map[i].length; j++) {
+                    if (map[i][j] === 3) return; // 还有箱子不在目标点上
+                    if (map[i][j] === 4) return; // 还有空的目标点
+                }
+            }
+
+            document.getElementById('message').innerHTML = '<div class="success">🎉 恭喜过关！</div>';
+            setTimeout(() => {
+                if (currentLevel < levels.length - 1) {
+                    nextLevel();
+                }
+            }, 2000);
+        }
+
+        function resetLevel() {
+            initGame();
+        }
+
+        function nextLevel() {
+            if (currentLevel < levels.length - 1) {
+                currentLevel++;
+                initGame();
+            }
+        }
+
+        function prevLevel() {
+            if (currentLevel > 0) {
+                currentLevel--;
+                initGame();
+            }
+        }
+
+        // 键盘控制
+        document.addEventListener('keydown', (e) => {
+            switch (e.key) {
+                case 'ArrowUp':
+                case 'w':
+                case 'W':
+                    e.preventDefault();
+                    move('up');
+                    break;
+                case 'ArrowDown':
+                case 's':
+                case 'S':
+                    e.preventDefault();
+                    move('down');
+                    break;
+                case 'ArrowLeft':
+                case 'a':
+                case 'A':
+                    e.preventDefault();
+                    move('left');
+                    break;
+                case 'ArrowRight':
+                case 'd':
+                case 'D':
+                    e.preventDefault();
+                    move('right');
+                    break;
+            }
+        });
+
+        // 初始化游戏
+        initGame();
+    </script>
+</body>
+
+</html>

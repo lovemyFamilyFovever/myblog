@@ -104,7 +104,7 @@ function sidebar() {
         { text: 'JS开发者应懂的33个概念', link: '/frontend/javascript/33-concepts' },
         { text: '防抖与节流', link: '/frontend/javascript/debounce-throttle' },
         { text: 'IIFE', link: '/frontend/javascript/IIFE' },
-        {text:'while',link:'/frontend/javascript/while'},
+        { text: 'while', link: '/frontend/javascript/while' },
         {
           text: '思维导图', items: [
             { text: '编程风格和技巧', link: '/frontend/javascript/MindMap/codeStyle' },
@@ -137,7 +137,9 @@ function sidebar() {
             { text: 'genStaticKeys', link: '/frontend/vue2/Details/genStaticKeys' },
             { text: 'AST', link: '/frontend/vue2/Details/AST' },
             { text: 'looseEqual', link: '/frontend/vue2/Details/looseEqual' },
-            { text: 'constant', link: '/frontend/vue2/Details/constant' }
+            { text: 'constant', link: '/frontend/vue2/Details/constant' },
+            { text: 'vnode', link: '/frontend/vue2/Details/VNode' },//
+            { text: '方法劫持(重写)', link: '/frontend/vue2/Details/MethodHijacking' },
           ]
         }
       ]
@@ -176,21 +178,22 @@ function sidebar() {
     '/article/fragment/': [{
       text: '文章摘录',
       items: [
-        { text: '片段', link: '/article/part/' },
-        { text: '解决了这7个问题，我开始自律成瘾', link: '/article/part/article' },
-        { text: '怎样让记忆力变强', link: '/article/part/improveMemory' },
-        { text: '懒洋洋的男人', link: '/article/part/lazyMan' },
-        { text: '十年学会编程', link: '/article/part/learnCodeTenYears' },
-        { text: '编程随想', link: '/article/part/programmingThinking' },
-        { text: '程序一点点地写,日子一天天地过', link: '/article/part/programWrite' },
-        { text: '为什么说软件开发是吃青春饭?', link: '/article/part/softwareThinking' },
-        { text: '学习方法论', link: '/article/part/studyTips' }
+        { text: '片段', link: '/article/fragment/' },
+        { text: '解决了这7个问题，我开始自律成瘾', link: '/article/fragment/article' },
+        { text: '怎样让记忆力变强', link: '/article/fragment/improveMemory' },
+        { text: '懒洋洋的男人', link: '/article/fragment/lazyMan' },
+        { text: '十年学会编程', link: '/article/learnCodeTenYears' },
+        { text: '编程随想', link: '/article/fragment/programmingThinking' },
+        { text: '程序一点点地写,日子一天天地过', link: '/article/fragment/programWrite' },
+        { text: '为什么说软件开发是吃青春饭?', link: '/article/fragment/softwareThinking' },
+        { text: '学习方法论', link: '/article/fragment/studyTips' }
       ],
     }],
     '/article/skill/': [{
       text: '技巧收集',
       items: [
         { text: 'windows命令行技巧', link: '/article/skill/' },
+        { text: '关于写作', link: '/article/skill/write' },
       ]
     }]
   }

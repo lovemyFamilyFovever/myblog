@@ -1071,7 +1071,8 @@
         elm, /*当前节点的dom */
         context, /*编译作用域*/
         componentOptions, /*组件的option选项*/
-        asyncFactory/*异步工厂*/) {
+        asyncFactory/*异步工厂*/
+    ) {
 
         /*当前节点的标签名*/
         this.tag = tag;
