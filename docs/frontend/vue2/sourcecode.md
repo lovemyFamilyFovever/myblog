@@ -1172,11 +1172,14 @@
     // cache original method
     // 缓存原始方法
     var original = arrayProto[method];
+    //function def(obj, key, val, enumerable)  定义一个属性
     def(arrayMethods, method, function mutator () {
       var args = [], len = arguments.length;
       while ( len-- ) args[ len ] = arguments[ len ];
 
+      // 1. 先调用原始方法，完成实际的数组变更
       var result = original.apply(this, args);
+      // 2. 获取当前数组对应的 Observer（响应式观察者）
       var ob = this.__ob__;
       var inserted;
       switch (method) {
@@ -1190,6 +1193,7 @@
       }
       if (inserted) { ob.observeArray(inserted); }
       // notify change
+      // 4. 通知依赖更新！
       ob.dep.notify();
       return result
     });
