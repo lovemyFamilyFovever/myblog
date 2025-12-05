@@ -1150,8 +1150,8 @@
 
   // 获取原生数组原型
   var arrayProto = Array.prototype;
-  // 创建一个继承自数组原型的新对象
-  var arrayMethods = Object.create(arrayProto);//创建一个新对象，使用现有的对象来提供新创建的对象的原型。
+  //创建一个新对象，使用现有的对象来提供新创建的对象的原型。
+  var arrayMethods = Object.create(arrayProto);
 
   // 需要拦截的方法列表
   // 注意：filter、map、slice 等返回新数组的方法不会改变原数组，所以不需要拦截。

@@ -86,6 +86,7 @@ function sidebar() {
         { text: "css常用代码片段", link: "/frontend/css/normalStyle" },
         { text: "BFC", link: "/frontend/css/BFC" },
         { text: "css特殊选择符", link: "/frontend/css/selector" },
+        { text: "background", link: "/frontend/css/background" },
       ]
     }],
     '/frontend/javascript/': [{
