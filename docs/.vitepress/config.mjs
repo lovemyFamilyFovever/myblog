@@ -222,11 +222,15 @@ function head() {
     ["meta", { property: "twitter:image", content: "/myblog/logo.svg" }],
     
     // Favicon - 提供多种格式以确保兼容性
-    ['link', { rel: 'icon', href: `${base}logo.svg`, type: 'image/svg+xml' }],
-    ['link', { rel: 'icon', href: `${base}favicon.ico`, type: 'image/x-icon' }],
-    ['link', { rel: 'icon', href: `${base}favicon.png`, type: 'image/png' }],
     ['link', { rel: 'apple-touch-icon', href: `${base}apple-touch-icon.png` }],
+    ['link', { rel: 'icon', href: `${base}favicon-16x16.png`, type: 'image/png' }],
+    ['link', { rel: 'icon', href: `${base}favicon-32x32.png`, type: 'image/png' }],
+    ['link', { rel: 'icon', href: `${base}favicon-64x64.png`, type: 'image/png' }],
+    ['link', { rel: 'icon', href: `${base}favicon-128x128.png`, type: 'image/png' }],
     ['link', { rel: 'shortcut icon', href: `${base}favicon.ico` }],
+    ['link', { rel: 'icon', href: `${base}favicon.png`, type: 'image/png' }],
+    ['link', { rel: 'icon', href: `${base}logo.svg`, type: 'image/svg+xml' }],
+
     
     // Canonical URL
     ['link', { rel: 'canonical', href: 'https://your-domain.com/myblog/' }],
