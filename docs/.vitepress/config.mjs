@@ -221,9 +221,12 @@ function head() {
     ["meta", { property: "twitter:description", content: "学习之旅，记录生活的点滴" }],
     ["meta", { property: "twitter:image", content: "/myblog/logo.svg" }],
     
-    // Favicon
+    // Favicon - 提供多种格式以确保兼容性
     ['link', { rel: 'icon', href: `${base}logo.svg`, type: 'image/svg+xml' }],
-    ['link', { rel: 'apple-touch-icon', href: `${base}logo.svg` }],
+    ['link', { rel: 'icon', href: `${base}favicon.ico`, type: 'image/x-icon' }],
+    ['link', { rel: 'icon', href: `${base}favicon.png`, type: 'image/png' }],
+    ['link', { rel: 'apple-touch-icon', href: `${base}apple-touch-icon.png` }],
+    ['link', { rel: 'shortcut icon', href: `${base}favicon.ico` }],
     
     // Canonical URL
     ['link', { rel: 'canonical', href: 'https://your-domain.com/myblog/' }],

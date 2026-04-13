@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Favicon 生成器</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background: #f5f5f5;
+        }
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        .preview {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            align-items: center;
+            margin: 30px 0;
+            flex-wrap: wrap;
+        }
+        .icon-preview {
+            text-align: center;
+        }
+        .icon-preview img {
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background: white;
+        }
+        .icon-preview p {
+            margin-top: 10px;
+            color: #666;
+            font-size: 14px;
+        }
+        button {
+            display: block;
+            margin: 20px auto;
+            padding: 12px 30px;
+            background: #307AF2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background: #2568d9;
+        }
+        .instructions {
+            background: #e3f2fd;
+            padding: 15px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+        .instructions h3 {
+            margin-top: 0;
+            color: #1976d2;
+        }
+        .instructions ol {
+            margin: 10px 0;
+            padding-left: 20px;
+        }
+        .instructions li {
+            margin: 8px 0;
+            line-height: 1.6;
+        }
+        code {
+            background: #f5f5f5;
+            padding: 2px 6px;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎨 Favicon 生成器</h1>
+        
+        <div class="preview">
+            <div class="icon-preview">
+                <img id="favicon16" width="16" height="16" alt="16x16">
+                <p>16×16</p>
+            </div>
+            <div class="icon-preview">
+                <img id="favicon32" width="32" height="32" alt="32x32">
+                <p>32×32</p>
+            </div>
+            <div class="icon-preview">
+                <img id="favicon48" width="48" height="48" alt="48x48">
+                <p>48×48</p>
+            </div>
+            <div class="icon-preview">
+                <img id="favicon64" width="64" height="64" alt="64x64">
+                <p>64×64</p>
+            </div>
+            <div class="icon-preview">
+                <img id="favicon128" width="128" height="128" alt="128x128">
+                <p>128×128</p>
+            </div>
+            <div class="icon-preview">
+                <img id="favicon180" width="180" height="180" alt="180x180">
+                <p>180×180 (Apple)</p>
+            </div>
+        </div>
+
+        <button onclick="downloadFavicons()">📥 下载所有 Favicon</button>
+
+        <div class="instructions">
+            <h3>📋 使用说明：</h3>
+            <ol>
+                <li>确认上方预览的图标显示正确</li>
+                <li>点击"下载所有 Favicon"按钮</li>
+                <li>将下载的 ZIP 文件解压</li>
+                <li>将所有 <code>.png</code> 和 <code>.ico</code> 文件复制到项目的 <code>docs/public/</code> 目录</li>
+                <li>重新构建项目：<code>npm run docs:build</code></li>
+            </ol>
+        </div>
+    </div>
+
+    <script>
+        // SVG Logo 数据
+        const svgData = `<?xml version="1.0" standalone="no"?><!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd"><svg t="1711210417669" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="13493" xmlns:xlink="http://www.w3.org/1999/xlink" width="200" height="200"><path d="M166.88097 526.894545l228.755394-234.278787a158.130424 158.130424 0 0 1 226.272969 0l2.482425 2.544484a162.164364 162.164364 0 0 1 0 226.614303l-228.755394 234.278788a158.130424 158.130424 0 0 1-226.27297 0l-2.482424-2.575515a162.164364 162.164364 0 0 1 0-226.614303z" fill="#12D2AC" p-id="13494"></path><path d="M622.095515 292.615758l226.27297 231.703272a165.825939 165.825939 0 0 1 0 231.703273 158.130424 158.130424 0 0 1-226.27297 0l-226.27297-231.703273a165.825939 165.825939 0 0 1 0-231.703272 158.130424 158.130424 0 0 1 226.27297 0z" fill="#307AF2" p-id="13495"></path><path d="M624.733091 295.439515l110.250667 112.888243-226.27297 231.703272-226.27297-231.703272 110.250667-112.888243a162.164364 162.164364 0 0 1 232.044606 0z" fill="#0057FE" p-id="13496"></path></svg>`;
+
+        const sizes = [16, 32, 48, 64, 128, 180];
+        const canvases = {};
+
+        // 初始化预览
+        function initPreviews() {
+            sizes.forEach(size => {
+                const canvas = document.createElement('canvas');
+                canvas.width = size;
+                canvas.height = size;
+                canvases[size] = canvas;
+                
+                const ctx = canvas.getContext('2d');
+                const img = new Image();
+                
+                img.onload = function() {
+                    ctx.drawImage(img, 0, 0, size, size);
+                    const dataUrl = canvas.toDataURL('image/png');
+                    document.getElementById(`favicon${size}`).src = dataUrl;
+                };
+                
+                img.src = 'data:image/svg+xml;base64,' + btoa(unescape(encodeURIComponent(svgData)));
+            });
+        }
+
+        // 下载单个文件
+        function downloadFile(dataUrl, filename) {
+            const link = document.createElement('a');
+            link.download = filename;
+            link.href = dataUrl;
+            link.click();
+        }
+
+        // 下载所有 favicon
+        async function downloadFavicons() {
+            // 创建 ICO 文件（使用最大的 PNG）
+            const icoCanvas = canvases[64];
+            const icoDataUrl = icoCanvas.toDataURL('image/png');
+            
+            setTimeout(() => {
+                // 下载各个尺寸
+                downloadFile(canvases[16].toDataURL('image/png'), 'favicon-16x16.png');
+                setTimeout(() => {
+                    downloadFile(canvases[32].toDataURL('image/png'), 'favicon-32x32.png');
+                    setTimeout(() => {
+                        downloadFile(canvases[48].toDataURL('image/png'), 'favicon.png');
+                        setTimeout(() => {
+                            downloadFile(canvases[64].toDataURL('image/png'), 'favicon-64x64.png');
+                            setTimeout(() => {
+                                downloadFile(canvases[128].toDataURL('image/png'), 'favicon-128x128.png');
+                                setTimeout(() => {
+                                    downloadFile(canvases[180].toDataURL('image/png'), 'apple-touch-icon.png');
+                                    setTimeout(() => {
+                                        // 下载 ICO 文件（实际上是 PNG，重命名为 .ico）
+                                        downloadFile(icoDataUrl, 'favicon.ico');
+                                        alert('✅ 所有文件已开始下载！\n\n请将下载的文件移动到 docs/public/ 目录');
+                                    }, 300);
+                                }, 300);
+                            }, 300);
+                        }, 300);
+                    }, 300);
+                }, 300);
+            }, 300);
+        }
+
+        // 页面加载时初始化
+        window.onload = initPreviews;
+    </script>
+</body>
+</html>
