@@ -60,4 +60,8 @@ features:
     icon:
       src: /imgs/optimization.svg      
     link: /frontend/optimization/
+  - title: github
+    icon:
+      src: /imgs/optimization.svg      
+    link: /frontend/github/
 ---
