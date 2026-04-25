@@ -1,6 +1,6 @@
 import { defineConfig } from 'vitepress'
 import mdItCustomAttrs from 'markdown-it-custom-attrs'
-const base = '/';
+const base = '/myblog/';
 
 //上方导航栏
 function nav() {
@@ -205,10 +205,55 @@ function sidebar() {
 //head标签  
 function head() {
   return [
-    ["link", { rel: "stylesheet", href: "https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" },],
-    ["script", { src: "https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js" }],
-    ['link', { rel: 'icon', href: `${base}logo.svg` }],
+    // SEO 优化
+    ["meta", { name: "keywords", content: "前端开发,JavaScript,Vue,React,CSS,HTML,技术博客,学习笔记" }],
+    ["meta", { name: "author", content: "lxc" }],
+    ["meta", { name: "robots", content: "index, follow" }],
+    
+    // Open Graph / Facebook
+    ["meta", { property: "og:type", content: "website" }],
+    ["meta", { property: "og:url", content: "https://your-domain.com/myblog/" }],
+    ["meta", { property: "og:title", content: "晨钟暮鼓 - 学习之旅，记录生活的点滴" }],
+    ["meta", { property: "og:description", content: "学习之旅，记录生活的点滴" }],
+    ["meta", { property: "og:image", content: "/myblog/logo.svg" }],
+    
+    // Twitter
+    ["meta", { property: "twitter:card", content: "summary_large_image" }],
+    ["meta", { property: "twitter:url", content: "https://your-domain.com/myblog/" }],
+    ["meta", { property: "twitter:title", content: "晨钟暮鼓 - 学习之旅，记录生活的点滴" }],
+    ["meta", { property: "twitter:description", content: "学习之旅，记录生活的点滴" }],
+    ["meta", { property: "twitter:image", content: "/myblog/logo.svg" }],
+    
+    // Favicon - 提供多种格式以确保兼容性
+    // 注意：顺序很重要，浏览器会使用最后一个它能识别的格式
+    ['link', { rel: 'icon', href: `${base}favicon-32x32.png`, sizes: '32x32', type: 'image/png' }],
+    ['link', { rel: 'icon', href: `${base}favicon-16x16.png`, sizes: '16x16', type: 'image/png' }],
+    ['link', { rel: 'apple-touch-icon', href: `${base}apple-touch-icon.png`, sizes: '180x180' }],
+    ['link', { rel: 'shortcut icon', href: `${base}favicon.ico` }],
+
+    
+    // Canonical URL
+    ['link', { rel: 'canonical', href: 'https://your-domain.com/myblog/' }],
+    
+    // External libraries
+    ["link", { rel: "stylesheet", href: "https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" }],
+    ["script", { src: "https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js", defer: "" }],
+    
+    // Custom scripts
     ['script', { async: '', src: `${base}dandelion.js` }],
+    
+    // Structured Data (JSON-LD)
+    ["script", { type: "application/ld+json" }, JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "晨钟暮鼓",
+      "description": "学习之旅，记录生活的点滴",
+      "url": "https://your-domain.com/myblog/",
+      "author": {
+        "@type": "Person",
+        "name": "lxc"
+      }
+    })]
   ]
 }
 
