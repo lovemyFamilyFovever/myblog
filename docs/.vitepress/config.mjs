@@ -87,6 +87,7 @@ function sidebar() {
         { text: "BFC", link: "/frontend/css/BFC" },
         { text: "css特殊选择符", link: "/frontend/css/selector" },
         { text: "background", link: "/frontend/css/background" },
+        { text: "Grid布局", link: "/frontend/css/Grid" },
       ]
     }],
     '/frontend/javascript/': [{
@@ -151,6 +152,8 @@ function sidebar() {
         { text: 'Vue3安装步骤', link: '/frontend/vue3/' },
         { text: 'vue3语法糖setup', link: '/frontend/vue3/setup' },
         { text: '查漏补缺', link: '/frontend/vue3/leak_filling' },
+        { text: '组建通信', link: '/frontend/vue3/Component-Communication' },
+        { text: '组建通信demo', link: '/frontend/vue3/Component-Communication-demo' },
       ]
     }],
     '/frontend/node/': [{
