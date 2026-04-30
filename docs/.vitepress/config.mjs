@@ -9,7 +9,12 @@ function nav() {
     { text: 'blog', link: '/blog/config.md' },
     { text: 'AI', link: '/artificialIntelligence/' },
     { text: '项目开发', link: '/project/' },
-    { text: '面试进阶', link: '/interview/' },
+    {
+      text: '面试进阶', items: [
+        { text: '面试题', link: '/interview/index' },
+        { text: '职场', link: '/interview/bussiness/DS' },
+      ]
+    },
     {
       text: '拾慧', items: [
         { text: "文章摘录", link: '/article/fragment/' },
@@ -45,6 +50,7 @@ function nav() {
       text: '后端', items: [
         { text: 'C#基础', link: '/backend/csharp' },
         { text: 'Blazor基础', link: '/backend/blazor' },
+        { text: '性能优化', link: '/backend/performance_optimization' },
       ]
     }
   ]
@@ -199,6 +205,16 @@ function sidebar() {
         { text: 'windows命令行技巧', link: '/article/skill/' },
         { text: '关于写作', link: '/article/skill/write' },
       ]
+    }],
+    '/interview/bussiness/':[{
+      text: '职场',
+      items: [
+        { text: 'DS', link: '/interview/bussiness/DS' },
+        { text: 'GLM', link: '/interview/bussiness/GLM' },
+        { text: 'MIMO', link: '/interview/bussiness/Mimo' },
+        { text: 'MINIMAX', link: '/interview/bussiness/MiniMax' },
+        { text: 'QWEN', link: '/interview/bussiness/qwen' },
+      ]
     }]
   }
 }
@@ -209,21 +225,21 @@ function head() {
     ["meta", { name: "keywords", content: "前端开发,JavaScript,Vue,React,CSS,HTML,技术博客,学习笔记" }],
     ["meta", { name: "author", content: "lxc" }],
     ["meta", { name: "robots", content: "index, follow" }],
-    
+
     // Open Graph / Facebook
     ["meta", { property: "og:type", content: "website" }],
     ["meta", { property: "og:url", content: "https://your-domain.com/myblog/" }],
     ["meta", { property: "og:title", content: "晨钟暮鼓 - 学习之旅，记录生活的点滴" }],
     ["meta", { property: "og:description", content: "学习之旅，记录生活的点滴" }],
     ["meta", { property: "og:image", content: "/myblog/logo.svg" }],
-    
+
     // Twitter
     ["meta", { property: "twitter:card", content: "summary_large_image" }],
     ["meta", { property: "twitter:url", content: "https://your-domain.com/myblog/" }],
     ["meta", { property: "twitter:title", content: "晨钟暮鼓 - 学习之旅，记录生活的点滴" }],
     ["meta", { property: "twitter:description", content: "学习之旅，记录生活的点滴" }],
     ["meta", { property: "twitter:image", content: "/myblog/logo.svg" }],
-    
+
     // Favicon - 提供多种格式以确保兼容性
     // 注意：顺序很重要，浏览器会使用最后一个它能识别的格式
     ['link', { rel: 'icon', href: `${base}favicon-32x32.png`, sizes: '32x32', type: 'image/png' }],
@@ -231,17 +247,17 @@ function head() {
     ['link', { rel: 'apple-touch-icon', href: `${base}apple-touch-icon.png`, sizes: '180x180' }],
     ['link', { rel: 'shortcut icon', href: `${base}favicon.ico` }],
 
-    
+
     // Canonical URL
     ['link', { rel: 'canonical', href: 'https://your-domain.com/myblog/' }],
-    
+
     // External libraries
     ["link", { rel: "stylesheet", href: "https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" }],
     ["script", { src: "https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js", defer: "" }],
-    
+
     // Custom scripts
     ['script', { async: '', src: `${base}dandelion.js` }],
-    
+
     // Structured Data (JSON-LD)
     ["script", { type: "application/ld+json" }, JSON.stringify({
       "@context": "https://schema.org",
