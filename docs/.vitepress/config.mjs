@@ -2,141 +2,211 @@ import { defineConfig } from 'vitepress'
 import mdItCustomAttrs from 'markdown-it-custom-attrs'
 const base = '/myblog/';
 
-//上方导航栏
+// ==================== 导航栏 ====================
 function nav() {
   return [
-    { text: '主页', link: '/' },
-    { text: 'blog', link: '/blog/config.md' },
-    { text: 'AI', link: '/artificialIntelligence/' },
-    { text: '项目开发', link: '/project/' },
+    { text: '首页', link: '/' },
+
+    // ── 前端 ──
     {
-      text: '面试进阶', items: [
-        { text: '面试题', link: '/interview/index' },
-        { text: '职场', link: '/interview/bussiness/DS' },
-      ]
-    },
-    {
-      text: '拾慧', items: [
-        { text: "文章摘录", link: '/article/fragment/' },
-        { text: "技巧收集", link: '/article/skill/' },
-      ]
-    },
-    {
-      text: "前端", items: [
-        { text: "总览", link: "/frontend/" },
-        { text: "前端学习路线", link: "/frontend/learning-path.md" },
+      text: '前端',
+      items: [
+        { text: '总览', link: '/frontend/' },
+        { text: '学习路线', link: '/frontend/learning-path' },
         {
-          text: "", items: [
-            { text: "html", link: "/frontend/html/" },
-            { text: "css", link: "/frontend/css/" },
-            { text: "javascript", link: "/frontend/javascript/" },
+          text: '基础语言',
+          items: [
+            { text: 'HTML', link: '/frontend/html/' },
+            { text: 'CSS', link: '/frontend/css/' },
+            { text: 'JavaScript', link: '/frontend/javascript/' },
+            { text: 'TypeScript', link: '/frontend/TypeScript/' },
           ]
         },
         {
-          text: "", items: [
-            { text: "vue2", link: "/frontend/vue2/" },
-            { text: "vue3", link: "/frontend/vue3/" },
-            { text: "vite", link: "/frontend/vite/" },
-            { text: "pinia", link: "/frontend/pinia/" },
+          text: '框架',
+          items: [
+            { text: 'Vue2', link: '/frontend/vue2/' },
+            { text: 'Vue3', link: '/frontend/vue3/' },
+            { text: 'React', link: '/frontend/react/' },
+            { text: 'Angular', link: '/frontend/Angular/' },
           ]
         },
-        { text: "react", link: "/frontend/react/" },
-        { text: "Angular", link: "/frontend/Angular/" },
-        { text: "Node.js", link: "/frontend/node/" },
-        { text: "TypeScript", link: "/frontend/TypeScript/" },
+        {
+          text: '工程化',
+          items: [
+            { text: 'Vite', link: '/frontend/vite/' },
+            { text: 'Pinia', link: '/frontend/pinia/' },
+            { text: 'Node.js', link: '/frontend/node/' },
+            { text: '性能优化', link: '/frontend/optimization/' },
+          ]
+        },
       ]
     },
+
+    // ── 后端 ──
     {
-      text: '后端', items: [
-        { text: 'C#基础', link: '/backend/csharp' },
-        { text: 'Blazor基础', link: '/backend/blazor' },
-        { text: '性能优化', link: '/backend/performance_optimization' },
+      text: '后端',
+      items: [
+        {
+          text: '服务端',
+          items: [
+            { text: 'C# 基础', link: '/backend/csharp' },
+            { text: 'Blazor', link: '/backend/blazor' },
+          ]
+        },
       ]
-    }
+    },
+
+    // ── 网络 ──
+    {
+      text: '网络',
+      items: [
+        {
+          text: '网络协议',
+          items: [
+            { text: '网络基础', link: '/network/' },
+            { text: 'HTTP / HTTPS', link: '/network/HTTP' },
+            { text: 'TCP/IP', link: '/network/TCP-IP' },
+            { text: 'DNS', link: '/network/DNS' },
+            { text: 'WebSocket', link: '/network/websocket' },
+            { text: '跨域 & CORS', link: '/network/cross-domain' },
+          ]
+        },
+        {
+          text: '浏览器',
+          items: [
+            { text: '渲染原理', link: '/network/browser-rendering-principle' },
+            { text: '缓存机制', link: '/network/browser-cache' },
+          ]
+        }
+      ]
+    },
+    // ── AI ──
+    {
+      text: 'AI',
+      //link: '/artificialIntelligence/' 
+      items: [
+        { text: '越狱词', link: '/artificialIntelligence/break-prison' },
+        { text: '提示词', link: '/artificialIntelligence/hint' },
+        { text: '学习', link: '/artificialIntelligence/study' },
+      ]
+    },
+
+    // ── 面试 ──
+    {
+      text: '面试',
+      items: [
+        { text: '前端面试题', link: '/interview/' },
+        { text: 'DeepSeek', link: '/interview/bussiness/DS' },
+        { text: '智谱 GLM', link: '/interview/bussiness/GLM' },
+        { text: 'MiMo', link: '/interview/bussiness/Mimo' },
+        { text: 'MiniMax', link: '/interview/bussiness/MiniMax' },
+        { text: '通义千问', link: '/interview/bussiness/qwen' },
+      ]
+    },
+
+    // ── 项目 ──
+    { text: '项目', link: '/project/' },
+
+    // ── 随笔 ──
+    {
+      text: '随笔',
+      items: [
+        { text: '文章摘录', link: '/article/fragment/' },
+        { text: '技巧收集', link: '/article/skill/' },
+        { text: '建站笔记', link: '/blog/config' },
+      ]
+    },
   ]
 }
-//左边导航栏
+
+// ==================== 侧边栏 ====================
 function sidebar() {
   return {
-    '/blog/': [{
-      text: '页面配置',
-      items: [
-        { text: '站点配置', link: '/blog/config' },
-        { text: '注意事项', link: '/blog/note' },
-      ]
-    }, {
-      text: '插件配置',
-      items: [
-        { text: '图片插件', link: '/blog/plugins/addPicPlugin' },
-      ]
-    }
-    ],
-    '/frontend/optimization/': [{
-      text: "优化",
-      items: [
-        { text: "html优化", link: "/frontend/optimization/" },
-        { text: "7000字前端性能优化总结", link: "/frontend/optimization/frontend-7000.md" },
-      ]
-    }],
+
+    // ══════════════════════════════════════
+    //  前端 - 基础语言
+    // ══════════════════════════════════════
+
     '/frontend/html/': [{
-      text: "html",
+      text: 'HTML',
       items: [
-        { text: "html基础", link: "/frontend/html/" },
-        { text: "html-bugs", link: "/frontend/html/bugs" },
+        { text: 'HTML 基础', link: '/frontend/html/' },
+        { text: '常见 Bug', link: '/frontend/html/bugs' },
       ]
     }],
+
     '/frontend/css/': [{
-      text: "css",
+      text: 'CSS',
       items: [
-        { text: "css基础", link: "/frontend/css/" },
-        { text: "css常用代码片段", link: "/frontend/css/normalStyle" },
-        { text: "BFC", link: "/frontend/css/BFC" },
-        { text: "css特殊选择符", link: "/frontend/css/selector" },
-        { text: "background", link: "/frontend/css/background" },
-        { text: "Grid布局", link: "/frontend/css/Grid" },
+        { text: 'CSS 基础', link: '/frontend/css/' },
+        { text: '常用代码片段', link: '/frontend/css/normalStyle' },
+        { text: 'BFC 块级格式化上下文', link: '/frontend/css/BFC' },
+        { text: '特殊选择符', link: '/frontend/css/selector' },
+        { text: 'Background 详解', link: '/frontend/css/background' },
+        { text: 'Grid 布局', link: '/frontend/css/Grid' },
       ]
     }],
-    '/frontend/javascript/': [{
-      text: 'javascript',
+
+    '/frontend/javascript/': [
+      {
+        text: 'JavaScript',
+        items: [
+          { text: '总览', link: '/frontend/javascript/index' },
+          { text: 'Array', link: '/frontend/javascript/array' },
+          { text: 'String', link: '/frontend/javascript/String' },
+          { text: 'Object', link: '/frontend/javascript/Object' },
+          { text: '深拷贝 & 浅拷贝', link: '/frontend/javascript/深拷贝浅拷贝' },
+          { text: 'Export 导出模块', link: '/frontend/javascript/export' },
+          { text: '基础 API', link: '/frontend/javascript/basic-api' },
+          { text: '浏览器与设备宽高获取', link: '/frontend/javascript/window-innerwidth' },
+          { text: '图片懒加载实现', link: '/frontend/javascript/img-lazyload' },
+          { text: 'call / apply / bind', link: '/frontend/javascript/call-apply-bind' },
+          { text: 'JS 开发者 33 个概念', link: '/frontend/javascript/33-concepts' },
+          { text: '防抖与节流', link: '/frontend/javascript/debounce-throttle' },
+          { text: 'IIFE', link: '/frontend/javascript/IIFE' },
+          { text: 'while 循环', link: '/frontend/javascript/while' },
+        ]
+      },
+      {
+        text: '思维导图',
+        collapsed: true,
+        items: [
+          { text: '编程风格和技巧', link: '/frontend/javascript/MindMap/codeStyle' },
+          { text: 'JS 基础', link: '/frontend/javascript/MindMap/javaScript' },
+          { text: '正则表达式', link: '/frontend/javascript/MindMap/regex' },
+          { text: 'Date 对象', link: '/frontend/javascript/MindMap/date' },
+          { text: '数组对象', link: '/frontend/javascript/MindMap/array' },
+          { text: '字符串对象', link: '/frontend/javascript/MindMap/string' },
+        ]
+      },
+    ],
+
+    '/frontend/TypeScript/': [{
+      text: 'TypeScript',
       items: [
-        { text: '总览', link: '/frontend/javascript/index' },
-        { text: 'Array', link: '/frontend/javascript/array' },
-        { text: 'String', link: '/frontend/javascript/String' },
-        { text: 'Object', link: '/frontend/javascript/Object' },
-        { text: '深拷贝&浅拷贝', link: '/frontend/javascript/深拷贝浅拷贝' },
-        { text: 'Export导出模块', link: '/frontend/javascript/export' },
-        { text: '基础api', link: '/frontend/javascript/basic-api' },
-        { text: 'js获取浏览器和设备相关宽高', link: '/frontend/javascript/window-innerwidth' },
-        { text: 'js实现图片懒加载', link: '/frontend/javascript/img-lazyload' },
-        { text: 'call()、apply()、bind()区别', link: '/frontend/javascript/call-apply-bind' },
-        { text: 'JS开发者应懂的33个概念', link: '/frontend/javascript/33-concepts' },
-        { text: '防抖与节流', link: '/frontend/javascript/debounce-throttle' },
-        { text: 'IIFE', link: '/frontend/javascript/IIFE' },
-        { text: 'while', link: '/frontend/javascript/while' },
-        {
-          text: '思维导图', items: [
-            { text: '编程风格和技巧', link: '/frontend/javascript/MindMap/codeStyle' },
-            { text: 'js基础', link: '/frontend/javascript/MindMap/javaScript' },
-            { text: '正则表达式', link: '/frontend/javascript/MindMap/regex' },
-            { text: 'Date对象', link: '/frontend/javascript/MindMap/date' },
-            { text: '数组对象', link: '/frontend/javascript/MindMap/array' },
-            { text: '字符串对象', link: '/frontend/javascript/MindMap/string' },
-          ]
-        },
+        { text: '介绍', link: '/frontend/TypeScript/' },
+        { text: '常见问题', link: '/frontend/TypeScript/bugs' },
       ]
     }],
+
+    // ══════════════════════════════════════
+    //  前端 - 框架
+    // ══════════════════════════════════════
+
     '/frontend/vue2/': [{
-      text: 'vue2',
+      text: 'Vue2',
       items: [
-        { text: '项目搭建', link: '/frontend/vue2' },
-        { text: '查漏补缺vue问答', link: '/frontend/vue2/leak_filling' },
-        { text: '手写Vue2响应式原理', link: '/frontend/vue2/vue2-reactive-principle' },
+        { text: '项目搭建', link: '/frontend/vue2/' },
+        { text: '查漏补缺', link: '/frontend/vue2/leak_filling' },
+        { text: '手写响应式原理', link: '/frontend/vue2/vue2-reactive-principle' },
         { text: '组件通信', link: '/frontend/vue2/ComponentCommunication' },
-        { text: '🌟源码解析', link: '/frontend/vue2/sourcecode' },
+        { text: '源码解析', link: '/frontend/vue2/sourcecode' },
         {
-          text: '详解',
+          text: '源码细节',
+          collapsed: true,
           items: [
-            { text: 'render渲染选项', link: '/frontend/vue2/Details/render' },
+            { text: 'render 渲染选项', link: '/frontend/vue2/Details/render' },
             { text: 'toRawType', link: '/frontend/vue2/Details/toRawType' },
             { text: 'isValidArrayIndex', link: '/frontend/vue2/Details/isValidArrayIndex' },
             { text: 'isPromise', link: '/frontend/vue2/Details/isPromise' },
@@ -146,78 +216,171 @@ function sidebar() {
             { text: 'AST', link: '/frontend/vue2/Details/AST' },
             { text: 'looseEqual', link: '/frontend/vue2/Details/looseEqual' },
             { text: 'constant', link: '/frontend/vue2/Details/constant' },
-            { text: 'vnode', link: '/frontend/vue2/Details/VNode' },//
+            { text: 'VNode', link: '/frontend/vue2/Details/VNode' },
             { text: '方法劫持(重写)', link: '/frontend/vue2/Details/MethodHijacking' },
           ]
         }
       ]
     }],
+
     '/frontend/vue3/': [{
-      text: 'vue3',
+      text: 'Vue3',
       items: [
-        { text: 'Vue3安装步骤', link: '/frontend/vue3/' },
-        { text: 'vue3语法糖setup', link: '/frontend/vue3/setup' },
+        { text: '安装步骤', link: '/frontend/vue3/' },
+        { text: 'setup 语法糖', link: '/frontend/vue3/setup' },
         { text: '查漏补缺', link: '/frontend/vue3/leak_filling' },
-        { text: '组建通信', link: '/frontend/vue3/Component-Communication' },
-        { text: '组建通信demo', link: '/frontend/vue3/Component-Communication-demo' },
+        { text: '组件通信', link: '/frontend/vue3/Component-Communication' },
+        { text: '组件通信 Demo', link: '/frontend/vue3/Component-Communication-demo' },
       ]
     }],
-    '/frontend/node/': [{
-      text: "Node.js",
-      items: [
-        { text: "node.js常见问题解决", link: "/frontend/node/" },
-      ]
-    }],
+
     '/frontend/react/': [{
-      text: 'react',
-      collapsed: true,
+      text: 'React',
       items: [
-        { text: '待补充', link: '/markdown-examples' },
-        { text: '待补充', link: '/api-examples' },
-        { text: '待补充', link: '/frontend/react/' }
+        { text: '介绍', link: '/frontend/react/' },
       ]
     }],
-    '/frontend/TypeScript/': [{
-      text: 'TypeScript',
-      collapsed: true,
+
+    '/frontend/Angular/': [{
+      text: 'Angular',
       items: [
-        { text: '介绍', link: '/frontend/TypeScript/' },
-        { text: '常见问题', link: '/frontend/TypeScript/bugs' },
+        { text: '介绍', link: '/frontend/Angular/' },
       ]
     }],
+
+    // ══════════════════════════════════════
+    //  前端 - 工程化
+    // ══════════════════════════════════════
+
+    '/frontend/vite/': [{
+      text: 'Vite',
+      items: [
+        { text: 'Vite 基础', link: '/frontend/vite/' },
+      ]
+    }],
+
+    '/frontend/pinia/': [{
+      text: 'Pinia',
+      items: [
+        { text: 'Pinia 基础', link: '/frontend/pinia/' },
+      ]
+    }],
+
+    '/frontend/node/': [{
+      text: 'Node.js',
+      items: [
+        { text: '常见问题解决', link: '/frontend/node/' },
+      ]
+    }],
+
+    '/frontend/optimization/': [{
+      text: '性能优化',
+      items: [
+        { text: 'HTML 优化', link: '/frontend/optimization/' },
+        { text: '7000 字前端性能优化总结', link: '/frontend/optimization/frontend-7000' },
+      ]
+    }],
+
+    // ══════════════════════════════════════
+    //  后端
+    // ══════════════════════════════════════
+
+    '/backend/': [{
+      text: '后端',
+      items: [
+        { text: 'C# 基础', link: '/backend/csharp' },
+        { text: 'Blazor 基础', link: '/backend/blazor' },
+      ]
+    }],
+
+    // ══════════════════════════════════════
+    //  网络
+    // ══════════════════════════════════════
+
+    '/network/': [
+      {
+        text: '网络协议',
+        items: [
+          { text: '网络基础', link: '/network/' },
+          { text: 'HTTP / HTTPS', link: '/network/HTTP' },
+          { text: 'TCP/IP', link: '/network/TCP-IP' },
+          { text: 'DNS', link: '/network/DNS' },
+          { text: '跨域 & CORS', link: '/network/cross-domain' },
+        ]
+      },
+      {
+        text: '浏览器原理',
+        items: [
+          { text: '渲染原理', link: '/network/browser-rendering-principle' },
+          { text: '缓存机制', link: '/network/browser-cache' },
+        ]
+      },
+    ],
+
+    // ══════════════════════════════════════
+    //  面试
+    // ══════════════════════════════════════
+
+    '/interview/': [{
+      text: '前端面试题',
+      items: [
+        { text: '面试题汇总', link: '/interview/' },
+      ]
+    }],
+
+    '/interview/bussiness/': [{
+      text: 'AI 公司面经',
+      items: [
+        { text: 'DeepSeek', link: '/interview/bussiness/DS' },
+        { text: '智谱 GLM', link: '/interview/bussiness/GLM' },
+        { text: 'MiMo', link: '/interview/bussiness/Mimo' },
+        { text: 'MiniMax', link: '/interview/bussiness/MiniMax' },
+        { text: '通义千问', link: '/interview/bussiness/qwen' },
+      ]
+    }],
+
+    // ══════════════════════════════════════
+    //  随笔
+    // ══════════════════════════════════════
+
     '/article/fragment/': [{
       text: '文章摘录',
       items: [
-        { text: '片段', link: '/article/fragment/' },
-        { text: '解决了这7个问题，我开始自律成瘾', link: '/article/fragment/article' },
+        { text: '片段总览', link: '/article/fragment/' },
+        { text: '解决了这 7 个问题，我开始自律成瘾', link: '/article/fragment/article' },
         { text: '怎样让记忆力变强', link: '/article/fragment/improveMemory' },
         { text: '懒洋洋的男人', link: '/article/fragment/lazyMan' },
         { text: '十年学会编程', link: '/article/learnCodeTenYears' },
         { text: '编程随想', link: '/article/fragment/programmingThinking' },
-        { text: '程序一点点地写,日子一天天地过', link: '/article/fragment/programWrite' },
-        { text: '为什么说软件开发是吃青春饭?', link: '/article/fragment/softwareThinking' },
-        { text: '学习方法论', link: '/article/fragment/studyTips' }
+        { text: '程序一点点地写，日子一天天地过', link: '/article/fragment/programWrite' },
+        { text: '为什么说软件开发是吃青春饭？', link: '/article/fragment/softwareThinking' },
+        { text: '学习方法论', link: '/article/fragment/studyTips' },
       ],
     }],
+
     '/article/skill/': [{
       text: '技巧收集',
       items: [
-        { text: 'windows命令行技巧', link: '/article/skill/' },
+        { text: 'Windows 命令行技巧', link: '/article/skill/' },
         { text: '关于写作', link: '/article/skill/write' },
       ]
     }],
-    '/interview/bussiness/':[{
-      text: '职场',
+
+    // ══════════════════════════════════════
+    //  建站笔记
+    // ══════════════════════════════════════
+
+    '/blog/': [{
+      text: '建站笔记',
       items: [
-        { text: 'DS', link: '/interview/bussiness/DS' },
-        { text: 'GLM', link: '/interview/bussiness/GLM' },
-        { text: 'MIMO', link: '/interview/bussiness/Mimo' },
-        { text: 'MINIMAX', link: '/interview/bussiness/MiniMax' },
-        { text: 'QWEN', link: '/interview/bussiness/qwen' },
+        { text: '站点配置', link: '/blog/config' },
+        { text: '注意事项', link: '/blog/note' },
+        { text: '图片插件', link: '/blog/plugins/addPicPlugin' },
       ]
-    }]
+    }],
   }
 }
+
 //head标签  
 function head() {
   return [
