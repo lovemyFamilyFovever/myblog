@@ -262,7 +262,9 @@ function sidebar() {
     '/frontend/pinia/': [{
       text: 'Pinia',
       items: [
-        { text: 'Pinia 基础', link: '/frontend/pinia/' },
+        { text: 'Pinia简介', link: '/frontend/pinia/' },
+        { text: 'Pinia和常用的组件传值的对比', link: '/frontend/pinia/Pinia和常用的组件传值的对比' },
+        { text: 'Pinia 核心用法详解', link: '/frontend/pinia/use' },
       ]
     }],
 
