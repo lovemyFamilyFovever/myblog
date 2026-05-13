@@ -8,6 +8,15 @@
   --vp-font-family-base: Consolas, yahei, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
+/* 深色模式支持 */
+.dark {
+  --vp-c-brand-1: #5c6eff;
+  --vp-c-brand-2: #6b7bff;
+  --vp-c-bg: #1e1e2e;
+  --vp-c-text-1: #ffffff;
+  --vp-c-text-2: #a0a0b0;
+}
+
 main {
   font-size: 14px;
 }

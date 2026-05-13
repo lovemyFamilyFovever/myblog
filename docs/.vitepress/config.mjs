@@ -19,7 +19,7 @@ function nav() {
             { text: 'HTML', link: '/frontend/html/' },
             { text: 'CSS', link: '/frontend/css/' },
             { text: 'JavaScript', link: '/frontend/javascript/' },
-            { text: 'TypeScript', link: '/frontend/TypeScript/' },
+            { text: 'TypeScript', link: '/frontend/typescript/' },
           ]
         },
         {
@@ -28,7 +28,7 @@ function nav() {
             { text: 'Vue2', link: '/frontend/vue2/' },
             { text: 'Vue3', link: '/frontend/vue3/' },
             { text: 'React', link: '/frontend/react/' },
-            { text: 'Angular', link: '/frontend/Angular/' },
+            { text: 'Angular', link: '/frontend/angular/' },
           ]
         },
         {
@@ -65,18 +65,14 @@ function nav() {
           text: '网络协议',
           items: [
             { text: '网络基础', link: '/network/' },
-            { text: 'HTTP / HTTPS', link: '/network/HTTP' },
             { text: 'TCP/IP', link: '/network/TCP-IP' },
-            { text: 'DNS', link: '/network/DNS' },
-            { text: 'WebSocket', link: '/network/websocket' },
-            { text: '跨域 & CORS', link: '/network/cross-domain' },
+            { text: 'JWT 认证', link: '/network/jwt' },
           ]
         },
         {
-          text: '浏览器',
+          text: 'HTTP 相关',
           items: [
-            { text: '渲染原理', link: '/network/browser-rendering-principle' },
-            { text: '缓存机制', link: '/network/browser-cache' },
+            { text: 'HTTP 请求头分析', link: '/network/http-headers-analysis' },
           ]
         }
       ]
@@ -97,16 +93,19 @@ function nav() {
       text: '面试',
       items: [
         { text: '前端面试题', link: '/interview/' },
-        { text: 'DeepSeek', link: '/interview/bussiness/DS' },
-        { text: '智谱 GLM', link: '/interview/bussiness/GLM' },
-        { text: 'MiMo', link: '/interview/bussiness/Mimo' },
-        { text: 'MiniMax', link: '/interview/bussiness/MiniMax' },
-        { text: '通义千问', link: '/interview/bussiness/qwen' },
+        { text: 'DeepSeek', link: '/interview/business/DS' },
+        { text: '智谱 GLM', link: '/interview/business/GLM' },
+        { text: 'MiMo', link: '/interview/business/Mimo' },
+        { text: 'MiniMax', link: '/interview/business/MiniMax' },
+        { text: '通义千问', link: '/interview/business/qwen' },
       ]
     },
 
     // ── 项目 ──
     { text: '项目', link: '/project/' },
+
+    // ── 工具 ──
+    { text: 'Git', link: '/tools/git/' },
 
     // ── 随笔 ──
     {
@@ -141,10 +140,10 @@ function sidebar() {
       items: [
         { text: 'CSS 基础', link: '/frontend/css/' },
         { text: '常用代码片段', link: '/frontend/css/normalStyle' },
-        { text: 'BFC 块级格式化上下文', link: '/frontend/css/BFC' },
+        { text: 'BFC 块级格式化上下文', link: '/frontend/css/bfc' },
         { text: '特殊选择符', link: '/frontend/css/selector' },
         { text: 'Background 详解', link: '/frontend/css/background' },
-        { text: 'Grid 布局', link: '/frontend/css/Grid' },
+        { text: 'Grid 布局', link: '/frontend/css/grid' },
       ]
     }],
 
@@ -154,39 +153,39 @@ function sidebar() {
         items: [
           { text: '总览', link: '/frontend/javascript/index' },
           { text: 'Array', link: '/frontend/javascript/array' },
-          { text: 'String', link: '/frontend/javascript/String' },
-          { text: 'Object', link: '/frontend/javascript/Object' },
-          { text: '深拷贝 & 浅拷贝', link: '/frontend/javascript/深拷贝浅拷贝' },
+          { text: 'String', link: '/frontend/javascript/string' },
+          { text: 'Object', link: '/frontend/javascript/object' },
+          { text: '深拷贝 & 浅拷贝', link: '/frontend/javascript/deep-shallow-copy' },
           { text: 'Export 导出模块', link: '/frontend/javascript/export' },
-          { text: '基础 API', link: '/frontend/javascript/basic-api' },
-          { text: '浏览器与设备宽高获取', link: '/frontend/javascript/window-innerwidth' },
+          { text: 'instanceof / static / super', link: '/frontend/javascript/instanceof-static-super' },
+          { text: '浏览器与设备宽高获取', link: '/frontend/javascript/browser-dimensions' },
           { text: '图片懒加载实现', link: '/frontend/javascript/img-lazyload' },
           { text: 'call / apply / bind', link: '/frontend/javascript/call-apply-bind' },
           { text: 'JS 开发者 33 个概念', link: '/frontend/javascript/33-concepts' },
           { text: '防抖与节流', link: '/frontend/javascript/debounce-throttle' },
-          { text: 'IIFE', link: '/frontend/javascript/IIFE' },
-          { text: 'while 循环', link: '/frontend/javascript/while' },
+          { text: 'IIFE', link: '/frontend/javascript/iife' },
+          { text: 'while 循环', link: '/frontend/javascript/while-loop' },
+          { text: '原型链', link: '/frontend/javascript/prototype' },
         ]
       },
-      {
-        text: '思维导图',
+      { text: '思维导图',
         collapsed: true,
         items: [
-          { text: '编程风格和技巧', link: '/frontend/javascript/MindMap/codeStyle' },
-          { text: 'JS 基础', link: '/frontend/javascript/MindMap/javaScript' },
-          { text: '正则表达式', link: '/frontend/javascript/MindMap/regex' },
-          { text: 'Date 对象', link: '/frontend/javascript/MindMap/date' },
-          { text: '数组对象', link: '/frontend/javascript/MindMap/array' },
-          { text: '字符串对象', link: '/frontend/javascript/MindMap/string' },
+          { text: '编程风格和技巧', link: '/frontend/javascript/mindmap/codeStyle' },
+          { text: 'JS 基础', link: '/frontend/javascript/mindmap/javaScript' },
+          { text: '正则表达式', link: '/frontend/javascript/mindmap/regex' },
+          { text: 'Date 对象', link: '/frontend/javascript/mindmap/date' },
+          { text: '数组对象', link: '/frontend/javascript/mindmap/array' },
+          { text: '字符串对象', link: '/frontend/javascript/mindmap/string' },
         ]
       },
     ],
 
-    '/frontend/TypeScript/': [{
+    '/frontend/typescript/': [{
       text: 'TypeScript',
       items: [
-        { text: '介绍', link: '/frontend/TypeScript/' },
-        { text: '常见问题', link: '/frontend/TypeScript/bugs' },
+        { text: '介绍', link: '/frontend/typescript/' },
+        { text: '常见问题', link: '/frontend/typescript/bugs' },
       ]
     }],
 
@@ -198,7 +197,7 @@ function sidebar() {
       text: 'Vue2',
       items: [
         { text: '项目搭建', link: '/frontend/vue2/' },
-        { text: '查漏补缺', link: '/frontend/vue2/leak_filling' },
+        { text: '查漏补缺', link: '/frontend/vue2/leak-filling' },
         { text: '手写响应式原理', link: '/frontend/vue2/vue2-reactive-principle' },
         { text: '组件通信', link: '/frontend/vue2/ComponentCommunication' },
         { text: '源码解析', link: '/frontend/vue2/sourcecode' },
@@ -206,18 +205,20 @@ function sidebar() {
           text: '源码细节',
           collapsed: true,
           items: [
-            { text: 'render 渲染选项', link: '/frontend/vue2/Details/render' },
-            { text: 'toRawType', link: '/frontend/vue2/Details/toRawType' },
-            { text: 'isValidArrayIndex', link: '/frontend/vue2/Details/isValidArrayIndex' },
-            { text: 'isPromise', link: '/frontend/vue2/Details/isPromise' },
-            { text: 'cache', link: '/frontend/vue2/Details/cache' },
-            { text: 'toArray', link: '/frontend/vue2/Details/toArray' },
-            { text: 'genStaticKeys', link: '/frontend/vue2/Details/genStaticKeys' },
-            { text: 'AST', link: '/frontend/vue2/Details/AST' },
-            { text: 'looseEqual', link: '/frontend/vue2/Details/looseEqual' },
-            { text: 'constant', link: '/frontend/vue2/Details/constant' },
-            { text: 'VNode', link: '/frontend/vue2/Details/VNode' },
-            { text: '方法劫持(重写)', link: '/frontend/vue2/Details/MethodHijacking' },
+            { text: 'render 渲染选项', link: '/frontend/vue2/details/render' },
+            { text: 'toRawType', link: '/frontend/vue2/details/toRawType' },
+            { text: 'isValidArrayIndex', link: '/frontend/vue2/details/isValidArrayIndex' },
+            { text: 'isPromise', link: '/frontend/vue2/details/isPromise' },
+            { text: 'cache', link: '/frontend/vue2/details/cache' },
+            { text: 'toArray', link: '/frontend/vue2/details/toArray' },
+            { text: 'genStaticKeys', link: '/frontend/vue2/details/genStaticKeys' },
+            { text: 'AST', link: '/frontend/vue2/details/AST' },
+            { text: 'looseEqual', link: '/frontend/vue2/details/looseEqual' },
+            { text: 'constant', link: '/frontend/vue2/details/constant' },
+            { text: 'VNode', link: '/frontend/vue2/details/VNode' },
+            { text: '方法劫持(重写)', link: '/frontend/vue2/details/MethodHijacking' },
+            { text: 'ArrayMutating', link: '/frontend/vue2/details/ArrayMutating' },
+            { text: 'once', link: '/frontend/vue2/details/once' },
           ]
         }
       ]
@@ -228,9 +229,10 @@ function sidebar() {
       items: [
         { text: '安装步骤', link: '/frontend/vue3/' },
         { text: 'setup 语法糖', link: '/frontend/vue3/setup' },
-        { text: '查漏补缺', link: '/frontend/vue3/leak_filling' },
+        { text: '查漏补缺', link: '/frontend/vue3/leak-filling' },
         { text: '组件通信', link: '/frontend/vue3/Component-Communication' },
         { text: '组件通信 Demo', link: '/frontend/vue3/Component-Communication-demo' },
+        { text: 'Vue Router', link: '/frontend/vue3/vue-router' },
       ]
     }],
 
@@ -241,10 +243,10 @@ function sidebar() {
       ]
     }],
 
-    '/frontend/Angular/': [{
+    '/frontend/angular/': [{
       text: 'Angular',
       items: [
-        { text: '介绍', link: '/frontend/Angular/' },
+        { text: '介绍', link: '/frontend/angular/' },
       ]
     }],
 
@@ -263,7 +265,7 @@ function sidebar() {
       text: 'Pinia',
       items: [
         { text: 'Pinia简介', link: '/frontend/pinia/' },
-        { text: 'Pinia和常用的组件传值的对比', link: '/frontend/pinia/Pinia和常用的组件传值的对比' },
+        { text: 'Pinia和常用的组件传值的对比', link: '/frontend/pinia/pinia-vs-component-props' },
         { text: 'Pinia 核心用法详解', link: '/frontend/pinia/use' },
       ]
     }],
@@ -279,6 +281,7 @@ function sidebar() {
       text: '性能优化',
       items: [
         { text: 'HTML 优化', link: '/frontend/optimization/' },
+        { text: 'Vue3 图片性能优化', link: '/frontend/optimization/performance-optimization' },
         { text: '7000 字前端性能优化总结', link: '/frontend/optimization/frontend-7000' },
       ]
     }],
@@ -304,17 +307,14 @@ function sidebar() {
         text: '网络协议',
         items: [
           { text: '网络基础', link: '/network/' },
-          { text: 'HTTP / HTTPS', link: '/network/HTTP' },
           { text: 'TCP/IP', link: '/network/TCP-IP' },
-          { text: 'DNS', link: '/network/DNS' },
-          { text: '跨域 & CORS', link: '/network/cross-domain' },
+          { text: 'JWT 认证', link: '/network/jwt' },
         ]
       },
       {
-        text: '浏览器原理',
+        text: 'HTTP 相关',
         items: [
-          { text: '渲染原理', link: '/network/browser-rendering-principle' },
-          { text: '缓存机制', link: '/network/browser-cache' },
+          { text: 'HTTP 请求头分析', link: '/network/http-headers-analysis' },
         ]
       },
     ],
@@ -330,14 +330,14 @@ function sidebar() {
       ]
     }],
 
-    '/interview/bussiness/': [{
+    '/interview/business/': [{
       text: 'AI 公司面经',
       items: [
-        { text: 'DeepSeek', link: '/interview/bussiness/DS' },
-        { text: '智谱 GLM', link: '/interview/bussiness/GLM' },
-        { text: 'MiMo', link: '/interview/bussiness/Mimo' },
-        { text: 'MiniMax', link: '/interview/bussiness/MiniMax' },
-        { text: '通义千问', link: '/interview/bussiness/qwen' },
+        { text: 'DeepSeek', link: '/interview/business/DS' },
+        { text: '智谱 GLM', link: '/interview/business/GLM' },
+        { text: 'MiMo', link: '/interview/business/Mimo' },
+        { text: 'MiniMax', link: '/interview/business/MiniMax' },
+        { text: '通义千问', link: '/interview/business/qwen' },
       ]
     }],
 
@@ -349,10 +349,10 @@ function sidebar() {
       text: '文章摘录',
       items: [
         { text: '片段总览', link: '/article/fragment/' },
-        { text: '解决了这 7 个问题，我开始自律成瘾', link: '/article/fragment/article' },
+        { text: '解决了这 7 个问题，我开始自律成瘾', link: '/article/fragment/self-discipline' },
         { text: '怎样让记忆力变强', link: '/article/fragment/improveMemory' },
         { text: '懒洋洋的男人', link: '/article/fragment/lazyMan' },
-        { text: '十年学会编程', link: '/article/learnCodeTenYears' },
+        { text: '十年学会编程', link: '/article/fragment/learnCodeTenYears' },
         { text: '编程随想', link: '/article/fragment/programmingThinking' },
         { text: '程序一点点地写，日子一天天地过', link: '/article/fragment/programWrite' },
         { text: '为什么说软件开发是吃青春饭？', link: '/article/fragment/softwareThinking' },
@@ -393,14 +393,14 @@ function head() {
 
     // Open Graph / Facebook
     ["meta", { property: "og:type", content: "website" }],
-    ["meta", { property: "og:url", content: "https://your-domain.com/myblog/" }],
+    ["meta", { property: "og:url", content: "https://lovemyfamilyfovever.github.io/myblog/" }],
     ["meta", { property: "og:title", content: "晨钟暮鼓 - 学习之旅，记录生活的点滴" }],
     ["meta", { property: "og:description", content: "学习之旅，记录生活的点滴" }],
     ["meta", { property: "og:image", content: "/myblog/logo.svg" }],
 
     // Twitter
     ["meta", { property: "twitter:card", content: "summary_large_image" }],
-    ["meta", { property: "twitter:url", content: "https://your-domain.com/myblog/" }],
+    ["meta", { property: "twitter:url", content: "https://lovemyfamilyfovever.github.io/myblog/" }],
     ["meta", { property: "twitter:title", content: "晨钟暮鼓 - 学习之旅，记录生活的点滴" }],
     ["meta", { property: "twitter:description", content: "学习之旅，记录生活的点滴" }],
     ["meta", { property: "twitter:image", content: "/myblog/logo.svg" }],
