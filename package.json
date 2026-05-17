@@ -1,4 +1,7 @@
 {
+  "name": "myblog",
+  "version": "1.0.0",
+  "private": true,
   "devDependencies": {
     "flexsearch": "^0.7.43",
     "vite-plugin-image-optimizer": "^2.0.3",
