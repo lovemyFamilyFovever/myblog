@@ -7,6 +7,7 @@ head:
   - - meta
     - name: keywords
       content: js获取浏览器和设备相关width（屏幕的宽度）
+tags: [JavaScript, DOM, BOM]
 ---
 
 

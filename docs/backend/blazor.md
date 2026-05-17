@@ -1,5 +1,6 @@
 ---
 outline: [1,3]
+tags: [Blazor, C#]
 ---
 
 ## 项目开发注意事项

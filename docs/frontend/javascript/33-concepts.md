@@ -7,6 +7,7 @@ head:
   - - meta
     - name: keywords
       content: JavaScript开发者应懂的33个概念
+tags: [JavaScript]
 ---
 
 JavaScript开发者应懂的33个概念

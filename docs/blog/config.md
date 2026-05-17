@@ -1,6 +1,7 @@
 ---
-
+tags: [建站, VitePress]
 ---
+
 # 站点配置
 
 ## hero

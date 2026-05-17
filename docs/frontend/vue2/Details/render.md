@@ -1,6 +1,6 @@
 ---
 title: Vue2 Render Function
-
+tags: [Vue2, 源码]
 ---
 
 # Vue2 Render Function  

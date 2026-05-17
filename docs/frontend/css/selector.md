@@ -7,6 +7,7 @@ head:
   - - meta
     - name: keywords
       content: css 特殊选择符 
+tags: [CSS, 选择器]
 ---
 
 # css中“>”、"~"、" "(空格)、","、"+"

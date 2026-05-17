@@ -7,6 +7,7 @@ head:
   - - meta
     - name: keywords
       content: vue2 查漏补缺
+tags: [Vue2]
 ---
 
 

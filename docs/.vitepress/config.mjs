@@ -74,7 +74,8 @@ function nav() {
           items: [
             { text: 'HTTP 请求头分析', link: '/network/http-headers-analysis' },
           ]
-        }
+        },
+        { text: '常见 Bug', link: '/frontend/bugs/' },
       ]
     },
     // ── AI ──
@@ -83,7 +84,8 @@ function nav() {
       //link: '/artificialIntelligence/' 
       items: [
         { text: '越狱词', link: '/artificialIntelligence/break-prison' },
-        { text: '提示词', link: '/artificialIntelligence/hint' },
+        { text: '提示词', link: '/artificialIntelligence/prompt' },
+        { text: '超级提示词', link: '/artificialIntelligence/super-prompt' },
         { text: '学习', link: '/artificialIntelligence/study' },
       ]
     },
@@ -100,6 +102,9 @@ function nav() {
         { text: '通义千问', link: '/interview/business/qwen' },
       ]
     },
+
+    // ── 算法 ──
+    { text: '算法', link: '/frontend/javascript/SortingAlgorithm' },
 
     // ── 项目 ──
     { text: '项目', link: '/project/' },
@@ -168,7 +173,8 @@ function sidebar() {
           { text: '原型链', link: '/frontend/javascript/prototype' },
         ]
       },
-      { text: '思维导图',
+      {
+        text: '思维导图',
         collapsed: true,
         items: [
           { text: '编程风格和技巧', link: '/frontend/javascript/mindmap/codeStyle' },
@@ -186,6 +192,13 @@ function sidebar() {
       items: [
         { text: '介绍', link: '/frontend/typescript/' },
         { text: '常见问题', link: '/frontend/typescript/bugs' },
+      ]
+    }],
+
+    '/frontend/bugs/': [{
+      text: '常见 Bug',
+      items: [
+        { text: 'textarea 默认值问题', link: '/frontend/bugs/' },
       ]
     }],
 
@@ -299,6 +312,21 @@ function sidebar() {
     }],
 
     // ══════════════════════════════════════
+    //  AI
+    // ══════════════════════════════════════
+
+    '/artificialIntelligence/': [{
+      text: '人工智能',
+      items: [
+        { text: '越狱词', link: '/artificialIntelligence/break-prison' },
+        { text: '提示词', link: '/artificialIntelligence/prompt' },
+        { text: '超级提示词', link: '/artificialIntelligence/super-prompt' },
+        { text: '学习', link: '/artificialIntelligence/study' },
+      ]
+
+    }],
+
+    // ══════════════════════════════════════
     //  网络
     // ══════════════════════════════════════
 
@@ -380,6 +408,17 @@ function sidebar() {
         { text: '图片插件', link: '/blog/plugins/addPicPlugin' },
       ]
     }],
+
+    // ══════════════════════════════════════
+    //  算法
+    // ══════════════════════════════════════
+
+    '/frontend/javascript/SortingAlgorithm': [{
+      text: '排序算法',
+      items: [
+        { text: '排序算法', link: '/frontend/javascript/SortingAlgorithm' },
+      ]
+    }],
   }
 }
 
@@ -387,22 +426,22 @@ function sidebar() {
 function head() {
   return [
     // SEO 优化
-    ["meta", { name: "keywords", content: "前端开发,JavaScript,Vue,React,CSS,HTML,技术博客,学习笔记" }],
+    ["meta", { name: "keywords", content: "前端开发,JavaScript,Vue,React,TypeScript,CSS,HTML,技术博客,学习笔记,AI面经,DeepSeek,网络协议,面试指南" }],
     ["meta", { name: "author", content: "lxc" }],
     ["meta", { name: "robots", content: "index, follow" }],
 
     // Open Graph / Facebook
     ["meta", { property: "og:type", content: "website" }],
     ["meta", { property: "og:url", content: "https://lovemyfamilyfovever.github.io/myblog/" }],
-    ["meta", { property: "og:title", content: "晨钟暮鼓 - 学习之旅，记录生活的点滴" }],
-    ["meta", { property: "og:description", content: "学习之旅，记录生活的点滴" }],
+    ["meta", { property: "og:title", content: "晨钟暮鼓 - 个人技术博客" }],
+    ["meta", { property: "og:description", content: "前端开发（Vue/React/TypeScript）、后端技术、网络协议、AI 面经与提示词工程、面试指南等学习笔记" }],
     ["meta", { property: "og:image", content: "/myblog/logo.svg" }],
 
     // Twitter
     ["meta", { property: "twitter:card", content: "summary_large_image" }],
     ["meta", { property: "twitter:url", content: "https://lovemyfamilyfovever.github.io/myblog/" }],
-    ["meta", { property: "twitter:title", content: "晨钟暮鼓 - 学习之旅，记录生活的点滴" }],
-    ["meta", { property: "twitter:description", content: "学习之旅，记录生活的点滴" }],
+    ["meta", { property: "twitter:title", content: "晨钟暮鼓 - 个人技术博客" }],
+    ["meta", { property: "twitter:description", content: "前端开发（Vue/React/TypeScript）、后端技术、网络协议、AI 面经与提示词工程、面试指南等学习笔记" }],
     ["meta", { property: "twitter:image", content: "/myblog/logo.svg" }],
 
     // Favicon - 提供多种格式以确保兼容性
@@ -414,11 +453,10 @@ function head() {
 
 
     // Canonical URL
-    ['link', { rel: 'canonical', href: 'https://your-domain.com/myblog/' }],
+    ['link', { rel: 'canonical', href: 'https://lovemyfamilyfovever.github.io/myblog/' }],
 
-    // External libraries
-    ["link", { rel: "stylesheet", href: "https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" }],
-    ["script", { src: "https://cdn.jsdelivr.net/npm/@fancyapps/ui@4.0/dist/fancybox.umd.js", defer: "" }],
+    // RSS Feed
+    ['link', { rel: 'alternate', type: 'application/atom+xml', title: '晨钟暮鼓', href: `${base}feed.xml` }],
 
     // Custom scripts
     ['script', { async: '', src: `${base}dandelion.js` }],
@@ -429,7 +467,7 @@ function head() {
       "@type": "WebSite",
       "name": "晨钟暮鼓",
       "description": "学习之旅，记录生活的点滴",
-      "url": "https://your-domain.com/myblog/",
+      "url": "https://lovemyfamilyfovever.github.io/myblog/",
       "author": {
         "@type": "Person",
         "name": "lxc"
@@ -441,6 +479,11 @@ function head() {
 //全局配置
 export default defineConfig({
 
+  server: {
+    port: 5174,        // 设置端口
+    open: true,        // 自动打开浏览器
+    host: '0.0.0.0'    // 允许外部访问
+  },
   markdown: {
     config: (md) => {
       // use more markdown-it plugins!
@@ -451,11 +494,11 @@ export default defineConfig({
   },
   base,
   title: "晨钟暮鼓",
-  description: "学习之旅，记录生活的点滴",
+  description: "晨钟暮鼓 - 个人技术博客，涵盖前端开发（Vue/React/TypeScript）、后端技术、网络协议、AI 面经与提示词工程、面试指南等学习笔记与经验分享。",
   head: head(),
   themeConfig: {
     editLink: {
-      pattern: 'https://github.com/vuejs/vitepress/edit/main/docs/:path',
+      pattern: 'https://github.com/lovemyFamilyFovever/myblog/edit/main/docs/:path',
       text: '在 GitHub 上编辑此页面'
     },
     lastUpdated: {

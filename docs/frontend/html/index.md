@@ -7,6 +7,7 @@ head:
   - - meta
     - name: keywords
       content: html5 新增标签及属性
+tags: [HTML]
 ---
 
 [总览](#html-overview)

@@ -1,5 +1,6 @@
 ---
 outline: [1,3]
+tags: [Vue3]
 ---
 
 # vue3+ts+pinia创建项目遇到的坑

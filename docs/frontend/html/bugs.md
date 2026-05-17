@@ -7,6 +7,7 @@ head:
   - - meta
     - name: keywords
       content: html5 bugs
+tags: [HTML, Bug]
 ---
 
 

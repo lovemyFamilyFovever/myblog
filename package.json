@@ -1,15 +1,18 @@
 {
   "devDependencies": {
     "flexsearch": "^0.7.43",
+    "vite-plugin-image-optimizer": "^2.0.3",
+
     "vitepress": "^1.0.1"
   },
   "scripts": {
-    "dev": "vitepress dev docs",
-    "build": "vitepress build docs",
+    "dev": "vitepress dev docs --open",
+    "build": "vitepress build docs && node scripts/generate-sitemap.mjs && node scripts/generate-rss.mjs && node scripts/generate-tags.mjs",
     "server": "vitepress build docs --base / ",
     "preview": "vitepress preview docs"
   },
   "dependencies": {
+    "@fancyapps/ui": "^6.1.14",
     "markdown-it-custom-attrs": "^1.0.2",
     "tslib": "^2.6.2"
   }

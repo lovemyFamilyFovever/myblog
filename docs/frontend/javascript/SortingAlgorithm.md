@@ -7,6 +7,7 @@ head:
   - - meta
     - name: keywords
       content: js排序算法 
+tags: [算法, 排序]
 ---
 
 待补充。。。

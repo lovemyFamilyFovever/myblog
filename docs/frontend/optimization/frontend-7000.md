@@ -7,6 +7,7 @@ head:
   - - meta
     - name: keywords
       content: html5 bugs
+tags: [性能优化]
 ---
 
 # 7000字前端性能优化总结 | 干货建议收藏

@@ -7,6 +7,7 @@ head:
   - - meta
     - name: keywords
       content: JavaScript 前端开发 前端框架 前端工程师
+tags: [JavaScript]
 ---
 
 [[toc]]

@@ -1,13 +1,21 @@
+import { defineConfig } from 'vite'
+import { ViteImageOptimizer } from 'vite-plugin-image-optimizer'
+
 export default defineConfig({
-
-
-     // 开发服务器配置
+  plugins: [
+    ViteImageOptimizer({
+      png: { quality: 80 },
+      jpeg: { quality: 80 },
+      jpg: { quality: 80 },
+      webp: { quality: 80 },
+      avif: { quality: 70 },
+      svg: { },
+    }),
+  ],
   server: {
     port: 5174,
-    open: true, // 自动打开浏览器
-    host: '0.0.0.0', // 允许局域网访问
+    open: true,
+    host: '0.0.0.0',
     cors: true
   },
-  
-
 })

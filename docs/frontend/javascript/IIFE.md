@@ -7,6 +7,7 @@ head:
   - - meta
     - name: keywords
       content: 立即执行函数
+tags: [JavaScript]
 ---
 
 IIFE（Immediately Invoked Function Expression，立即调用函数表达式）是一种在定义后立即执行的函数模式。它常用于创建私有作用域、避免污染全局变量以及执行一次性初始化代码。

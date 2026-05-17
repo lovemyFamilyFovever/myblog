@@ -7,6 +7,7 @@ head:
   - - meta
     - name: keywords
       content: 手写vue2响应式原理
+tags: [Vue2, 响应式]
 ---
 
 ## 写在前面

@@ -7,6 +7,7 @@ head:
   - - meta
     - name: keywords
       content: 性能优化,二进制，图片缓存
+tags: [性能优化]
 ---
 
 

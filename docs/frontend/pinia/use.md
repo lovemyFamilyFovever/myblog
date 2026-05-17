@@ -1,3 +1,6 @@
+---
+tags: [Pinia]
+---
 
 # Pinia 核心用法详解：getters、actions 与最佳实践
 

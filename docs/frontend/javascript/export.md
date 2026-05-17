@@ -1,5 +1,6 @@
 ---
 outline: [2,3]
+tags: [JavaScript, 模块化]
 ---
 
 # 导出模块

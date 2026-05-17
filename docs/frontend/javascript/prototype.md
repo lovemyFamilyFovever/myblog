@@ -7,6 +7,7 @@ head:
   - - meta
     - name: keywords
       content: prototype
+tags: [JavaScript, 原型链]
 ---
 
 

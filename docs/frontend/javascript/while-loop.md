@@ -1,3 +1,7 @@
+---
+tags: [JavaScript]
+---
+
 ```js
 var i = 5;
 while (i--) {

@@ -7,6 +7,7 @@ head:
   - - meta
     - name: keywords
       content: JavaScript 中 call()、apply()、bind() 
+tags: [JavaScript, this指向]
 ---
 
 

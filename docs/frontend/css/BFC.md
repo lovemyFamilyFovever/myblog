@@ -7,6 +7,7 @@ head:
   - - meta
     - name: keywords
       content: BFC, Block Format Content, CSS, CSS3, 清除浮动, 块级格式化上下文
+tags: [CSS, 布局]
 ---
 
 # CSS清除浮动（Clear与BFC）

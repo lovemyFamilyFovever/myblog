@@ -2,6 +2,9 @@
 import DefaultTheme from 'vitepress/theme'
 
 import { ref, onMounted } from 'vue'
+import ReadingTime from '../components/ReadingTime.vue'
+import TagBadge from '../components/TagBadge.vue'
+import Breadcrumb from '../components/Breadcrumb.vue'
 
 const { Layout } = DefaultTheme
 const scrollToTopBtn = ref(null)
@@ -13,13 +16,22 @@ const scrollToTop = () => {
     })
 }
 
-onMounted(() => {
+onMounted(async () => {
+    const { Fancybox } = await import('@fancyapps/ui')
+    Fancybox.bind('[data-fancybox="gallery"]')
+
+    let ticking = false
     window.addEventListener('scroll', function () {
-        // 当页面滚动到底部以上100像素时显示按钮
-        if (window.scrollY > 200) {
-            scrollToTopBtn.value.style.display = 'block';
-        } else {
-            scrollToTopBtn.value.style.display = 'none';
+        if (!ticking) {
+            requestAnimationFrame(function () {
+                if (window.scrollY > 200) {
+                    scrollToTopBtn.value.style.display = 'block';
+                } else {
+                    scrollToTopBtn.value.style.display = 'none';
+                }
+                ticking = false
+            })
+            ticking = true
         }
     });
 })
@@ -31,9 +43,14 @@ onMounted(() => {
         <template #home-hero-info-before>
             <div class="shake-title">好好学习天天向上</div>
         </template>
+        <template #doc-before>
+            <TagBadge />
+            <Breadcrumb />
+            <ReadingTime />
+        </template>
         <template #doc-after>
-            <div class="scrollTopBtn" @click="scrollToTop" ref="scrollToTopBtn">
-                <svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="48" height="48">
+            <div class="scrollTopBtn" @click="scrollToTop" ref="scrollToTopBtn" role="button" aria-label="回到顶部" tabindex="0">
+                <svg viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" width="48" height="48" aria-hidden="true">
                     <path
                         d="M383.786667 640.853333a42.666667 42.666667 0 0 1-8.192 56.149334l-3.968 2.986666-64.64 42.496a42.666667 42.666667 0 0 0-16.085334 20.138667l-1.621333 5.034667L267.946667 853.333333H384a42.666667 42.666667 0 0 1 42.368 37.674667L426.666667 896a42.666667 42.666667 0 0 1-37.674667 42.368L384 938.666667H213.333333a42.666667 42.666667 0 0 1-42.325333-48.213334l0.938667-4.778666 34.56-138.666667a128.042667 128.042667 0 0 1 46.250666-70.570667l7.082667-5.12 64.853333-42.666666a42.666667 42.666667 0 0 1 59.093334 12.202666z m311.168-14.677333l4.352 2.517333 65.066666 42.794667a128 128 0 0 1 50.773334 67.2l2.346666 8.32 34.56 138.666667a42.666667 42.666667 0 0 1-36.565333 52.736L810.666667 938.666667h-170.666667a42.666667 42.666667 0 0 1-4.992-85.034667L640 853.333333h116.053333l-21.333333-85.674666a42.709333 42.709333 0 0 0-13.397333-21.888l-4.096-3.157334-64.853334-42.666666a42.666667 42.666667 0 0 1 37.76-75.861334l4.821334 2.133334z"
                         fill="#03CD8E" p-id="12728"></path>
@@ -52,7 +69,7 @@ onMounted(() => {
 <style scoped>
 .shake-title {
     animation: shake 1.5s linear;
-    animation-iteration-count: infinite;
+    animation-iteration-count: 3;
     display: inline-block;
     position: absolute;
     top: -20px;
@@ -87,13 +104,28 @@ onMounted(() => {
 
 @media (min-width: 960px) {
     .scrollTopBtn {
-        display: none;
-        position: fixed;
-        bottom: 40px;
         right: calc(50% - 500px);
-        cursor: pointer;
-        z-index: 999;
-        scroll-behavior: smooth;
+    }
+}
+
+.scrollTopBtn {
+    display: none;
+    position: fixed;
+    bottom: 40px;
+    right: 30px;
+    cursor: pointer;
+    z-index: 999;
+    scroll-behavior: smooth;
+}
+
+@media (max-width: 480px) {
+    .scrollTopBtn {
+        bottom: 20px;
+        right: 16px;
+    }
+    .scrollTopBtn svg {
+        width: 36px;
+        height: 36px;
     }
 }
 </style>

@@ -1,5 +1,8 @@
+---
+tags: [Vue2, 源码]
+---
 
-``` javascript
+ ``` javascript
 
 /*!
  * Vue.js v2.6.12

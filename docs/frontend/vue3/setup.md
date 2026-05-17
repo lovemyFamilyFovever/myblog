@@ -7,6 +7,7 @@ head:
   - - meta
     - name: keywords
       content: Vue.js Vue3 Vue3搭建步骤 Vue3教程 Vue3入门 前端开发 前端框架 前端工程师 setup
+tags: [Vue3]
 ---
 
 # Vue3 setup语法糖

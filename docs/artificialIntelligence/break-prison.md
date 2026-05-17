@@ -1,3 +1,6 @@
+---
+tags: [AI, 越狱词]
+---
 # JailPrompter
 
 专注于大语言模型（LLM）提示词攻防（Prompt Attack & Defense）与提示词越狱（Prompt Jailbreak）研究的开源项目。项目围绕模型安全边界、指令遵循机制与对抗性提示构造方法，系统性地整理、复现并分析各类提示词越狱技术及其防御策略。

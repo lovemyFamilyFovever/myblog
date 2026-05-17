@@ -1,6 +1,7 @@
 ---
 outline: [1,3]
 layout: doc
+tags: [建站, VitePress]
 ---
 
 # markdown-it-custom-attrs

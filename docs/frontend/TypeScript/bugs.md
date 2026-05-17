@@ -1,3 +1,7 @@
+---
+tags: [TypeScript, Bug]
+---
+
 # 无法运行 TypeScript 项目
 
 ## 问题描述

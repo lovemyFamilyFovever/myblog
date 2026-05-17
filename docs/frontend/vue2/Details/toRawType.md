@@ -1,3 +1,7 @@
+---
+tags: [Vue2, 源码]
+---
+
 #  toRawType 
 
 ## 1. `_toString.call(value)`

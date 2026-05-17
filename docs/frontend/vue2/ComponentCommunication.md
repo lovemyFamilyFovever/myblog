@@ -7,6 +7,7 @@ head:
   - - meta
     - name: keywords
       content: Vue2 组件通讯传值组件通讯
+tags: [Vue2, 组件通信]
 ---
 
 # Vue2 组件通讯传值

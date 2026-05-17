@@ -1,3 +1,7 @@
+---
+tags: [Vue2, 源码]
+---
+
 #  looseEqual 
 
 ### 🔍 原始代码

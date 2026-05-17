@@ -1,3 +1,7 @@
+---
+tags: [Vue3, Vue Router]
+---
+
 # vue-router 工作模式
 
 路由有两种工作模式：

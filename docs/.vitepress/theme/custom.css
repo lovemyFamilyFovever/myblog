@@ -1,20 +1,20 @@
 /* .vitepress/theme/custom.css */
 :root {
-  --vp-c-brand-1: #646cff;
-  --vp-c-brand-2: #747bff;
-  --vp-home-hero-name-background: linear-gradient(90deg, #7209d4, #2832d4 33%, #00a5b2);
+  --vp-c-brand-1: #6366f1;
+  --vp-c-brand-2: #8b5cf6;
+  --vp-c-brand-3: #ec4899;
+  --vp-home-hero-name-background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #ec4899 100%);
   --vp-home-hero-name-color: transparent;
-
   --vp-font-family-base: Consolas, yahei, "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 
-/* 深色模式支持 */
 .dark {
-  --vp-c-brand-1: #5c6eff;
-  --vp-c-brand-2: #6b7bff;
-  --vp-c-bg: #1e1e2e;
-  --vp-c-text-1: #ffffff;
-  --vp-c-text-2: #a0a0b0;
+  --vp-c-brand-1: #818cf8;
+  --vp-c-brand-2: #a78bfa;
+  --vp-c-brand-3: #f472b6;
+  --vp-c-bg: #0f172a;
+  --vp-c-text-1: #f8fafc;
+  --vp-c-text-2: #94a3b8;
 }
 
 main {
@@ -27,32 +27,89 @@ main {
 }
 
 .custom-button {
-  /* 自定义按钮的样式 */
-  background-color: rgb(97, 137, 255);
+  background: linear-gradient(135deg, #6366f1, #8b5cf6);
   color: #ffffff;
+  border: none;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+.custom-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.4);
 }
 
 .tagline {
-  width: 640px;
-  max-width: 640px !important;
+  max-width: 640px;
+  width: 100%;
+  padding: 0 16px;
+  box-sizing: border-box;
 }
 
-article.box {
-  align-items: center;
+/* Feature Cards Styling */
+.VPFeature {
+  border: none !important;
+  border-radius: 12px !important;
+  background: var(--vp-c-bg-soft) !important;
+  transition: all 0.25s ease !important;
+  overflow: hidden;
 }
 
+.VPFeature:hover {
+  transform: translateY(-4px) !important;
+  box-shadow: 0 12px 24px rgba(0, 0, 0, 0.08) !important;
+  background: var(--vp-c-bg) !important;
+}
+
+.VPFeature .box {
+  padding: 20px 16px !important;
+  flex-direction: row !important;
+  align-items: center !important;
+  gap: 16px !important;
+}
+
+.VPFeature .VPImage {
+  width: 40px !important;
+  height: 40px !important;
+  flex-shrink: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  background: none !important;
+  border-radius: 0 !important;
+}
+
+.VPFeature .title {
+  font-size: 15px !important;
+  font-weight: 600 !important;
+  color: var(--vp-c-text-1) !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+.VPFeature .details {
+  display: none !important;
+}
+
+.VPFeature .VPImage svg {
+  width: 100% !important;
+  height: 100% !important;
+}
+
+/* Layout adjustments */
 @media (min-width: 960px) {
-  .items .item.grid-6 {
-    width: calc(100% / 6);
+  .features > .item {
+    width: calc(25% - 12px) !important;
+    max-width: calc(25% - 12px) !important;
   }
-
-  .items .item.grid-4 {
-    width: calc(100% / 6);
+  .features {
+    gap: 16px !important;
   }
 }
 
-.items .grid-6 .box .VPImage {
-  margin-bottom: 10px;
+@media (max-width: 768px) {
+  .features > .item {
+    width: calc(50% - 8px) !important;
+    max-width: calc(50% - 8px) !important;
+  }
 }
 
 .center {
@@ -61,8 +118,4 @@ article.box {
 
 .aside-container {
   width: 300px;
-}
-
-.VPFeature {
-  border: none;
 }

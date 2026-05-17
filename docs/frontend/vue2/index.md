@@ -7,6 +7,7 @@ head:
   - - meta
     - name: keywords
       content: Vue.js Vue2 Vue2搭建步骤 Vue2教程 Vue2入门 前端开发 前端框架 前端工程师
+tags: [Vue2]
 ---
 
 # Vue2 项目搭建

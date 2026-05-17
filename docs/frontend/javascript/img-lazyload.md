@@ -7,6 +7,7 @@ head:
   - - meta
     - name: keywords
       content: js图片懒加载实现方案
+tags: [JavaScript, 性能优化]
 ---
 
 # 原理

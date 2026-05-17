@@ -1,4 +1,6 @@
-
+---
+tags: [Vue2, 源码]
+---
 
 # genStaticKeys
 

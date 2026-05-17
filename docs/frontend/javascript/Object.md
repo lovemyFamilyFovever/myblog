@@ -7,6 +7,7 @@ head:
   - - meta
     - name: keywords
       content: JavaScript 对象 方法 属性 前端开发
+tags: [JavaScript, Object]
 ---
 
 # 总览

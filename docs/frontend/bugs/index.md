@@ -7,6 +7,7 @@ head:
   - - meta
     - name: keywords
       content: 前端 疑难杂症 前端开发 前端框架 前端工程师 bug
+tags: [Bug]
 ---
 
 # 为什么textarea会有默认的value啊 而且这个value是空白的字符

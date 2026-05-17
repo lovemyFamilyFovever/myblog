@@ -7,6 +7,7 @@ head:
   - - meta
     - name: keywords
       content: pinia 前端框架 前端开发 前端框架 前端工程师
+tags: [Pinia]
 ---
 
 

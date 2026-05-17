@@ -1,3 +1,6 @@
+---
+tags: [随笔, 编程]
+---
 # 程序一点点地写,日子一天天地过
 
 [版权声明：本文为博主原创文章，未经博主允许不得转载。 https://blog.csdn.net/luolianxi/article/details/50091181](http://t.csdnimg.cn/zatBC)

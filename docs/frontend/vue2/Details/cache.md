@@ -1,3 +1,7 @@
+---
+tags: [Vue2, 源码]
+---
+
 # cached 
 
 cached 函数，是 Vue 源码中一个非常经典且高频使用的优化技巧——它实现了一个简单的记忆化（Memoization）缓存机制。
